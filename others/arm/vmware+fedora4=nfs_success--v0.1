@@ -1,0 +1,17 @@
+ 
+
+1. the right paramset is
+********************************
+param set linux_cmd_line "console=ttySAC0 root=/dev/nfs nfsroot=192.168.1.1:/yctek/root ip=192.168.1.12:192.168.1.1:192.168.1.1:255.255.255.0:www.yctek.com:eth0:off"
+********************************
+i use the statement above but the ip of arm now is actually 192.168.1.6, anyway i succeed.i just active the console(working in hyper terminal now), but no recover_system, nothing else until now
+
+2. i make a new dir named peter in vmware/yctek/root/, then peter shows up in hyper termonal. that is nfs!
+
+
+3. I need to write down some background softwares, yctek vivi kernel and rootfs are used, fedoracore4 in vmware5
+
+4. one thing is a little unpleasent, as soon as nfs is connected, shared foler is disabled at once.
+
+ 
+

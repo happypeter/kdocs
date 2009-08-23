@@ -1,0 +1,52 @@
+20090427151732_axtu.spec.diff
+
+Index: /home/peter/sds/packages/axtu/1.5/tarball01/axtu/tui/axtu-cl/main.cpp
+===================================================================
+--- /home/peter/sds/packages/axtu/1.5/tarball01/axtu/tui/axtu-cl/main.cpp	(revision 7767)
++++ /home/peter/sds/packages/axtu/1.5/tarball01/axtu/tui/axtu-cl/main.cpp	(working copy)
+@@ -588,7 +588,6 @@
+ 		printf("%s\n", REDCASTLE_ENABLE_MSG);
+ 		printf("************************************************\n");
+ 		printf("\n");
+-		m_Logger->WriteLog_char(ERROR_LOG, MYSELF_NAME_CUI, REDCASTLE_ENABLE_MSG , NULL);
+                 Exit(2);
+         }
+         else if(nStatus == RC_STATUS_WARNING)
+@@ -598,7 +597,6 @@
+ 		printf("%s\n", REDCASTLE_WARNING_MSG);
+ 		printf("************************************************\n");
+ 		printf("\n");
+-		m_Logger->WriteLog_char(ERROR_LOG, MYSELF_NAME_CUI, REDCASTLE_WARNING_MSG , NULL);
+ 				Exit(2);
+         }
+ 
+Index: /home/peter/sds/packages/axtu/1.5/axtu.spec
+===================================================================
+--- /home/peter/sds/packages/axtu/1.5/axtu.spec	(revision 7767)
++++ /home/peter/sds/packages/axtu/1.5/axtu.spec	(working copy)
+@@ -27,7 +27,7 @@
+ %endif
+ 
+ NAME: axtu
+-Release: 1%{?dist}
++Release: 2%{?dist}
+ Summary: Asianux TSN Updater
+ Group: Utilities/System
+ License: GPL/LGPL
+@@ -238,8 +238,13 @@
+ %doc COPYING
+ 
+ %changelog
++* Mon Apr 27 2009 Peter, Wang <peter.wang@asianux.com> 1.5.0-2%{?dist}
++- Redcastle-Enable: Axtu under CLI "segmentation fault" is fixed(AXBUG#6165)
++- Redcastle-Warn: Axtu under CLI "segmentation fault" is fixed(AXBUG#6168)
++
+ * Wed Apr 22 2009 Peter, Wang <peter.wang@asianux.com> 1.5.0-1%{?dist}
+-- the source code is the same as 1.4.16-5%, the two patches names are changed from 1.4 to 1.5...
++- the source code is the same as 1.4.16-5%
++- the two patches names are changed from 1.4 to 1.5
+ 
+ * Wed Apr 15 2009 Peter, Wang <peter.wang@asianux.com> 1.4.16-5%{?dist}
+ - redcastle-app & redcastle-pam are now treated as common packages(AXBUG#5989 #5990)
+
+

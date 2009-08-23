@@ -1,0 +1,44 @@
+NOTE
+
+signup page in client/conf/xxx.conf and server /WT_check.php require change
+
+
+
+AK==asianux_key
+Asianux Number==MK_AN(Product number+sth)  //sometimes AN==PN
+@param product_number - Product Number (that get from client. It maybe AsianuxNumber or LocalProductNumber)
+
+
+
+>>>on 155
+/var/www/html/auth/src/extra/
+is in effect
+
+>>>
+/etc/httpd/conf.d/auth_mysql.conf
+<pre>
+<Directory /var/www/html/auth/asianux2/AXS3-RF/ia64/BASE>
+    AuthName "MySQL authenticated zone"
+    AuthType Basic
+
+    AuthMySQLEnable on
+    AuthMySQLUser axtu
+</pre>
+
+
+
+>>>
+/etc/httpd/conf.d/auth_mysql.conf , we have
+
+<Directory /var/www/html/auth/asianux2/AXS3-RF/x86_64/UPDATE>
+
+which means you need to be athorized  before you can visit these dirs.
+You see there is no SELF/ here.
+
+>>>zhu yu added
+
+checkProductNum($ak)
+in AccessAction()
+
+
+

@@ -1,0 +1,69 @@
+g_pclsFileCtl->GetDownloadFileName
+
+>>>it is in axtu-authen-client/gui/main.cpp, Now lets sse how the whole process works
+
+1.  its parameter is
+g_pclsAgent->GetDownloadFileName()
+
+2.  g_pclsAgent = new classAgent();
+so in classAgient.cpp
+<pre>
+string classAgent::GetDownloadFileName(void)
+{
+        string::size_type index;
+        string strDownloadFileName;
+
+        index = m_strServerAddress.rfind("/");
+        strDownloadFileName=m_strServerAddress.substr(index+1,m_strServerAddress.length());
+
+        return strDownloadFileName;
+}
+</pre>
+
+3. so now we need to check m_strServerAddress
+it is obtained in
+void classAgent::SetServerAddress(string strAddr)
+{
+        m_strServerAddress=strAddr;
+}
+
+4. so now we need to find strAddr,
+in the same file we see 
+SetServerAddress(RefConfCtrl.GetAuthenServerAddr());
+RefConfCtrl is now here
+
+5. it is actually the parameter of
+RequestAuthentication(classConfigCtrl &RefConfCtrl)
+so we go back to main.cpp
+
+6. RefConfCtrl is a object of  lassConfigCtrl
+string classConfigCtrl::GetAuthenServerAddr(void)
+{
+        return GetAddress(AUTHEN_ADDR);
+}
+
+
+7. now we look at the defination of GetAddress
+
+if(Classify == AUTHEN_ADDR){
+                        if(RelayConfigFileReadAndCheck()){
+                                strAddress=GetRelayAddr();
+                        }
+
+
+
+
+
+8. so our address is in
+RelayConfigFileReadAndCheck()
+now it is simple, just to read relayconfig file,
+since we has no relay server and no relay conf file so the
+strAdress will be NULL.
+
+>>>
+
+but I see this file in /etc/axtu/tmp/authentification.php
+with [authentifacation] and result=-3 inside
+delete it and run axtu-auth-server again, it shows up, haha
+
+

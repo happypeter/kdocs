@@ -1,0 +1,67 @@
+//////////////////////////
+//subclass method
+///////////////////////
+//form11.cpp
+#include "form11.h"
+#include<qlineedit.h>
+Form11::Form11():Form11()
+{}
+Form11::~Form11()
+void Form11::newSlot()
+{
+lineEdit->setText("hellll");
+}
+
+////////////////
+//form11.h
+#include "form1.h"
+class Form11:public Form1
+{
+Q_OBJECT
+public:
+Form11();
+~Form11();
+public slots:
+void newSlot();
+};
+////////main.cpp
+#include<qapplication.h>
+#include "form11.h"
+int main( int argc, char **argv)
+{
+QApplication a(argc,argv);
+Form11 w;
+w.show();
+a.setMainWidget(&w);
+//perform the same function as a.connect(&a, SIGNAL(lastWindowClosed()),
+//&a, SLOT(quit()))
+return a.exec();
+}
+//besides all above all you need is a form1.ui file, from1.ui.h is obtained
+//automativcally. in the ui, you have a pushbutton with its signal clicked()
+//connected to form1's slot newSlot(), and a lineedit.
+
+/////////
+//ui method
+///////////
+ 
+//the ui.h method to achieve the same effect
+//you don't need form11.cpp or form11.h
+//instead ui.h file with the folling code will do
+void Form1::newSlot()
+{
+lineEdit->setText("hex");
+}
+//strange is that we do not have to include qlineedit.h, though
+//the lineedit is used here.
+//////////////////////
+//the ui file is still the same, and the main.cpp is almost the same
+#include"form1.h" //raher than form11.h
+main()
+{
+From1 w;// no big deal
+}
+}
+////////////////
+//dynamic Window method (to be continued)
+

@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="peter king">
+	<META NAME="CREATED" CONTENT="20081221;3113100">
+	<META NAME="CHANGEDBY" CONTENT="peter king">
+	<META NAME="CHANGED" CONTENT="20081221;3121700">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P><FONT FACE="AlManzomah">last change in 10_25_2008</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">see &quot;REF1&quot;</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">fistly I try to make a “.config” using
+#make menuconfig</FONT></P>
+<P><FONT FACE="AlManzomah">but when finished, there was nothing I can
+see in /linux-2.4/</FONT></P>
+<P><FONT FACE="AlManzomah">so I excute</FONT></P>
+<P><FONT FACE="AlManzomah"># cd /usr/src/linux-2.4</FONT></P>
+<P><FONT FACE="AlManzomah"># cp configs/kernel-2.4.20-i386.config
+.config</FONT></P>
+<P><FONT FACE="AlManzomah">then was asked whether I wanted to
+override the fomer “.config”, but even though I open my eyes as
+big as possible, there is no .config I can found I swear. But it is
+there, the thing is that we just can not see it.</FONT></P>
+<P><FONT FACE="AlManzomah">When I #whereis .config, I got the
+message” /linux-2.4/.config”, so it is truly there.</FONT></P>
+<P><FONT FACE="AlManzomah">Then I am ready to the next step, (the 1st
+step is not to be skipped, or it will cause failure in the next
+step)</FONT></P>
+<P><FONT FACE="AlManzomah">see &quot;REF2&quot; and do it likewise</FONT></P>
+<P><FONT FACE="AlManzomah">Everything is done, and I am so happy!</FONT></P>
+<P><FONT FACE="AlManzomah">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</FONT></P>
+<P><FONT FACE="AlManzomah">REF1:</FONT></P>
+<P><FONT FACE="AlManzomah">how to use ldd2-src-stonepine.tar.gz in
+redhat 9</FONT><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">：</SPAN></FONT></FONT><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">during the installation of redhat9.0,
+choose kernel developer,</FONT></P>
+<P><FONT FACE="AlManzomah">moreover, ldd2 examples depend on kernel
+config file, but the default redhat kernel source has been
+&quot;distclean&quot;ed</FONT><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">，</SPAN></FONT></FONT><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">so there is no .config in
+/usr/src/linux-2.4</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">you can generate one yourself by make
+menuconfig</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">or copy one like below</FONT><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">：</SPAN></FONT></FONT><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah"># cd /usr/src/linux-2.4</FONT></P>
+<P><FONT FACE="AlManzomah"># cp configs/kernel-2.4.20-i386.config
+.config</FONT></P>
+<P><FONT FACE="AlManzomah">and now everything shall be OK.</FONT></P>
+<P><FONT FACE="AlManzomah">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">REF2</FONT></P>
+<P><FONT FACE="AlManzomah">env:</FONT></P>
+<P><FONT FACE="AlManzomah">redhat9=linux-2.4.20-8</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">first of all make sure there is a kernel
+soure tree in /usr/src</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">now</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">ln -s /usr/src/linux-2.4.20-8 linux</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">this is necessary for the ldd2 examples</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">tar zxvf ldd2-samples-1.0.1.tar.gz</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">make, then the error is:</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">make[1]: Entering directory
+`/home/guotaotao/ldd2/ldd2-samples-1.0.1/misc-progs'</FONT></P>
+<P><FONT FACE="AlManzomah">cc -O2 -fomit-frame-pointer -Wall
+-I/usr/include    asynctest.c   -o asynctest</FONT></P>
+<P><FONT FACE="AlManzomah">cc -O2 -fomit-frame-pointer -Wall
+-I/usr/include    nbtest.c   -o nbtest</FONT></P>
+<P><FONT FACE="AlManzomah">cc -O2 -fomit-frame-pointer -Wall
+-I/usr/include    setconsole.c   -o setconsole</FONT></P>
+<P><FONT FACE="AlManzomah">cc -O2 -fomit-frame-pointer -Wall
+-I/usr/include    setlevel.c   -o setlevel</FONT></P>
+<P><FONT FACE="AlManzomah">/tmp/ccSX988D.o(.text+0x1c): In function
+`syslog':</FONT></P>
+<P><FONT FACE="AlManzomah">: undefined reference to `errno'</FONT></P>
+<P><FONT FACE="AlManzomah">/tmp/ccSX988D.o(.text+0x89): In function
+`main':</FONT></P>
+<P><FONT FACE="AlManzomah">: undefined reference to `errno'</FONT></P>
+<P><FONT FACE="AlManzomah">collect2: ld returned 1 exit status</FONT></P>
+<P><FONT FACE="AlManzomah">make[1]: *** [setlevel] Error 1</FONT></P>
+<P><FONT FACE="AlManzomah">make[1]: Leaving directory
+`/home/guotaotao/ldd2/ldd2-samples-1.0.1/misc-progs'</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">now</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">add #include &lt;errno.h&gt;</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">in .misc-progs/setlevel.c</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">make, the new error is:</FONT></P>
+<P><FONT FACE="AlManzomah">make[1]: Entering directory
+`/home/guotaotao/ldd2/ldd2-samples-1.0.1/misc-modules'</FONT></P>
+<P><FONT FACE="AlManzomah">gcc -Wall -D__KERNEL__ -DMODULE
+-I/usr/src/linux/include -D__SMP__ -DSMP -DMODVERSIONS -include
+/usr/src/linux/include/linux/modversions.h -O2 -I..   -c -o faulty.o
+faulty.c</FONT></P>
+<P><FONT FACE="AlManzomah">gcc -Wall -D__KERNEL__ -DMODULE
+-I/usr/src/linux/include -D__SMP__ -DSMP -DMODVERSIONS -include
+/usr/src/linux/include/linux/modversions.h -O2 -I..   -c -o sleepy.o
+sleepy.c</FONT></P>
+<P><FONT FACE="AlManzomah">gcc -Wall -D__KERNEL__ -DMODULE
+-I/usr/src/linux/include -D__SMP__ -DSMP -DMODVERSIONS -include
+/usr/src/linux/include/linux/modversions.h -O2 -I..   -c -o silly.o
+silly.c</FONT></P>
+<P><FONT FACE="AlManzomah">In file included from silly.c:38:</FONT></P>
+<P><FONT FACE="AlManzomah">/usr/src/linux/include/linux/malloc.h:4:2:
+#error linux/malloc.h is deprecated, use linux/slab.h instead.</FONT></P>
+<P><FONT FACE="AlManzomah">make[1]: *** [silly.o] Error 1</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">so</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">in /usr/src/linux/include/linux/malloc.h,</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">comment out</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">#error linux/malloc.h is deprecated, use
+linux/slab.h instead.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">make, now the error is:</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">gcc -Wall -D__KERNEL__ -DMODULE
+-I/usr/src/linux/include -D__SMP__ -DSMP -DMODVERSIONS -include
+/usr/src/linux/include/linux/modversions.h -O2 -I..   -c -o simple.o
+simple.c</FONT></P>
+<P><FONT FACE="AlManzomah">simple.c: In function
+`simple_remap_mmap':</FONT></P>
+<P><FONT FACE="AlManzomah">simple.c:134: warning: passing arg 1 of
+`remap_page_range_R2baf18f2' makes pointer from integer without a
+cast</FONT></P>
+<P><FONT FACE="AlManzomah">simple.c:134: incompatible type for
+argument 4 of `remap_page_range_R2baf18f2'</FONT></P>
+<P><FONT FACE="AlManzomah">simple.c:134: too few arguments to
+function `remap_page_range_R2baf18f2'</FONT></P>
+<P><FONT FACE="AlManzomah">make[1]: *** [simple.o] Error 1</FONT></P>
+<P><FONT FACE="AlManzomah">make[1]: Leaving directory
+`/home/guotaotao/ldd2/ldd2-samples-1.0.1/simple'</FONT></P>
+<P><FONT FACE="AlManzomah">make: *** [subdirs] Error 1</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">so</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">in simple/simple.c</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">change</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">if (remap_page_range(vma-&gt;vm_start,
+offset, vma-&gt;vm_end-vma-&gt;vm_start,</FONT></P>
+<P>                <FONT FACE="AlManzomah">vma-&gt;vm_page_prot))</FONT></P>
+<P><FONT FACE="AlManzomah">into</FONT></P>
+<P>    <FONT FACE="AlManzomah">if
+(remap_page_range(vma,vma-&gt;vm_start, offset, vma-&gt;vm_end-
+vma-&gt;vm_start, vma-&gt;vm_page_prot))</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">the reason is that the decleraton fo
+remap_page_range() has been changed in kernel 2.4.21</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">it is declared in /linux/mm/memory.c the
+prototype is:</FONT></P>
+<P> <FONT FACE="AlManzomah">int remap_page_range(struct
+vm_area_struct *vma, unsigned long from,</FONT></P>
+<P>                      <FONT FACE="AlManzomah">unsigned long
+phys_addr, unsigned long size, pgprot_t prot)</FONT><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">，</SPAN></FONT></FONT><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">you can see there is a vma</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">make----------succeeded!</FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">######################</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+</BODY>
+</HTML>

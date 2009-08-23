@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="peter king">
+	<META NAME="CREATED" CONTENT="20081221;3233600">
+	<META NAME="CHANGEDBY" CONTENT="peter king">
+	<META NAME="CHANGED" CONTENT="20081221;3240100">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P><FONT FACE="AlManzomah">2007</FONT><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">．</SPAN></FONT></FONT><FONT FACE="AlManzomah">12</FONT><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">．</SPAN></FONT></FONT><FONT FACE="AlManzomah">8</FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">the final purpose of make menuconfig is to
+generate a .config</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">in /usr/src/linux</FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">but i see none in</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">/usr/src/linux</FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">so i issue</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">#whereis config</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">and find one in usr/share/ but it is a
+folder not a file</FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">also many in /usr/src/linux2.4/configs</FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</FONT></P>
+<P><FONT FACE="AlManzomah">compile and update Kernel-2.6.0</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">1.download</FONT></P>
+<P><FONT FACE="AlManzomah">wget
+http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.0.tar.gz</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">2.tar it in /usr/src</FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">3.config</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah"># make mrproper</FONT></P>
+<P><FONT FACE="AlManzomah"># make menuconfig</FONT></P>
+<P><FONT FACE="AlManzomah">make mrproper is used to keep the source
+clean</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">4.compile</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">#make</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">5.install</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">#make modules_install</FONT></P>
+<P><FONT FACE="AlManzomah">#make install</FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</FONT></P>
+<P><FONT FACE="AlManzomah">in my RH9,</FONT></P>
+<P><FONT FACE="AlManzomah">#make mrproper</FONT></P>
+<P><FONT FACE="AlManzomah">#make menuconfig</FONT></P>
+<P><FONT FACE="AlManzomah">#make</FONT></P>
+<P><FONT FACE="AlManzomah">#make modules</FONT></P>
+<P><FONT FACE="AlManzomah">#make modules_install</FONT></P>
+<P><FONT FACE="AlManzomah">#make install</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">then in /boot, i see initrd-2.×××.img</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">and a new bootup option is added in
+grub.conf</FONT></P>
+<P><FONT FACE="AlManzomah">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</FONT></P>
+<P><FONT FACE="AlManzomah">install binutils-2.15.tar.bz2</FONT></P>
+<P><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">　　</SPAN></FONT></FONT><FONT FACE="AlManzomah">#tar
+jvxf binutils-2.15.tar.bz2</FONT></P>
+<P><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">　　</SPAN></FONT></FONT><FONT FACE="AlManzomah">#cd
+binutils-2.15.</FONT></P>
+<P><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">　　</SPAN></FONT></FONT><FONT FACE="AlManzomah">#./configure</FONT></P>
+<P><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">　　</SPAN></FONT></FONT><FONT FACE="AlManzomah">#make</FONT></P>
+<P><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">　　</SPAN></FONT></FONT><FONT FACE="AlManzomah">#make
+install</FONT></P>
+<P><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">　　</SPAN></FONT></FONT><FONT FACE="AlManzomah">#ld
+–v</FONT></P>
+<P><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">　　</SPAN></FONT></FONT><FONT FACE="AlManzomah">GNU
+ld version 2.15</FONT></P>
+</BODY>
+</HTML>

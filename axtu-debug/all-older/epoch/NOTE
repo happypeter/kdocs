@@ -1,0 +1,3 @@
+if you serch  rpmVersionCompare(Header first, Header second)
+in rpm/
+you will see how epoch are read out of a header file and everything

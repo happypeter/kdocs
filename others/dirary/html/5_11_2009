@@ -1,0 +1,28 @@
+5_11_2009 Work Report
+
+On March 16th 2009, I started my career in Aaianux as a AXTU developer. Below is my conclusion of the nearly two month work here.
+
+1. By adding AXTU epoch checking, I learned the the rpm engine in AXTU source code. I also investicated the RPM source code itself, and applied one function form it in my patch for epoch issue.
+
+2. I studied axtu-authen-client when I  was trying to add WTEC support for axtu. The client side change was actually easy, while quite a long time was spent on axtu-authen-server. And now I am clear with the basics of the set of Apache+PHP+Mysql.
+
+3. One bug in command line mode was fixed.
+
+4. Now I am working on a bug in tui mode, so I need to learn newt programming.
+
+5. Getting familiar with the developmnet enviroment day by day: SDS+NIS+Bugzilla+SVN.
+
+6. I have alway been trying to keep all important tips well-documented, with right now the following subdirs under my documentation dir
+   
+   *epoch------------------the epoch dubug note, and realated tips 
+   *general----------------tips will be useful, but not limited to one specific bug  
+   *kmod-redcastle-PAE-----dubug note  
+   *mainten-dir------------note what I did to axtu/1.4/ and what is axtu/1.5 based on  
+   *MUST-------------------Things I need to do before or after sending a IP  
+   *NOTE-------------------mistakes I've made. and would probably make again in the futher  
+   *tui--------------------newt programming knowledge and debug notes  
+   *wtec-------------------WTEC related notes
+
+
+A lot have been learnt which is great. And I will work hard to perfect both the AXTU source code and my coding skills in the days to come. Thanks!
+

@@ -1,0 +1,22 @@
+--- classRpmEngine.cpp-unchanged        2009-06-10 08:48:54.000000000 +0800
++++ classRpmEngine.cpp  2009-06-10 08:45:34.000000000 +0800
+@@ -860,6 +860,16 @@
+                                        } else {
+                                                fileInfo.bIncompatible = false;
+                                        }
++                                       //peter
++                                       if(strNameR=="rpm")
++                                       {
++                                               m_Logger->WriteLog_char(ERROR_LOG, "strName:",strNameR.c_str(),NULL);
++                                               m_Logger->WriteLog_char(ERROR_LOG, "strVerR:",strVerR.c_str(),NULL);
++                                                m_Logger->WriteLog_char(ERROR_LOG, "strRelR:",strRelR.c_str(),NULL);
++                                                m_Logger->WriteLog_char(ERROR_LOG, "strArchR",strArchR.c_str(),NULL);
++
++                                       }
++                                       //peter-end
+                                        AddUpdateInstallList(&fileInfo,strNameR, \
+                                                strVerR,strRelR,itRemote->strEpoch, \
+                                                strArchR,itRemote->nType,       \
+~
+~
+

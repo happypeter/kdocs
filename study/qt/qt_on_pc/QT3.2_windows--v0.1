@@ -1,0 +1,78 @@
+----Qt3.2.3 Installation
+
+Basiclly, all we need to do it extract the package Qt3.2.3,
+
+and export two env variables
+
+
+
+1. QMAKESPEC  ------to spicify the compiler 
+There are three options in windows
+
+Visual C++ 6     : win32-msvc
+
+Visual C++ 7/7.1 : win32-msvc.net
+
+Borland C++      : win32-borland
+
+2. QTDIR--------Qt directory 
+
+Say, we extract it into D:\Qt, then QTDIR shall be D:\Qt
+
+
+
+Now let's try to compile a helloworld
+
+The compiler in use is visual c++ 7.1,
+
+In DOS, run the following command:
+
+set QMAKESPEC=win32-msvc   （using vc++6）
+
+set QTDIR=E:\Qt\3.2.3          
+
+Then put the following hello.cpp in D:\projects\qt\hello\
+
+#include <qapplication.h>
+
+#include <qlabel.h>
+
+int main(int argc, char *argv[])
+
+{
+
+   QApplication app(argc, argv);
+
+   QLabel *label = new QLabel("Hello Qt!", 0);
+
+   app.setMainWidget(label);
+
+   label->show();
+
+   return app.exec();
+
+}
+
+"My computer->Properity->Advnced->env variables" to add vc6 and ;E:\Qt\3.2.3\bin into $PATH
+
+
+
+D:\projects\qt\hello>qmake -project
+
+hello.pro is obtained
+
+D:\projects\qt\hello>qmake hello.pro
+
+to generate Makefile
+
+D:\projects\qt\hello>nmake
+
+Thus we will get a hello.exe finally.
+ 
+
+
+
+
+
+
+

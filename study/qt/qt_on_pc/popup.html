@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="peter king">
+	<META NAME="CREATED" CONTENT="20081221;385200">
+	<META NAME="CHANGEDBY" CONTENT="peter king">
+	<META NAME="CHANGED" CONTENT="20081221;394400">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P><FONT FACE="AlManzomah">POPUP is not easy!</FONT></P>
+<P><FONT FACE="AlManzomah">now i will write down the details</FONT></P>
+<P><FONT FACE="AlManzomah">1. cp aclock.h aclock.cpp
+(in/ipaq/qt/example/aclock) to pop/</FONT></P>
+<P><FONT FACE="AlManzomah">2. include &quot;aclock.h&quot; in
+popup.cpp</FONT></P>
+<P><FONT FACE="AlManzomah">3. add</FONT></P>
+<P><FONT FACE="AlManzomah">	 AnalogClock *clock = new AnalogClock();</FONT></P>
+<P><FONT FACE="AlManzomah">	 clock-&gt;show();</FONT></P>
+<P><FONT FACE="AlManzomah">to the button1click() slot</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">this must be the simplest way to do the
+POPUP!</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">i believe anything used in main.cpp as the
+mainWidget can be the alock here,</FONT></P>
+<P><FONT FACE="AlManzomah">including my screen.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">so i add my screen to it. add first i see
+many multidefination error, but soon i </FONT></P>
+<P><FONT FACE="AlManzomah">find it is because i include &quot;display.cpp&quot;
+rather &quot;display.h&quot;</FONT></P>
+</BODY>
+</HTML>

@@ -1,0 +1,19 @@
+v_1_0.php
+
+>>>how it is found
+in conf/axtu-authen-client-addr.conf
+RF = https://update.redflag-linux.com/auth/src/authentication.php
+
+then within
+authentication.php  //on 155
+we see
+if(strlen($protocol_version) == 0){
+                $file_name="v_1_0";
+        }else{
+                $tmp_str=str_replace(".","_",$protocol_version);
+                $file_name=sprintf("v_%s",$tmp_str);
+        }
+
+>>>now v_1_1.php is actually in use
+
+

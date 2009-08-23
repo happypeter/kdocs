@@ -1,0 +1,22 @@
+Vivi compile
+
+1. the yctek vivi can be compiled successfully.
+
+2. I open /vivi/init/main.c, and change “press return to start linux” into “press Peter”, then things turn out to be what I expected.
+
+3. vivi is nothing but a mini OS, very like Linux from the structual point of view. Vivi is a good study material to learn OS, simply because it is simple.
+
+4. then, I compile kernel and load it onto flash, then recover_system with nfs, finally system boot successfully, but the sccreen looks terriable
+
+5. I think maybe it is because of my own vivi and zImage are not perfect, so I use the one in armdisc, howerer, nothing changed.
+
+6. the sreen became unstable before NFS is connected. Fuck! I am enough of this, let’s call it a day!
+
+Tommorrow is another day.
+
+1. I get up this morning and think of the problem for a long time, suddenly it comes to me that maybe it is because I load my own vivi through com1, then I find out it does not work alright, then I reload yctek vivi image in hyper terminal rather than jtag. So during this process maybe something dirty left in the partition named vivi, which is responsible for the untable performance of the screen.
+
+2. it does make sense, and I remember once my dear sisiter-in-law, once sloved a problem by using JTAG, I don’t know why but it is simply that Com1 and >load flash vivi x, somthings do not work perfectly.
+
+3. now, I power-on arm, and try to load vivi with JTAG. You know what see, the little thing works perfectly before I do anything to it. Fuck again! It does not do its work yesterday because it is tired and hot!
+

@@ -1,0 +1,60 @@
+Epoch debug
+
+>>>GetFullPathFile()
+shows up in ./axtu/gui/classGUI.cpp
+defined in rpmEngine.cpp
+Note the argument bHeader, then we know axtu does not take epoch into consideration
+
+>>CompareHeaderInfo()   //in rpmengine.cpp
+it has nothing to do with epoch
+
+
+>>>Now the comparision process is clear,
+1. in axtu/gui/axtu/main.cpp, we see
+<code>
+        rpmEngine->ReadRemoteHeaderInfo();
+        rpmEngine->ReadLocalHeaderInfo();
+        rpmEngine->CreateUpdateInstallList();
+</code>
+
+2. so obviously the comparison is done in
+rpmEngine->CreateUpdateInstallList();
+
+3. Now in CreateUpdateInstallList();
+
+when  bFind = true&&nCompare>0, the romote package will be added to updatelist
+
+4. Now all we need to do is to add sth like
+if(strEpochR>strEpochL)
+before
+nCompare = CompareVerRel(strVerR, strRelR, strVerL, strRelL);
+
+
+>>>we need to compare
+itRemote->strEpoch               //this vaule is just what I want
+and
+itLocal->strEpoch                 //this one is always ""---?
+
+the reason is below:
+<reason>
+headerInfo.strEpoch.assign(strTemp, 0, index1);-----------assign sth valid in remote
+headerInfo.strEpoch = strTemp;------------------------------------assign sth empty in local
+</reason>
+
+that's because headerNEVRA() fail to readout sth for &ep  (epoch pointer), which is hard to believe.
+headerNEVEA() is defined in INCLUDE/rpmlib.h, in which I see
+@unused@ before * ep
+haha, so headerNEVRA can not do what I want, I need another function to read my local epoch out!!!
+I think I can add my ep-reading function just below headerNEVEA(), that way I do not need to change the structure a lot
+so that I can still use itLocal->
+
+Now my problem seems to be simple, I have hdr, and I want my epoch out of it.
+
+>>>so I find that headerNEVRA is defined in rpm-4.4.2/lib/rpmdb/hdrNVR.c   (Note: it is rpm itself now, not part of axtu)
+in which I find headerGetEntry() is used to read out
+name-----version-----release.
+but if you pass to similar args trying to get epoch, it simply won't work.
+but in ./lib/psm.c, I see the rignt way to read epoch from a hdr.
+
+>>>so I use headerGetEntry() the right way to get epoch successfully with rpmengine.
+Now the problem is how to let itLocal and itRemote point to the packages with same name.

@@ -1,0 +1,196 @@
+20090413110926_axtu.spec.diff
+
+Index: /home/peter/sds/packages/axtu/1.4/tarball01/axtu/libs/classRpmEngine.cpp
+===================================================================
+--- /home/peter/sds/packages/axtu/1.4/tarball01/axtu/libs/classRpmEngine.cpp	(revision 7689)
++++ /home/peter/sds/packages/axtu/1.4/tarball01/axtu/libs/classRpmEngine.cpp	(working copy)
+@@ -2,6 +2,7 @@
+ @file classRpmEngine.cpp
+ @brief Class source file for rpm related api
+ */
++#include <sstream> //for int to string conversion
+ #include "classRpmEngine.h"
+ #include <fstream>
+ #include "trace.h"
+@@ -398,7 +399,6 @@
+ // Read local rpm db, write to m_setLocalHeaderInfo
+ int classRpmEngine::ReadLocalHeaderInfo()
+ {
+-
+ 	if(g_callBackReadLocalHeaderInfo)
+ 		g_callBackReadLocalHeaderInfo(1,1, "Start read local header info...", "");
+ 	int nTotal=0;
+@@ -414,7 +414,6 @@
+ 	const char * rp=NULL;
+ 	Header hdr;
+ 	int rc;
+-
+ 	classBlockSignal blocksignal(SIGHUP); //Util this class is destroyed, SIGHUP will be destroy. 
+ 	mi = rpmtsInitIterator(m_rpmTs, (rpmTag)RPMDBI_PACKAGES, NULL, 0);
+ 
+@@ -423,6 +422,8 @@
+ 	//nTotal = rpmdbGetIteratorCount(mi);
+ 	nTotal = 1000;
+ 	nCount = 0;
++	int_32 * ep_int;
++	int_32 i_1=0;
+ 	while ((hdr = rpmdbNextIterator(mi)) != NULL)
+ 	{
+ 		int recOffset = rpmdbGetIteratorOffset(mi);
+@@ -441,20 +442,20 @@
+ 		char strTemp[MAX_STRING];
+ 		structHeaderInfo headerInfo;
+ 		string strNVRA, strName;	
+-		headerInfo.nType = -1;
+-		if(ep == NULL)
++		headerInfo.nType = -1;  
++		if (!(headerGetEntry(hdr, RPMTAG_EPOCH, NULL, (void **) &ep_int, NULL)))
+ 		{
+-			sprintf(strTemp, "%s", "");
++ 			ep_int = NULL; //if read failed
+ 		}
+-		else
+-		{
+-			sprintf(strTemp, "%s", ep);
+-		}
+-		headerInfo.strEpoch = strTemp;
++		if(ep_int == NULL)
++                {
++			ep_int=&i_1;
++                }
++	        stringstream out;
++		out<<*ep_int;
++		headerInfo.strEpoch =out.str();
+ 		snprintf(strTemp, sizeof(strTemp), "%s-%s-%s.%s", np, vp, rp, ap);
+ 		headerInfo.strNVRA = strTemp;
+-
+-
+ 		m_setLocalHeaderInfo.insert(headerInfo);
+ 
+ 		if(!(nCount % 100))
+@@ -497,7 +498,6 @@
+ 
+ 	rpmdbFreeIterator(mi);
+ 
+-
+ 	if(g_callBackReadLocalHeaderInfo)
+ 		g_callBackReadLocalHeaderInfo(100,100, "Finish read local header info...", "");
+ 
+@@ -782,6 +782,10 @@
+ 
+ 		/////////////
+ 		// Same name pass and find last version in RemoteServer's PkgSet.
++		set <structHeaderInfo, DereferenceLess>::iterator it_1;
++		it_1=itRemote;
++		string strEpoch_1;
++		bool flag_1=false;
+ 		while(strOldName2 == strNameR)
+ 		{
+ 			if(itRemote != m_setRemoteHeaderInfo.end()) itRemote++;
+@@ -794,15 +798,39 @@
+ 			}
+ 			nCount++;
+ 			stripNVRA(itRemote->strNVRA, &strNameR, &strVerR, &strRelR, &strArchR);
++			strEpoch_1=itRemote->strEpoch;
++			if(!((strEpoch_1)==(it_1->strEpoch)))
++			{
+ 
+-			if(strOldName2 != strNameR || (strOldName2 == strNameR && !CheckArch(strOldArch2 , strArchR)))
+-			{
++				if(!(strOldName2 != strNameR || (strOldName2 == strNameR && !CheckArch(strOldArch2 , strArchR))))
++
++				flag_1=true;
++			}
++           		if(flag_1)
++			{// now we need to concern about epoch
++
++ 				if(strOldName2 != strNameR || (strOldName2 == strNameR && !CheckArch(strOldArch2 , strArchR)))
++				{
++					if((strEpoch_1)>(it_1->strEpoch))
++					it_1=itRemote;  //it latter epoch is bigger than early one, update it_1
++					itRemote=it_1;  
++					nCount--;
++					stripNVRA(itRemote->strNVRA, &strNameR, &strVerR, &strRelR, &strArchR);
++					break;
++				}
++			}
++			else
++			{  //now we have no epoch issued
++				if(strOldName2 != strNameR || (strOldName2 == strNameR && !CheckArch(strOldArch2 , strArchR)))
++				{   
+ 				itRemote--;
+ 				nCount--;
+ 				stripNVRA(itRemote->strNVRA, &strNameR, &strVerR, &strRelR, &strArchR);
+ 				break;
++				}
++
++
+ 			}
+-
+ 		}
+ 		// arithmetic for Progress Value
+ 		if( !(nCount % 50) )
+@@ -822,19 +850,30 @@
+ 			}else if( strArchR == "noarch" || strArchL == "noarch"){
+ 				bFind = true;
+ 			}
+-			// nCompare > 0		==>	RemotePkg is higher than LocalPkg
+-			// nCompare = 0		==>	RemotePkg is same with LocalPkg
+-			// nCompare < 0		==>	RemotePkg is lower than LocalPkg
+-			nCompare = CompareVerRel(strVerR, strRelR, strVerL, strRelL);
++			// nCompare > 0         ==>     RemotePkg is higher than LocalPkg
++			// nCompare = 0         ==>     RemotePkg is same with LocalPkg
++			// nCompare < 0         ==>     RemotePkg is lower than LocalPkg
+ 
+-      // Debug for kyagi
++			if((itLocal->strEpoch)<(itRemote->strEpoch))
++			{
++				nCompare=1;
++			}
++			else if((itLocal->strEpoch)>(itRemote->strEpoch))
++			{
++				nCompare=-1;
++			}
++			else
++			{
++				nCompare = CompareVerRel(strVerR, strRelR, strVerL, strRelL);
++			}
++// Debug for kyagi
+ #ifdef DEBUG
+ 			if(strNameL.find("axtu-incmp-list") != string::npos)
+ 			{
+ 				printf("nCompare = %d,  Local : %s %s %s %s  Remote : %s %s %s %s\n", \
+-					nCompare, strNameL.c_str(), strVerL.c_str(), strRelL.c_str(), strArchL.c_str(), \
+-					strNameR.c_str(), strVerR.c_str(), strRelR.c_str(), strArchR.c_str() );
+-      }
++				nCompare, strNameL.c_str(), strVerL.c_str(), strRelL.c_str(), strArchL.c_str(), \
++				strNameR.c_str(), strVerR.c_str(), strRelR.c_str(), strArchR.c_str() );
++			}
+ #endif
+ 
+ 			if(nCompare > 0)
+Index: /home/peter/sds/packages/axtu/1.4/axtu.spec
+===================================================================
+--- /home/peter/sds/packages/axtu/1.4/axtu.spec	(revision 7689)
++++ /home/peter/sds/packages/axtu/1.4/axtu.spec	(working copy)
+@@ -27,7 +27,7 @@
+ %endif
+ 
+ NAME: axtu
+-Release: 3%{?dist}
++Release: 4%{?dist}
+ Summary: Asianux TSN Updater
+ Group: Utilities/System
+ License: GPL/LGPL
+@@ -238,6 +238,9 @@
+ %doc COPYING
+ 
+ %changelog
++* Wed Apr 10 2009 Peter, Wang <peter.wang@asianux.com> 1.4.16-4%{?dist}
++- Added epoch check. (AXBUG#5965)
++
+ * Wed Apr 08 2009 Lee, Jongwoo <oopslee@haansoft.com> 1.4.16-3%{?dist}
+ - When axtu is updated, always log message is "Updated axtu-x.x". (AXBUG#5031)
+ - Obsoleting package on install list is treated as update package. (patch1, AXBUG#5997)
+
+

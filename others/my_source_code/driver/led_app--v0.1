@@ -1,0 +1,38 @@
+//form my books 9---p21
+#include<stdio.h>
+#include<fcntl.h>
+int main()
+{
+int fd,j,i;
+fd=open("/dev/leds",O_RDWR);
+if(fd<0) printf("open /dev/leds failed\n");
+for(j=0;j<3;j++)
+  {
+  ioctl(fd,0,0);
+                    {        //delay 1 second
+                      for(i=0;i<100000;i++)
+                       {
+                          for(i=0;i<100000;i++)
+                          {
+                              for(i=0;i<10000000;i++)
+                              ;
+                          }
+                        }
+                    }
+ ioctl(fd,1,0);
+
+                   {        //delay 1 second
+                      for(i=0;i<100000;i++)
+                       {
+                          for(i=0;i<100000;i++)
+                          {
+                              for(i=0;i<10000000;i++)
+                              ;
+                          }
+                       }
+                    }
+                    
+  }
+return 0;
+}
+

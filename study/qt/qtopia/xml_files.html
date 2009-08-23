@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="peter king">
+	<META NAME="CREATED" CONTENT="20081221;2585200">
+	<META NAME="CHANGEDBY" CONTENT="peter king">
+	<META NAME="CHANGED" CONTENT="20081221;2592600">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P><FONT FACE="AlManzomah">Xml files in root-qt-1.0-tar.gz</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">1.      
+/etc/linuette/config/lanucher/..lanucher.xml is ineresting! I change
+</FONT><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">小游戏
+</SPAN></FONT></FONT><FONT FACE="AlManzomah">into wgz, reboot and the
+icon is mine! I can change wallpaper too if I want. Qtopia 1.7
+.desktop file in fact has two function, give a icon, give the
+executable file to a specific name. Now I find out half a desktop, so
+where is the other half? Where to specify the exe?</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">2.      
+etc\linuette\config\scicalculator\ the tree xml here let me know well
+about how the skin of cacultor picture moves.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">3.       \etc\linuette\config\mime.xml
+seems to be important.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">&lt;mime&gt;</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">&lt;key&gt;mediaplayer&lt;/key&gt;</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">&lt;type&gt;mp3&lt;/type&gt;</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">&lt;icon&gt;mp3.gif&lt;/icon&gt;</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">&lt;desc&gt;MP3 Format Sound&lt;/desc&gt;</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">&lt;/mime&gt;</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">as I see it, the mine file does this job:
+of a file is of the type of mp3, then its icon shall be mp3.gif, and
+if the icon pressed, mediaplayer is actived to play the file.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">4.       \etc\linuette\config\setup\
+sound.xml brightness.xml…all of them is easy to understand, but the
+thing is who is their master, who use them? By the way, the
+caliberate pic is here.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">5.       now I have a idea of the whole
+qtopia sytem, I know it is not perfectlly right, but it makes sense.
+Every visuable is a xml page. Booting the system a program named
+sever runs first(sever –qws in rc.S), and show me many icons on the
+sreen, you press the a icon, say calculator icon, this is a signal to
+sever,then the exe file of calculator is activated by sever. When the
+calculator exe start, it will open its own xml, note, it is the exe
+active its xml, not xml actives its appliation exe, that is why you
+can not find the name of exe in the corresponding xml. The caculator
+is activated by the sever.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">6.       anyway, as soon as the caculator
+is activated, it starts to plays the role of a sever, when the small
+icons(say the number buttons) are pressed, the exe will react and
+sent the result back to the xml(the screen of the calcalator), so the
+xml is a real ASP, it commubicate with its exe very well.</FONT></P>
+</BODY>
+</HTML>

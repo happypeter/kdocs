@@ -1,0 +1,72 @@
+
+ot@dhcp25 ~]# axtu
+*** glibc detected *** /usr/share/axtu/gui/axtu-gui: corrupted double-linked list: 0x0000000014e97cf0 ***
+======= Backtrace: =========
+/lib64/libc.so.6[0x3dd846dac7]
+/lib64/libc.so.6[0x3dd846f2bb]
+/lib64/libc.so.6(cfree+0x8c)[0x3dd8472b2c]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN11QTextLayoutD1Ev+0x11)[0x3ddfff2e21]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_Z14qt_format_textRK5QFontRK5QRectiRK7QStringiPS2_iPiiPP10QTextParagP8QPainter+0x79a)[0x3ddff69aaa]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZNK12QFontMetrics12boundingRectEiiiiiRK7QStringiiPiPP10QTextParag+0xee)[0x3ddff1d4ce]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZNK12QFontMetrics4sizeEiRK7QStringiiPiPP10QTextParag+0x31)[0x3ddff1d561]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZNK11QPushButton8sizeHintEv+0x28c)[0x3de006e2cc]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZNK11QWidgetItem8sizeHintEv+0x75)[0x3ddfefa635]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN15QGridLayoutData7addDataEP8QGridBoxbb+0x27)[0x3ddff48e37]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN15QGridLayoutData15setupLayoutDataEi+0x273)[0x3ddff49b23]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZNK15QGridLayoutData8findSizeEM13QLayoutStructii+0x21)[0x3ddff4a6b1]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZNK15QGridLayoutData8sizeHintEi+0x10)[0x3ddff4a920]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZNK11QGridLayout8sizeHintEv+0x15)[0x3ddff4a945]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN15QGridLayoutData7addDataEP8QGridBoxbb+0x27)[0x3ddff48e37]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN15QGridLayoutData15setupLayoutDataEi+0x273)[0x3ddff49b23]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN15QGridLayoutData10distributeE5QRecti+0x77)[0x3ddff49f07]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN11QGridLayout11setGeometryERK5QRect+0xb2)[0x3ddff4a562]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN7QLayout8activateEv+0xe7)[0x3ddfefb877]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN7QLayout11eventFilterEP7QObjectP6QEvent+0x5a)[0x3ddfefbb2a]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN7QObject16activate_filtersEP6QEvent+0x52)[0x3ddff60582]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN7QObject5eventEP6QEvent+0x27)[0x3ddff605f7]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN7QWidget5eventEP6QEvent+0x28)[0x3ddff980e8]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN12QApplication14internalNotifyEP7QObjectP6QEvent+0x85)[0x3ddff001c5]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN12QApplication6notifyEP7QObjectP6QEvent+0xa4)[0x3ddff01674]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN12QApplication16sendPostedEventsEP7QObjecti+0x16f)[0x3ddff011bf]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN10QEventLoop13processEventsEj+0x3fa)[0x3ddfeaf09a]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN10QEventLoop13processEventsEji+0x48)[0x3ddff178e8]
+/usr/share/axtu/gui/axtu-gui[0x4274bc]
+/usr/share/axtu/gui/axtu-gui[0x42783e]
+/usr/share/axtu/gui/axtu-gui[0x42879e]
+/usr/share/axtu/gui/axtu-gui[0x4414e7]
+/usr/share/axtu/gui/axtu-gui[0x440712]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN7QObject15activate_signalEP15QConnectionListP8QUObject+0x149)[0x3ddff60ef9]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN7QObject15activate_signalEi+0xb0)[0x3ddff61be0]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN7QWidget5eventEP6QEvent+0x3e9)[0x3ddff984a9]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN12QApplication14internalNotifyEP7QObjectP6QEvent+0x85)[0x3ddff001c5]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN12QApplication6notifyEP7QObjectP6QEvent+0x270)[0x3ddff01840]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN9QETWidget19translateMouseEventEPK7_XEvent+0x4ba)[0x3ddfe9ffaa]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN12QApplication15x11ProcessEventEP7_XEvent+0x623)[0x3ddfe9ecb3]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN10QEventLoop13processEventsEj+0x484)[0x3ddfeaf124]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN10QEventLoop9enterLoopEv+0x41)[0x3ddff17961]
+/usr/lib64/qt-3.3/lib/libqt-mt.so.3(_ZN10QEventLoop4execEv+0x22)[0x3ddff17842]
+/usr/share/axtu/gui/axtu-gui[0x42c376]
+/lib64/libc.so.6(__libc_start_main+0xf4)[0x3dd841d8a4]
+/usr/share/axtu/gui/axtu-gui(_ZNK7QDialog15minimumSizeHintEv+0xb1)[0x40b9d9]
+======= Memory map: ========
+00400000-0045d000 r-xp 00000000 fd:00 1046109                            /usr/share/axtu/gui/axtu-gui
+0065d000-0065f000 rw-p 0005d000 fd:00 1046109                            /usr/share/axtu/gui/axtu-gui
+14cd0000-14f45000 rw-p 14cd0000 00:00 0
+3dd8000000-3dd801a000 r-xp 00000000 fd:00 1366931                        /lib64/ld-2.5.so
+3dd8219000-3dd821a000 r--p 00019000 fd:00 1366931                        /lib64/ld-2.5.so
+3dd821a000-3dd821b000 rw-p 0001a000 fd:00 1366931                        /lib64/ld-2.5.so
+3dd8400000-3dd8546000 r-xp 00000000 fd:00 1367612                        /lib64/libc-2.5.so
+3dd8546000-3dd8746000 ---p 00146000 fd:00 1367612                        /lib64/libc-2.5.so
+3dd8746000-3dd874a000 r--p 00146000 fd:00 1367612                        /lib64/libc-2.5.so
+3dd874a000-3dd874b000 rw-p 0014a000 fd:00 1367612                        /lib64/libc-2.5.so
+3dd874b000-3dd8750000 rw-p 3dd874b000 00:00 0
+3dd8800000-3dd8882000 r-xp 00000000 fd:00 1367617                        /lib64/libm-2.5.so
+3dd8882000-3dd8a81000 ---p 00082000 fd:00 1367617                        /lib64/libm-2.5.so
+3dd8a81000-3dd8a82000 r--p 00081000 fd:00 1367617                        /lib64/libm-2.5.so
+3dd8a82000-3dd8a83000 rw-p 00082000 fd:00 1367617                        /lib64/libm-2.5.so
+3dd8c00000-3dd8c02000 r-xp 00000000 fd:00 1367624                        /lib64/libdl-2.5.so
+3dd8c02000-3dd8e02000 ---p 00002000 fd:00 1367624                        /lib64/libdl-2.5.so
+3dd8e02000-3dd8e03000 r--p 00002000 fd:00 1367624                        /lib64/libdl-2.5.so
+3dd8e03000-3dd8e04000 rw-p 00003000 fd:00 1367624                        /lib64/libdl-2.5.so
+3dd9000000-3dd9012000 r-xp 00000000 fd:00 105867                         /usr/lib64/libnewt.so.0.52.1
+3dd9012000-3dd9211000 ---p 00012000 fd:00 105867                         /usr/lib64/libnewt.so.0.52.

@@ -1,0 +1,4 @@
+06/08/09 02:22:34 classRpmEngine failed to add to transaction  /var/cache/axtu/updates-released/packages/elfutils-devel-static-0.137-3AXS3.x86_64.rpm
+06/08/09 02:22:34 classRpmEngine 	elfutils-devel-static-i386 = 0.137-3AXS3 is needed by elfutils-devel-0.137-3AXS3.i386
+06/08/09 02:22:34 classRpmEngine 	elfutils-libelf-devel-static-i386 = 0.137-3AXS3 is needed by elfutils-libelf-devel-0.137-3AXS3.i386
+06/08/09 02:22:34 GUI Required data were not found on the server. See /var/log/axtu/error.log

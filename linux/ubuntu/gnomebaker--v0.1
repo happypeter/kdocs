@@ -1,0 +1,53 @@
+peter@peter-desktop:~/Desktop$ sudo dpkg -i gnomebaker_0.6.4-0~getdeb1_i386.deb
+(Reading database ... 141802 files and directories currently installed.)
+Preparing to replace gnomebaker 0.6.4-0~getdeb1 (using gnomebaker_0.6.4-0~getdeb1_i386.deb) ...
+Unpacking replacement gnomebaker ...
+dpkg: dependency problems prevent configuration of gnomebaker:
+ gnomebaker depends on icedax; however:
+  Package icedax is not installed.
+dpkg: error processing gnomebaker (--install):
+ dependency problems - leaving unconfigured
+Errors were encountered while processing:
+ gnomebaker
+*******************
+peter@peter-desktop:~/Desktop$ sudo apt-get -f  install icedax
+Reading package lists... Done
+Building dependency tree      
+Reading state information... Done
+You might want to run `apt-get -f install' to correct these:
+The following packages have unmet dependencies:
+  skype: Depends: libqt4-core (>= 4.2.1) but it is not going to be installed
+         Depends: libqt4-gui (>= 4.2.1) but it is not going to be installed
+E: Unmet dependencies. Try 'apt-get -f install' with no packages (or specify a solution).
+***********************
+peter@peter-desktop:~/Desktop$ sudo apt-get -f  install
+Reading package lists... Done
+Building dependency tree      
+Reading state information... Done
+Correcting dependencies... Done
+The following extra packages will be installed:
+  icedax libaudio2 libqt4-core libqt4-gui
+Suggested packages:
+  cdrkit-doc vorbis-tools nas
+Recommended packages:
+  qt4-qtconfig
+The following NEW packages will be installed:
+  icedax libaudio2 libqt4-core libqt4-gui
+0 upgraded, 4 newly installed, 0 to remove and 76 not upgraded.
+2 not fully installed or removed.
+Need to get 7388kB of archives.
+After this operation, 18.7MB of additional disk space will be used.
+Do you want to continue [Y/n]?
+Get:1 http://cn.archive.ubuntu.com hardy/universe icedax 9:1.1.6-1ubuntu6 [172kB]
+Get:2 http://cn.archive.ubuntu.com hardy/main libqt4-core 4.3.4-0ubuntu3 [2042kB]
+Get:3 http://cn.archive.ubuntu.com hardy/main libaudio2 1.9.1-1 [79.2kB]      
+Get:4 http://cn.archive.ubuntu.com hardy/main libqt4-gui 4.3.4-0ubuntu3 [5094kB]
+********
+after a while anf before i do anything myself, skype is well installed,(see ./skype_install)
+but whar i want to install now is gnomebaker. Haha, funny.
+****
+$skype-------------------------works
+$gnombaker --------------------works
+
+ 
+

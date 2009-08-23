@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="peter king">
+	<META NAME="CREATED" CONTENT="20081218;21194500">
+	<META NAME="CHANGEDBY" CONTENT="peter king">
+	<META NAME="CHANGED" CONTENT="20081218;21210500">
+	<STYLE TYPE="text/css">
+	<!--
+		PRE.western { font-family: "Nimbus Roman No9 L" }
+		PRE.cjk { font-family: "Nimbus Roman No9 L" }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<PRE CLASS="western"><FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">1. start nfs (in Redhat)</FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">#/etc/rc.d/init.d/nfs start</FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">#mkdir /yctek</FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">#tar –jxvf recover_system_pack.tar.bz2 –C /yctek</FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">#vi /etc/exports</FONT></FONT>
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">//add /yctek/root  *(rw,sync,no_root_squash)</FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">#exportfs –rv</FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">#showmount –e</FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">#ifconfig eth0 192.168.1.1</FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">#mount 192.168.1.1:/yctek/root /mnt</FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">2. open hyperterm</FONT></FONT><FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt"><SPAN LANG="zxx">，</SPAN></FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">start vivi prompt mode</FONT></FONT><FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt"><SPAN LANG="zxx">，</SPAN></FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">&gt;param set linux_cmd_line &quot;console=ttySAC0 root=/dev/nfs nfsroot=192.168.1.1:/yctek/root ip=192.168.1.12:192.168.1.1:192.168.1.1:255.255.255.0:www.yctek.com:eth0:off&quot; </FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">then Enter----boot----recover_system</FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">3.</FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">#vi /yctek/root/etc/init.d/rcS</FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">change</FONT></FONT>
+
+<FONT FACE="Nimbus Sans L, sans-serif"><FONT SIZE=3 STYLE="font-size: 13pt">/sbin/ifconfig eth0 192.168.@.230 @ must be 1 here  </FONT></FONT>
+</PRE>
+</BODY>
+</HTML>

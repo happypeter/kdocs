@@ -1,0 +1,293 @@
+--- axtu/libs/classRpmEngine.h	2009-03-09 11:06:56.000000000 +0900
++++ axtu.old/libs/classRpmEngine.h	2009-03-18 16:44:01.000000000 +0900
+@@ -328,6 +328,14 @@ public:
+   bool isIncompatiblePack(string strName, string strVer, string strRel);
+   bool CheckIncmplist(string pathToRPM);
+   static void sig_hup(int sig);  
++  bool GetPackageInfo(string strName, vector <structFileInfo> *vectorFileInfo);
++  bool IsPackageInstalled(string strName);
++  void ApplyObsoleteTag(void);
++  void ApplyObsoleteCase1(string strNameA, vector <structFileInfo> *vectorFileInfoB, bool bInstallA);
++  void ApplyObsoleteCase2(string strNameA, vector <structFileInfo> *vectorFileInfoB, bool bInstallA, bool bInstallB);
++  void RemoveInstallList(string strName);
++  void AddUpdateListPos(vector <structFileInfo> *vectorFileInfo);
++  void AddInstallListPos(vector <structFileInfo> *vectorFileInfo);
+ };
+ 
+ class classBlockSignal
+--- axtu/libs/classRpmEngine.cpp	2009-03-09 11:06:50.000000000 +0900
++++ axtu.old/libs/classRpmEngine.cpp	2009-03-18 19:12:22.000000000 +0900
+@@ -19,6 +19,12 @@
+ 
+ #define MAX_LOOP 20
+ #define NULL_FILE "/dev/null"
++
++#define CASE1_PACKAGE_A "sysreport"
++#define CASE1_PACKAGE_B "sos"
++#define CASE2_PACKAGE_A "pump-devel"
++#define CASE2_PACKAGE_B "libdhcp-devel"
++
+ commonCallBackFunc g_callBackReadHeaders;
+ commonCallBackFunc g_callBackRun;
+ commonCallBackFunc g_callBackCheck;
+@@ -941,6 +947,8 @@ bool classRpmEngine::CreateUpdateInstall
+       }
+     }
+ 
++	ApplyObsoleteTag();
++
+ 		return true;
+ 	}else{
+ 		return false;
+@@ -948,6 +956,244 @@ bool classRpmEngine::CreateUpdateInstall
+ 
+ }
+ 
++/*!
++@brief Apply Obsolete Tag.
++
++Apply Obsolete Tag. 
++Case1 and Case2 have been treated.
++*/
++void classRpmEngine::ApplyObsoleteTag(void)
++{
++	vector <structFileInfo> vectorFileInfoB;
++	bool bInstallA, bInstallB;
++
++	// Checking Case1
++	if (GetPackageInfo(CASE1_PACKAGE_B, &vectorFileInfoB)) {
++		bInstallA = IsPackageInstalled(CASE1_PACKAGE_A);
++		ApplyObsoleteCase1(CASE1_PACKAGE_A, 
++					&vectorFileInfoB,
++					bInstallA);
++	}
++
++	vectorFileInfoB.clear();
++
++	// Checking Case2
++	if (GetPackageInfo(CASE2_PACKAGE_B, &vectorFileInfoB)) {	
++		bInstallA = IsPackageInstalled(CASE2_PACKAGE_A);
++		bInstallB = IsPackageInstalled(CASE2_PACKAGE_B);
++		ApplyObsoleteCase2(CASE2_PACKAGE_A, 
++					&vectorFileInfoB, 
++					bInstallA, 
++					bInstallB);
++	}
++}
++
++/*!
++@brief Apply Obsolete Tag Case1.
++
++Apply Obsolete Case1. 
++Package A,B exist, Package B is higher version than A.
++
++@param strNameA : Obsoleted Package name
++@param vectorfileInfoB : Obsoleting Package structFileInfo
++@param bInstallA : if packageA is installed - true
++*/
++void classRpmEngine::ApplyObsoleteCase1(string strNameA,
++					vector <structFileInfo> *vectorFileInfoB,
++					bool bInstallA)
++{	
++	// system : A, update : B, install : B
++	if (bInstallA) {
++		m_nUpdateAvailableCount++;
++		AddUpdateListPos(vectorFileInfoB);
++	}
++	// system : none, update : none, install : B
++	else {
++		RemoveInstallList(strNameA);
++	}
++}
++
++/*!
++@brief Apply Obsolete Tag Case2.
++
++Apply Obsolete Case2. 
++Package A,B exist, Package B+ which higher version than B exists.
++
++@param strNameA : Obsoleted Package name
++@param vectorFileInfoB : Obsoleting Package structFileInfo 
++@param bInstallA : if packageA is installed - true
++@param bInstallB : if packageB is installed - true
++*/
++void classRpmEngine::ApplyObsoleteCase2(string strNameA,
++					vector <structFileInfo> *vectorFileInfoB, 
++					bool bInstallA,
++					bool bInstallB)
++{
++	// system : A, B, update : B, install : none
++	// already done.
++
++	// system : A, update : B, install : B
++	if (bInstallA && !bInstallB) {
++		m_nUpdateAvailableCount++;
++		AddUpdateListPos(vectorFileInfoB);
+// we shall add B to both lists here
+// but since B is already on installlist, so only AddUpdateListPos() is used here
++	}
++	// system : B, update : B, install : B
++	else if (!bInstallA && bInstallB) {
++		AddInstallListPos(vectorFileInfoB);
+//the logic is wrong, we shall add B to update list here
++		RemoveInstallList(strNameA);
+//the remove part here is quit confusing and not necessary, 
+//if A obsolete sth, we simply rm everything inside sth from update and install lists here 
+//we can do this before we do anything, we do not need to judge anything for remove
+//my own RemoveUpdateInstallList() works perfectly
++	}
++	// system : none, update : none, install : B
++	else if (!bInstallA && !bInstallB) {
++		RemoveInstallList(strNameA);
++	}
++}
++
++/*!
++@brief Get Package Infomation.
++
++Get FileInfo and Return Package Type.
++
++@param strName : package name.
++@param vectorFileInfo : return vector structFileInfo.
++
++@return true is "found".
++*/
++bool classRpmEngine::GetPackageInfo(string strName, vector <structFileInfo> *vectorFileInfo)
++{
++	vector <structFileInfo>::iterator it;
++	string  strNameR, strVerR, strRelR, strArchR;
++	bool bRemote = false;
++
++	// find package from update list
++	for (it = m_vectorUpdateList.begin(); it != m_vectorUpdateList.end();it++) {
++		if (strName == it->strName) {
++			do {
++				vectorFileInfo->push_back(*it);
++				it++;
++			}
++			while (it != m_vectorUpdateList.end() && strName == it->strName);
++
++			bRemote = true;
++			break;
++		}
++	}
++
++	// find package from install list
++	for (it=m_vectorInstallList.begin();it!= m_vectorInstallList.end(); it++) {
++		if (strName == it->strName) {
++			do {
++				vectorFileInfo->push_back(*it);
++				it++;
++			} 
++			while (it != m_vectorInstallList.end() && strName == it->strName);
++
++			bRemote = true;
++			break;
++		}
++	}
++
++	return bRemote;
++}
++
++/*!
++@brief Is Package Installed?
++
++Is Package Installed on local system?.
++
++@param strName : package name.
++
++@return true is "installed".
++*/
++bool classRpmEngine::IsPackageInstalled(string strName)
++{
++	set <structHeaderInfo, DereferenceLess>::iterator it;
++	string strNameL, strVerL, strRelL, strArchL;
++
++	for (it=m_setLocalHeaderInfo.begin(); it!=m_setLocalHeaderInfo.end();it++) {
++		stripNVRA(it->strNVRA, &strNameL, &strVerL, &strRelL, &strArchL);
++		if (strNameL == strName) {
++			return true;
++		}
++	}
++
++	return false;
++}
++
++/*!
++@brief Remove package from Install List. 
++
++Remove Item from Install List. 
++
++@param strName : package name.
++*/
++void classRpmEngine::RemoveInstallList(string strName)
++{
++	vector <structFileInfo>::iterator it;
++
++	for (it=m_vectorInstallList.begin(); it!=m_vectorInstallList.end(); it++) {
++		if (strName == it->strName) {
++			m_vectorInstallList.erase(it--);
++		}
++	}
++}
++
++/*!
++@brief Add package on Update List. 
++
++Add Item on Update List. 
++
++@param vectorFileInfo : vector structFileInfo.
++*/
++void classRpmEngine::AddUpdateListPos(vector <structFileInfo> *vectorFileInfo)
++{
++	vector <structFileInfo>::iterator it;
++
++	for (it=m_vectorUpdateList.begin();it != m_vectorUpdateList.end(); it++) {
++		if (vectorFileInfo->begin()->strName == it->strName) {
++			m_vectorUpdateList.erase(it--);
++			continue;
++		}
++
++		if (vectorFileInfo->begin()->strName < it->strName) {
++			m_vectorUpdateList.insert(it, 
++						vectorFileInfo->begin(), vectorFileInfo->end());
++			return;
++		}
++	}
++
++	m_vectorUpdateList.insert(m_vectorUpdateList.end(),
++								vectorFileInfo->begin(), 
++								vectorFileInfo->end());
++}
++
++/*!
++@brief Add package on Install List. 
++
++Add Item on Install List. 
++
++@param vectorFileInfo : vector structFileInfo.
++*/
++void classRpmEngine::AddInstallListPos(vector <structFileInfo> *vectorFileInfo)
++{
++	vector <structFileInfo>::iterator it;
++
++	for (it=m_vectorInstallList.begin();it != m_vectorInstallList.end(); it++) {
++		if (vectorFileInfo->begin()->strName == it->strName) {
++			m_vectorInstallList.erase(it--);
++			continue;
++		}
++
++		if (vectorFileInfo->begin()->strName < it->strName) {
++			m_vectorInstallList.insert(it, 
++					vectorFileInfo->begin(), vectorFileInfo->end());
++			return;
++		}
++	}
++
++	m_vectorInstallList.insert(m_vectorInstallList.end(), 
++								vectorFileInfo->begin(), 
++								vectorFileInfo->end());
++}
+ 
+ /*!
+ @brief Check arch. 

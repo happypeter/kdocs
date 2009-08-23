@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="peter king">
+	<META NAME="CREATED" CONTENT="20081221;3223900">
+	<META NAME="CHANGEDBY" CONTENT="peter king">
+	<META NAME="CHANGED" CONTENT="20081221;3231100">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P><FONT FACE="AlManzomah">/*_usage</FONT></P>
+<P> <FONT FACE="AlManzomah">i feel so bad about being not able to use
+write_gpio_bit,</FONT></P>
+<P><FONT FACE="AlManzomah">now i have a alternative
+s3c2410_gpio_setpin(S3C2410_GPF4,1);</FONT></P>
+<P><FONT FACE="AlManzomah">i include &lt;asm/arch-s3c2410/regs-gpio.h&gt;
+and &lt;asm/arch-s3c2410/hardware.h&gt;</FONT></P>
+<P><FONT FACE="AlManzomah">then it works perfectly on my target
+board</FONT></P>
+<P><FONT FACE="AlManzomah">*/</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">i finally</FONT></P>
+<P><FONT FACE="AlManzomah">see it on net as below:</FONT></P>
+<P><FONT FACE="AlManzomah">/usr/src/linux-2.6.21.5/arch/arm/plat-s3c24xx/gpio.c</FONT></P>
+<P><FONT FACE="AlManzomah">void s3c2410_gpio_setpin(unsigned int pin,
+unsigned int to)</FONT></P>
+<P><FONT FACE="AlManzomah">{</FONT></P>
+<P>    <FONT FACE="AlManzomah">void __iomem *base =
+S3C24XX_GPIO_BASE(pin);</FONT></P>
+<P>    <FONT FACE="AlManzomah">unsigned long offs =
+S3C2410_GPIO_OFFSET(pin);</FONT></P>
+<P>    <FONT FACE="AlManzomah">unsigned long flags;</FONT></P>
+<P>    <FONT FACE="AlManzomah">unsigned long dat;</FONT></P>
+<P>    <FONT FACE="AlManzomah">local_irq_save(flags);</FONT></P>
+<P>    <FONT FACE="AlManzomah">dat = __raw_readl(base + 0x04);</FONT></P>
+<P>    <FONT FACE="AlManzomah">dat &amp;= ~(1 &lt;&lt; offs);</FONT></P>
+<P>    <FONT FACE="AlManzomah">dat |= to &lt;&lt; offs;</FONT></P>
+<P>    <FONT FACE="AlManzomah">__raw_writel(dat, base + 0x04);</FONT></P>
+<P>    <FONT FACE="AlManzomah">local_irq_restore(flags);</FONT></P>
+<P><FONT FACE="AlManzomah">}</FONT></P>
+<P><FONT FACE="AlManzomah">#define S3C2410_GPIO_OFFSET(pin) ((pin) &amp;
+31)</FONT></P>
+<P><FONT FACE="AlManzomah">i want to use this funtion in my yctek
+system, but i don't have the defination</FONT></P>
+<P><FONT FACE="AlManzomah">in my own headers, so i need to know all
+the dependent files and copy all of them to</FONT></P>
+<P><FONT FACE="AlManzomah">my INCLUDEDIR,</FONT></P>
+<P><FONT FACE="AlManzomah">the prototype is in regs-gpio.h:</FONT></P>
+<P>        <FONT FACE="AlManzomah">#define write_gpio_bit(x, v) \</FONT></P>
+<P> <FONT FACE="AlManzomah">({ GPDAT(GRAB_PORT((x))) &amp;= ~(0x1 &lt;&lt;
+GRAB_OFS((x))); \</FONT></P>
+<P>    <FONT FACE="AlManzomah">GPDAT(GRAB_PORT((x))) |= ((v) &lt;&lt;
+GRAB_OFS((x))); })</FONT></P>
+<P><FONT FACE="AlManzomah">then where are
+GRAB_PORT(),GRAB_OFS(),GPDAT()?</FONT></P>
+<P><FONT FACE="AlManzomah">also in this file</FONT></P>
+<P><FONT FACE="AlManzomah">#define GPDAT(x)  (*(volatile unsigned
+*)(S3C2410_VA_GPIO+(x)*0x10+0x04))</FONT></P>
+<P><FONT FACE="AlManzomah">#define GRAB_PORT(x) (((x) &amp;
+GPIO_PORT_MASK) &gt;&gt; GPIO_PORT_SHIFTT)</FONT></P>
+<P><FONT FACE="AlManzomah">#define GRAB_OFS(x) (((x) &amp;
+GPIO_OFS_MASK) &gt;&gt; GPIO_OFS_SHIFT)</FONT></P>
+<P><FONT FACE="AlManzomah">now then where are S3C2410_VA_GPIO,
+GPIO_PORT_SHIFTT,...?</FONT></P>
+<P><FONT FACE="AlManzomah">i can not find S3C2410_VA_GPIO, while i
+find others easily.</FONT></P>
+<P><FONT FACE="AlManzomah">but S3C2410_VA_GPIO is just a number, not
+a function, that means</FONT></P>
+<P><FONT FACE="AlManzomah">all the necessary functons that
+write_gpio_bit depends on are righ here.</FONT></P>
+<P><FONT FACE="AlManzomah">anyway, i think no file else is needed to
+run write_gpio_bit.</FONT></P>
+<P><FONT FACE="AlManzomah">-------------------------------------------</FONT></P>
+<P><FONT FACE="AlManzomah">----------------------------------</FONT></P>
+<P><FONT FACE="AlManzomah">in \include\asm-arm\arch-s3c2410\map.h</FONT></P>
+<P><FONT FACE="AlManzomah">#ifndef __ASSEMBLY__</FONT></P>
+<P><FONT FACE="AlManzomah">#define S3C2410_ADDR(x)   ((void __iomem
+*)0xF0000000 + (x))</FONT></P>
+<P><FONT FACE="AlManzomah">#else</FONT></P>
+<P><FONT FACE="AlManzomah">---------------------------------------------------</FONT></P>
+<P> <FONT FACE="AlManzomah">i think if i add the two lines</FONT></P>
+<P><FONT FACE="AlManzomah">#define   S3C2410_ADDR(x)   (0xF0000000 +
+(x))</FONT></P>
+<P><FONT FACE="AlManzomah">#define   S3C2410_VA_GPIO  
+S3C2410_ADDR(0x00E00000)</FONT></P>
+<P><FONT FACE="AlManzomah">the problem in regs-gpio.h is solved, at
+least it seems so.</FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+</BODY>
+</HTML>

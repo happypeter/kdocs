@@ -1,0 +1,70 @@
+IP_WE_NEED
+
+
+>>>DHCP
+
+1. Pierrik        
+Laptop:    1
+Desktop:  0
+Vm:         2
+
+2. Hwanii
+Laptop:      1   
+Desktop:     0
+Vm:            4
+
+3. XueHong
+Laptop:     1
+Desktop:    0
+Vmware:
+
+4. Jiuxing
+Laptop: 1
+Desktop:
+Vmware:
+
+5. ZhuYu
+Laptop:  1
+Desktop:
+Vmware: 2
+
+6. Peter
+Laptop: 1
+Desktop:
+Vmware: 3
+
+7. New comers(two guys)
+
+Laptop:  2
+Desktop:
+Vmware: 5
+
+
+8. The desktop on my right side:
+Laptop: 1
+Desktop:
+Vmware:
+
+
+
+>>>Static IP
+
+***real machine
+230 : tsn_all
+245: build_env
+
+***VM
+
+244: Tsn test server
+246: TSN HQ Clone
+201: SDS dev server
+220: TSN HQ dev server
+219: AXTU test server
+155: AXTU test server
+
++ 3 more Static for futher use
+
+
+>>>SO
+tatal DHCP : 24 +5
+tatal STATIC: 11+5

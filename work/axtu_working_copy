@@ -1,0 +1,21 @@
+
+How to checkout my own working copy
+
+1. login to rumi
+
+2. export SR=svn+ssh://peter@10.1.0.96/SDSrepo/trunk/packages/     
+    ----------I already write it into romi;~/.bash_profile
+
+3. cd romi:/home/peter/sds/packages/
+
+4. svn co $SR/axtu/  ----------------never change the structure, otherwise SDS can not find the code
+
+5. svn co $SR/VERMAP-DIR
+
+6. svn co svn+ssh://peter@10.1.0.96/SDSrepo/trunk/comps
+romi: /project/bin/axbldpkg--------------is the shell script make your source code into a rpm package
+
+>>>axtu repo here, but I am not sure if it is the main one???NO
+http://romi.asianux.net/SDSrepo/trunk/packages/axtu/---------------------don't check out here
+
+

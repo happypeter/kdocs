@@ -1,0 +1,42 @@
+Evail Joy-------See how important my porject is!
+Dear Helen and Lily,
+
+I am sorry to say that since the axtu on the server 10.1.0.244 was wrong 
+putted.
+What we did in the last two days has no meaning now. :'(
+We need to restart the testing completely again.
+Pierrick has modify the server again,please start testing now.
+Any problem,please let me know.
+Thank you very much!
+
+Best Regards,
+Gloria
+
+
+Gloria.Xie wrote:
+> Hi Pierrick,
+>
+> Why axtu is not in the latest version,I wonder ?
+> We need the server 10.1.0.244 has the latest version of AX30SP2 up to 
+> now.
+>
+> Anyway,since this error has been solved,we will restart testing again.
+> Thank you for your effort.
+>
+> Regards,
+> Gloria
+>
+> Pierrick Delarue wrote:
+>> Hi Gloria,
+>>
+>> After we discussed this last problem, you said this was due to axtu 
+>> not being the latest version on 244.
+>> - The latest version in SDS is axtu-1.5.0-15AXS3 (SDS ID 1170) for 
+>> which the related bugs are  "on hold" and comments indicate that it 
+>> will be released in Maintenance
+>> - To add to the confusion, SDS ID 1190 (axtu-1.5.0-14AXS3) was 
+>> published BEFORE 1170 (axtu-1.5.0-15AXS3).
+>>
+>> Regards,
+>>
+>> Pierrick

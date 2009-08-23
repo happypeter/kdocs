@@ -1,0 +1,71 @@
+--- classRpmEngine.cpp	2009-05-15 17:43:56.000000000 +0800
++++ right.cpp	2009-05-15 16:55:34.000000000 +0800
+@@ -782,10 +782,6 @@
+ 
+ 		/////////////
+ 		// Same name pass and find last version in RemoteServer's PkgSet.
+-		set <structHeaderInfo, DereferenceLess>::iterator it_1;
+-		it_1=itRemote;
+-		string strEpoch_1;
+-		bool flag_1=false;
+ 		while(strOldName2 == strNameR)
+ 		{
+ 			if(itRemote != m_setRemoteHeaderInfo.end()) itRemote++;
+@@ -798,39 +794,14 @@
+ 			}
+ 			nCount++;
+ 			stripNVRA(itRemote->strNVRA, &strNameR, &strVerR, &strRelR, &strArchR);
+-			strEpoch_1=itRemote->strEpoch;
+-			if(!((strEpoch_1)==(it_1->strEpoch)))
+-			{
+-
+-				if(!(strOldName2 != strNameR || (strOldName2 == strNameR && !CheckArch(strOldArch2 , strArchR))))
+-
+-				flag_1=true;
+-			}
+-           		if(flag_1)
+-			{// now we need to concern about epoch
+-
+- 				if(strOldName2 != strNameR || (strOldName2 == strNameR && !CheckArch(strOldArch2 , strArchR)))
+-				{
+-					if((strEpoch_1)>(it_1->strEpoch))
+-					it_1=itRemote;  //it latter epoch is bigger than early one, update it_1
+-					itRemote=it_1;  
+-					nCount--;
+-					stripNVRA(itRemote->strNVRA, &strNameR, &strVerR, &strRelR, &strArchR);
+-					break;
+-				}
+-			}
+-			else
+-			{  //now we have no epoch issued
+ 				if(strOldName2 != strNameR || (strOldName2 == strNameR && !CheckArch(strOldArch2 , strArchR)))
+ 				{   
+ 				itRemote--;
+ 				nCount--;
+ 				stripNVRA(itRemote->strNVRA, &strNameR, &strVerR, &strRelR, &strArchR);
+ 				break;
+-				}
+ 
+-
+-			}
++				}
+ 		}
+ 		// arithmetic for Progress Value
+ 		if( !(nCount % 50) )
+@@ -853,7 +824,6 @@
+ 			// nCompare > 0         ==>     RemotePkg is higher than LocalPkg
+ 			// nCompare = 0         ==>     RemotePkg is same with LocalPkg
+ 			// nCompare < 0         ==>     RemotePkg is lower than LocalPkg
+-
+ 			if((itLocal->strEpoch)<(itRemote->strEpoch))
+ 			{
+ 				nCompare=1;
+@@ -887,8 +857,6 @@
+ 					} else {
+ 						fileInfo.bIncompatible = false;
+ 					}
+-
+-
+ 					AddUpdateInstallList(&fileInfo,strNameR, \
+ 						strVerR,strRelR,itRemote->strEpoch, \
+ 						strArchR,itRemote->nType,       \

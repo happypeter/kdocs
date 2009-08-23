@@ -1,0 +1,10 @@
+1. disaster/
+bug#6371--Cannot update lots of packages through axtu on x86_64 platform.
+2. 73/
+bug#6371--Cannot update lots of packages through axtu on x86_64 platform.
+3. self-update/
+bug#6371--Cannot update lots of packages through axtu on x86_64 platform.
+4. noarch/
+bug#6371--Cannot update lots of packages through axtu on x86_64 platform.
+5. tui/
+bug#4717--The scroll bar in warning page on TUI can not be used

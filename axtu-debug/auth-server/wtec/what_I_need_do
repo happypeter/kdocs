@@ -1,0 +1,8 @@
+What I need to do
+
+1. add WT product key to DB->register_info->asianux key
+//see CheckProductNumber($product_number) to know why
+
+2. I will first use RF rpm repo url for WT, this is the last step of authentication, so it does not matter
+urls are in connect info,
+but I need not to add WT here. just change "update.redflag.com" to "peter.wt.com"

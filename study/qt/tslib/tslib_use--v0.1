@@ -1,0 +1,98 @@
+see tslib_compile first
+**********
+now that i have the tslib in my hands
+i can preceed.
+#cp src/.libs/* /arm-qtopia/qt/lib
+#cp plugins/.lib/*.so /arm-qtopia/qt/lib
+#cp src/*.h /arm-qtopia/qt/include
+**
+ok, now i am ready to compile a lqte with touch screen support
+#echo $QTDIR
+/arm-qtopia/qt
+#export PATH=$QTDIR/bin:$PATH //for moc
+export LD_LIBRARY_PATH=$QTDIR/lib:$LD....//to export the lib files
+////////////////////////////
+//people say they use
+//cp $QPEDIR/src/qt/qconfig-qpe.h src/tools
+//./configure -qconfigure qpe -xplatform linux-arm-g++ -shared -no-xft
+///////////////////////////
+//i do not know about that, so i try my way first
+#./configure -xplatform linux-arm-g++
+#vi src/Makefie
+i see the line
+SYSCONF_LIBS  =-lm -lts
+// i changed qt/configs/linux-arm-g++-shared before,
+//add'-lts' to the end of 'SYSCONF_LIBS=-lm -lts'
+//thatworks
+#make -C src
+about 10 miniutes later libqte.so.2.3.7 is seen.
+i am very happy, but when i
+#mv lib/tslib.so* ../
+and
+#./configure -xplatform linux-arm-g++
+again, libqte.so.2.3.7 is obtained as well.
+that is bad, does that mean the generated lqte do not
+connected to tslib at all! but there is truly -lts in Makefile.
+i even add -ltsssss in the Makefie, but still successful.
+now i am confused.
+************
+i restore a snapshot, in which there is no libts.
+add -lts to the Makefile,
+still successful.
+why is that?
+************
+*********
+now i decide to temporaryly give up compiling qte.so with ts support
+i want a hello with ts support
+so i
+#cd hello
+#make
+succeed
+#vi Makefie //and -lts
+#make
+error can not find lts
+#cp .../libts.0.0.so.x.x /arm=qtopia/qt/lib
+#ln lints.0.0.so.x.x libts.so
+#cd hello
+#make
+succeed with ts support
+#mv hello hello-ts
+then in hyperterm
+#chmod a+x hello-ts
+#./hello-ts
+error: no libts-0.0.so.0
+so i copy the needed libts.so
+into /lib
+and
+#ln -s xxxxxxx libts-0.0.so
+#./hello-ts
+no error
+#vi /usr/etc/rc.local
+reboot arm
+the hello-ts runs, but the screen does not have
+even a tiny reaction to my touch on the sreen.
+*********
+ok, i will continue this topic tomorrow.
+************
+new day, new luck
+**
+before activate the ts, i firstly want to eliminate the cursor
+so i recompile libqte
+#./configure -config qpe -xplatform linux-arm-g++
+'-config qpe' means to use configs/config-qpe.h file
+but you know what when i substitude the running lqte with this one on arm
+reboot and i see only a cursor, that's rediculous!
+but i think that maybe its because the hello running is not compiled
+against this 'no-cursor-lqte',
+so i make a hello-no-cursor, however, when i try to run it on arm
+error:
+Qsocket is not open,
+which mean's somrhting wrong with the libqte.so.
+i don't understand about this.
+
+>>>>>>ok, i will go back for this later, for now i will start my FriendlyARM porting project...
+ 
+
+
+ 
+

@@ -1,0 +1,12 @@
+xterm -fg white -bg black
+
+type man xterm
+create a file named(sensitive case) XTerm in your home directory with your specs
+
+XTerm*Background: linen
+XTerm*Foreground: black
+XTerm*font: 9x15
+XTerm*saveLines: 1000
+XTerm*HiForeColor: white
+XTerm*HiBackColor: #c06077
+XTerm*geometry: +50+100

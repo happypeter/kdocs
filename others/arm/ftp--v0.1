@@ -1,0 +1,46 @@
+
+1.on pc linux:
+
+#service  vsftpd  restart  /*both redhat9 and f7 will react, I test and succeed. */
+
+#ifconfig eth0 192.168.1.6
+
+#cp hello /home/peter
+
+1.then on your target board:
+
+#cd /bin 
+
+#ftp  192.168.1.6 (make sure your target board’s own if is 192.168.1.x now)
+
+>name:peter
+
+>passwd: 111111 
+
+/*then all files in /home/peter are there for you*/
+
+>get  hello
+
+>bye
+
+#chmod  a+x  hello
+
+then you can see hello at /bin on ARM
+
+------------------------------------------------------------------------
+
+- I try it in f7 and succeed, as long as there is a commom user named peter, nothing else is necessary. But it does work very well, you can transfer peter.c but not peter.ko. I don’t know why.
+
+-----------------------------------------------------------------------
+
+ see more in /etc/vsftpd/vsftpd.conf
+
+-------------------------------------------------------------------
+
+the use of hyperterminal
+
+choose transfer|transfer file|zmodem, you get your file tranfered to ARM, so handy.
+
+
+ 
+

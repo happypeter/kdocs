@@ -1,0 +1,26 @@
+06/04/09 05:39:41 GUI Add update : /var/cache/axtu/updates-released/packages/
+dbus-1.1.2-12AXS3.i386.rpm
+06/04/09 05:39:42 classRpmEngine RPMPROB_REQUIRES PackageNEVR:dbus-1.1.2-12AX
+S3.i386,  AlterNEVR:R dbus-libs = 1.1.2-12AXS3
+06/04/09 05:39:42 classRpmEngine Find required packages :  /var/cache/axtu/up
+dates-released/packages/dbus-libs-1.1.2-12AXS3.i386.rpm
+06/04/09 05:39:42 classRpmEngine RPMPROB_REQUIRES PackageNEVR:dbus-1.1.2-12AX
+S3.i386,  AlterNEVR:R libdbus-1.so.3
+06/04/09 05:39:42 classRpmEngine Find required packages :  /var/cache/axtu/up
+dates-released/packages/dbus-libs-1.1.2-12AXS3.i386.rpm
+06/04/09 05:39:42 classRpmEngine RPMPROB_REQUIRES PackageNEVR:dbus-glib-0.70-
+5.i386,  AlterNEVR:dbus-glib
+06/04/09 05:39:42 classRpmEngine Find required packages :  /var/cache/axtu/up
+dates-released/packages/dbus-glib-0.73-8AXS3.i386.rpm
+06/04/09 05:39:42 classRpmEngine RPMPROB_REQUIRES PackageNEVR:libgnomecups-0.
+2.2-8.i386,  AlterNEVR:libgnomecups
+06/04/09 05:39:42 classRpmEngine RPMPROB_REQUIRES PackageNEVR:kdelibs-3.5.5-1
+1.18AXS3.i386,  AlterNEVR:kdelibs
+06/04/09 05:39:43 classRpmEngine Find required packages :  /var/cache/axtu/up
+dates-released/packages/kdelibs-3.5.5-11.23AXS3.i386.rpm
+06/04/09 05:39:43 classRpmEngine RPMPROB_REQUIRES PackageNEVR:hal-0.5.8.1-25.
+2AXS3.i386,  AlterNEVR:hal
+06/04/09 05:39:44 classRpmEngine Find required packages :  /var/cache/axtu/up
+dates-released/packages/hal-0.5.8.1-38.1AXS3.i386.rpm
+@
+

@@ -1,0 +1,22 @@
+Widget
+
+1. Downloaded here http://doc.trolltech.com/3.1/aclock-example.html, the three files was put in a folder named peter,
+
+2. qmake –project->qmake->make, in one of the three files I add #endif, then complation completed.
+
+3. in main.cpp, aclock.h is included, but I think it should be aclock.cpp, because aclock includes a.h, but itself is not referred in main! How can it be so?
+
+4. finished adding your custom widget, you can not only see it in tools|custom, but also in tool bar area on the top of the main window, after choosing window|toolbar|cutom
+
+5. Note: when you add a custom widget, the dilog reguire two item: the Class name(it is in the .h file), and the .h file
+
+////////////////
+
+how to use it in Designer
+1. do everything in the help file
+
+2. generate a form1.ui using designer, insert the widget. it is ok that the analog.h file is in another file.
+
+3. never use the Designer_generated .pro file, run qmake -project
+        yourself.
+

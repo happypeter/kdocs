@@ -1,0 +1,41 @@
+
+Hi All,
+
+I think some of you already know about this.
+But let me send this out for confirmation and for new developer.
+
+1. When a bug assigned to you and you started to work on it.
+   You have to change the status of bug to 'RECEIVED'.
+   Then other people can know you are investigating the bug.
+   And SDS cannot change its status to FIXED when IP has been closed.
+
+2. Send IP.
+   SDS will change the status of bug to FIXED when you closed IP.
+   You have to be sure you have changed the status to RECEIVED before
+   sending IP, or SDS cannot change the status to FIXED automatically.
+
+3. Status of bug will be changed to INTEGRATED automatically.
+   I run a script every week. The script will make a list of bugs which
+   have been fixed in specified period. And I'll give the list to testers.
+   They will start to verify our fix without waiting new ISO release.
+   But the script cannot take care of some bugs such as new package,
+   non-RECEIVED bug before closing IP.
+   I'll inform you such bugs. You have to confirm if the fix exists
+   and you have to leave a comment immediately. If you delay it, it 
+   influence testers schedule.
+
+4. At new ISO is going to be released.
+   The status of bugs would be INTEGRATED by 3 at new ISO release.
+   But developer have to confirm if the ISO includes your fix or not.
+   You have to leave a comment on each bugs which you owned to make sure
+   about it.
+
+If you don't change the bug status to RECEIVED, you have to do from 2
+to 4 by yourself. And it might have impact on the schedule.
+So please be careful about it. We have some bugs whose status is still
+NEW or REOPENED.
+
+Thanks,
+-Jun
+
+

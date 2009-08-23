@@ -1,0 +1,56 @@
+	e4fsprogs is needed by anaconda-11.1.2.168-1.9AXS3.x86_64
+	libdbus-1.so.3()(64bit) is needed by bind-9.3.4-10.P1.1AXS3.x86_64
+	dbus-libs = 1.1.2-12AXS3 is needed by dbus-1.1.2-12AXS3.i386
+	libdbus-1.so.3 is needed by dbus-1.1.2-12AXS3.i386
+	dbus-libs = 1.1.2-12AXS3 is needed by dbus-1.1.2-12AXS3.x86_64
+	libdbus-1.so.3()(64bit) is needed by dbus-1.1.2-12AXS3.x86_64
+	libdbus-1.so.3 is needed by dbus-devel-1.1.2-12AXS3.i386
+	libdbus-1.so.3()(64bit) is needed by dbus-devel-1.1.2-12AXS3.x86_64
+	libdbus-1.so.3 is needed by dbus-glib-0.73-8AXS3.i386
+	libdbus-1.so.3()(64bit) is needed by dbus-glib-0.73-8AXS3.x86_64
+	elfutils-devel-static-i386 = 0.137-3AXS3 is needed by elfutils-devel-0.137-3AXS3.i386
+	elfutils-libelf-devel-static-i386 = 0.137-3AXS3 is needed by elfutils-libelf-devel-0.137-3AXS3.i386
+	xulrunner >= 1.9.0.10-1 is needed by firefox-3.0.10-1.2AXS3.x86_64
+	libxpcom.so()(64bit) is needed by firefox-3.0.10-1.2AXS3.x86_64
+	libxul.so()(64bit) is needed by firefox-3.0.10-1.2AXS3.x86_64
+	libdbus-1.so.3 is needed by hal-0.5.8.1-38.1AXS3.i386
+	libdbus-1.so.3()(64bit) is needed by hal-0.5.8.1-38.1AXS3.x86_64
+	libdbus-1.so.3()(64bit) is needed by hal-gnome-0.5.8.1-38.1AXS3.x86_64
+	libdbus-1.so.3 is needed by kdelibs-3.5.5-11.23AXS3.i386
+	libdbus-1.so.3()(64bit) is needed by kdelibs-3.5.5-11.23AXS3.x86_64
+	libdbus-1.so.3()(64bit) is needed by lime-providers-1.3.12-2AXS3.x86_64
+	device-mapper-event is needed by lvm2-2.02.40-6.1AXS3.x86_64
+	libdbus-1.so.3()(64bit) is needed by NetworkManager-glib-0.7.0-4.1AXS3.x86_64
+	libdbus-1.so.3()(64bit) is needed by notification-daemon-0.3.5-9.1AXS3.x86_64
+	libfipscheck.so.1 is needed by nss_ldap-253-17AXS3.i386
+	libfipscheck.so.1()(64bit) is needed by nss_ldap-253-17AXS3.x86_64
+	libdat.so.1 is needed by openmpi-libs-1.2.7-6AXS3.i386
+	libdat.so.1(DAT_1.2) is needed by openmpi-libs-1.2.7-6AXS3.i386
+	mpi-selector is needed by openmpi-libs-1.2.7-6AXS3.i386
+	libdat.so.1()(64bit) is needed by openmpi-libs-1.2.7-6AXS3.x86_64
+	libdat.so.1(DAT_1.2)(64bit) is needed by openmpi-libs-1.2.7-6AXS3.x86_64
+	mpi-selector is needed by openmpi-libs-1.2.7-6AXS3.x86_64
+	python-iniparse is needed by pirut-1.3.28-13.4AXS3.noarch
+	libselinux-utils is needed by policycoreutils-1.33.12-14.2AXS3.x86_64
+	gtk-vnc-python is needed by virt-manager-0.5.3-10.1AXS3.x86_64
+	python-iniparse is needed by yum-3.2.19-18AXS3.noarch
+	libdbus-1.so.3 is needed by (installed) libgnomecups-0.2.2-8.i386
+	libdbus-1.so.3 is needed by (installed) gphoto2-2.2.0-3.i386
+	libdbus-1.so.3 is needed by (installed) gnome-vfs2-2.16.2-4.i386
+	libdbus-1.so.3 is needed by (installed) avahi-0.6.16-1AXS3.1.i386
+	libdbus-1.so.3()(64bit) is needed by (installed) dbus-python-0.70-7.x86_64
+	libdbus-1.so.3()(64bit) is needed by (installed) libnotify-0.4.2-6.x86_64
+	libdbus-1.so.3()(64bit) is needed by (installed) notify-python-0.1.0-3.x86_64
+	libdbus-1.so.3()(64bit) is needed by (installed) dbus-qt-0.62-16.1AX.x86_64
+	libdbus-1.so.3()(64bit) is needed by (installed) libgnomecups-0.2.2-8.x86_64
+	libdbus-1.so.3()(64bit) is needed by (installed) shared-1.0-0108.1AXS3.x86_64
+	libdbus-1.so.3()(64bit) is needed by (installed) gphoto2-2.2.0-3.x86_64
+	libdbus-1.so.3()(64bit) is needed by (installed) kdebase-3.5.5-23.40AXS3.x86_64
+	libdbus-1.so.3()(64bit) is needed by (installed) fileshareui-1.0-1229.9AXS3.x86_64
+	libdbus-1.so.3()(64bit) is needed by (installed) printershareui-1.0-0110AXS3.x86_64
+	libdbus-1.so.3()(64bit) is needed by (installed) gnome-vfs2-2.16.2-4.x86_64
+	libdbus-1.so.3()(64bit) is needed by (installed) gnome-mount-0.5-3.x86_64
+	libdbus-1.so.3()(64bit) is needed by (installed) krb5-auth-dialog-0.7-1.x86_64
+	libdbus-1.so.3()(64bit) is needed by (installed) avahi-0.6.16-1AXS3.1.x86_64
+	libdbus-1.so.3()(64bit) is needed by (installed) cups-1.3.7-8.4.1AXS3.x86_64
+

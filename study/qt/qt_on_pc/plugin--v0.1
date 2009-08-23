@@ -1,0 +1,44 @@
+Plugin
+
+1. to me a plugin in very much like a kernel module, can be complied into .so format(not .ko), and .so is a dll file.(a example of this is in /qwt-5.0.2/designer/plugin/designer/….so), or be compiled together with the main program(quit like a driver, ah?!)
+
+2. in qt assitant/plugin howto, they lists out several kinds of plugins: database driver, many widgets together as a dependent component…
+
+3. I $cd /root/peter/qwt5..0.2/designer $make $make install, then a libqwtplugin.so shows up in$QTDIR/plugin/designer and ./plugin/designer, but I don’t know how to use it in QT designer.
+
+4. the Makefile in /qwt5.0.2/ will give a command to the Makefile in /qwt.5.0.2./src to execute its own install, which add a .so file in ./lib..it is for the running of the examples (export $LD_LIBRARY_PATH)
+
+5. http://doc.trolltech.com/3.1/plugins-howto.html
+
+Writing a plugin is achieved by subclassing the appropriate plugin base clase,
+
+ 
+
+implementing a few functions,
+
+ 
+and adding a macro----Q_EXPORT_PLUGIN( MyStylePlugin )
+
+Base Class
+ Default Path
+ 
+QImageFormatPlugin
+ QTDIR/plugins/imageformats *
+ 
+QSqlDriverPlugin
+ QTDIR/plugins/sqldrivers *
+ 
+QStylePlugin
+ QTDIR/plugins/styles *
+ 
+QTextCodecPlugin
+ QTDIR/plugins/codecs *
+ 
+QWidgetPlugin
+ QTDIR/plugins/designer *
+ 
+
+6. Qt applications automatically know which plugins are available, because plugins are stored in the standard plugin subdirectories. Because of this applications don't require any code to find and load plugins, since Qt handles them automatically.
+
+7. Ensure that the class implementation is located in a .cpp file (including the class definition):
+

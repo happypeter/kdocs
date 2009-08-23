@@ -1,0 +1,42 @@
+
+ldd analogclock
+	linux-gate.so.1 =>  (0xb7f81000)
+	libQtGui.so.4 => /usr/local/Trolltech/QtEmbedded-4.4.3/lib/libQtGui.so.4 (0xb7764000)
+	libQtNetwork.so.4 => /usr/local/Trolltech/QtEmbedded-4.4.3/lib/libQtNetwork.so.4 (0xb76d9000)
+	libQtCore.so.4 => /usr/local/Trolltech/QtEmbedded-4.4.3/lib/libQtCore.so.4 (0xb7490000)
+	librt.so.1 => /lib/tls/i686/cmov/librt.so.1 (0xb747a000)
+	libdl.so.2 => /lib/tls/i686/cmov/libdl.so.2 (0xb7476000)
+	libpthread.so.0 => /lib/tls/i686/cmov/libpthread.so.0 (0xb745e000)
+	libstdc++.so.6 => /usr/lib/libstdc++.so.6 (0xb736b000)
+	libm.so.6 => /lib/tls/i686/cmov/libm.so.6 (0xb7345000)
+	libgcc_s.so.1 => /lib/libgcc_s.so.1 (0xb733a000)
+	libc.so.6 => /lib/tls/i686/cmov/libc.so.6 (0xb71eb000)
+	/lib/ld-linux.so.2 (0xb7f82000)
+
+in minicom I see
+./analogclock: error while loading shared libraries: libQtGui.so.4: 
+so I delete libqte.so.2.3.7 and replace it with libQtGui.so(ln -s ...)
+then
+export LD_LIBRARY_PATH=/opt/qt/lib:$LD_LIBRARY_PATH     
+now the error is
+./analogclock: error while loading shared libraries: libQtNetwork.so.4
+next one
+ libQtCore.so.4--
+
+all the above libs are in /qte/lib/
+
+now where is
+- librt.so.1
+haha they are here
+      root@Tinylion:/usr/local/arm/3.4.1/arm-linux/lib# 
+so I put it on arm-board: /lib/ together with other gcc libs like libstdc++ libm libdl
+well, the other libs are alredy there, so now reboot the machine and the error is
+**** QFontDatabase: Cannot find font directory /usr/local/Trolltech/QtEmbedded-4.4.3-arm/lib/fonts - is Qt installed correctly?
+so I 
+$mkdir -p /usr/local/Trolltech/QtEmbedded-4.4.3-arm/lib/fonts
+
+then reboot
+aclock shows up, haha
+
+
+

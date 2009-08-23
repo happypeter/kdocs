@@ -1,0 +1,82 @@
+1. install some packages in ubuntu
+apt-get install libx11-dev
+apt-get install libxext-dev
+
+2. download the src at
+http://trolltech.com/downloads/opensource/appdev/linux-x11-cpp
+
+3. extract the package
+ 
+$./configure
+$make
+$make install----------------copy things to /usr/local/Trolltech
+
+add
+PATH=/usr/local/Trolltech/Qt-4.4.3/bin:$PATH
+export PATH
+to ~/.profile
+
+then everyting is OK
+/******************qt/e ------x86->fb****************************/
+See the INSTALL file in the package first
+
+./configure -qvfb
+ make
+
+# qvfb
+The program 'qvfb' is currently not installed.  You can install it by typing:
+apt-get install qt3-dev-tools-embedded
+so i run
+$apt-get install qt3-dev-tools-embedded
+Now I have my ubuntu qvfb
+the qvfb runs well, but the problem is there is no /dev/fb0 in ubuntu8.04
+***
+Hi,
+
+I had this problem that qt/e applications couldn't be run within qvfb because 
+of missing QVFb drivers.
+
+The webpage says to configure qt/e with -qvfb. This is a configure option of 
+qt/e 2.x
+
+New qt/e-versions have to be compiled with
+
+-qt-gfx-qvfb
+
+This option is not clearly printed in the help-page of configure.
+
+I'm posting this here, because I had myself a hard time to figure this out.
+
+Martin
+***************
+when I run
+$./configure -h
+and find out the above letter does make sense, as I don't have /dev/fb0 in ubuntu
+                        -qt-gfx-<driver> ... Enable a graphics <driver> in the QtGui library.
+                         Possible values for <driver>: [ linuxfb transformed qvfb vnc multiscreen ]
+
+so I 
+./configure -qt-gfx-qvfb
+
+well, still the fb0 error.
+
+so I use VNC http://doc.trolltech.com/4.4/qt-embedded-vnc.html
+-------------
+---NOT WORKING...--------
+
+
+
+
+
+/********************qt/e-------arm*************************/
+See the INSTALL file in the package first
+You need to install arm-linux-gcc first.
+./configure -embedded arm          (MAYBE SOME MORE ARGUMENT GO HERE FOR THE SUPPORT OF TS OR MOUSE)
+./make
+
+I use arm-linux-gcc-3.4.1------------everything is done.
+But maybe I shall use 3.3.2 to compile it again if i want to mv examples to ARM
+to get rid of clib compatibility issue.
+
+http://doc.trolltech.com/4.4/qt-embedded.html
+/********************qt/e-------arm************************/

@@ -1,0 +1,12 @@
+Qt designer usage
+
+1. want to open property editor? Click window|view|
+
+2. any tool window like toolbox, your custom widget, and everything can be seen, you can add and remove them by select or deselct item in window|
+
+3. there files generated form qt designer in the folder named peter: peter.pro,form1.ui, main.cpp
+
+4. I delete peter.pro, and make my own one using qmake, compilation succeed.
+
+the main need from1.h, which is generated during qmake, form1.h is same as uic form1.ui, however, even you have form1.h, the absence of form1.ui will definitely lead to a compilation failure.
+

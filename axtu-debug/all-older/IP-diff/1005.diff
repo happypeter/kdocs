@@ -1,0 +1,41 @@
+20090422120307_axtu.spec.diff
+
+Index: /home/peter/sds/packages/axtu/1.5/axtu.spec
+===================================================================
+--- /home/peter/sds/packages/axtu/1.5/axtu.spec	(revision 7751)
++++ /home/peter/sds/packages/axtu/1.5/axtu.spec	(working copy)
+@@ -27,11 +27,11 @@
+ %endif
+ 
+ NAME: axtu
+-Release: 5%{?dist}
++Release: 1%{?dist}
+ Summary: Asianux TSN Updater
+ Group: Utilities/System
+ License: GPL/LGPL
+-Version: 1.4.16
++Version: 1.5.0
+ URL: http://www.asianux.com
+ Source: %{name}.tar.gz
+ Source1: axtu.desktop.AXS3
+@@ -44,8 +44,8 @@
+ 
+ ## ## Aternate_Command_Names ##
+ Source100: set-sysmgt-axtu
+-Patch0: axtu-1.4-obsolete-case.patch
+-Patch1: axtu-1.4-obsolete-upgrade.patch
++Patch0: axtu-1.5-obsolete-case.patch
++Patch1: axtu-1.5-obsolete-upgrade.patch
+ 
+ BuildRoot: %{_tmppath}/%{name}-buildroot
+ BuildRequires: qt-devel,newt-devel
+@@ -238,6 +238,8 @@
+ %doc COPYING
+ 
+ %changelog
++* Wed Apr 22 2009 Peter, Wang <peter.wang@asianux.com> 1.5.0-1%{?dist}
++- the source code is the same as 1.4.16-5%, the two patches names are changed from 1.4 to 1.5...
+ 
+ * Wed Apr 15 2009 Peter, Wang <peter.wang@asianux.com> 1.4.16-5%{?dist}
+ - redcastle-app & redcastle-pam are now treated as common packages(AXBUG#5989 #5990)
+

@@ -1,0 +1,12 @@
+>>>rpm source code
+romi: /project/pool/Trinity/ia32/pool/SRPMS/rpm-4.3.3-26_nonptl.1AXS2.src.rpm
+>>>
+Where to get the lastest rpms  and src_rpms, such as beta4 ones?
+
+$ssh jupiter
+$cd  /project/Quartet/distro/asianux-3.0/iso-images ------lastest iso go here
+later Huajie will copy the lastest ISOs to romi:/project/ISO/
+/project/Quartet/distro/asianux-3.0/src/SRPMS--------------lastest src rpms
+
+
+

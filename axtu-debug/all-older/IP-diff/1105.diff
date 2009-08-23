@@ -1,0 +1,179 @@
+Index: /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/classGui.h
+===================================================================
+--- /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/classGui.h	(revision 7880)
++++ /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/classGui.h	(working copy)
+@@ -24,7 +24,7 @@
+ 
+ /// Network error messages
+ #define URL_CONFIRM_MSG_C   "Check the TSN Server address in /etc/axtu/axtu.conf."
+-#define CONNECT_ERR_MSG_C   "Cannot connect with the TSN Server."
++#define CONNECT_ERR_MSG_C   "Required data were not found on the server."
+ #define URL_ERR_MSG_C     CONNECT_ERR_MSG_C
+ #define CONNECT_CONFIRM_MSG_C "Network error."
+ #define AUTH_ERR_MSG_C        "Cannot connect to the authentication server."
+@@ -33,7 +33,7 @@
+ #define USERFWRITE_ERR_MSG_C  "Can NOT write the file. Please, Check your disk space."
+ 
+ #define URL_CONFIRM_MSG   tr("Check the TSN Server address in /etc/axtu/axtu.conf.")
+-#define CONNECT_ERR_MSG   tr("Cannot connect with the TSN Server.")
++#define CONNECT_ERR_MSG   tr("Required data were not found on the server.")
+ #define URL_ERR_MSG CONNECT_ERR_MSG
+ #define CONNECT_CONFIRM_MSG tr("Network error.")
+ #define AUTH_ERR_MSG        tr("Cannot connect to the authentication server.")
+Index: /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/classGui.cpp
+===================================================================
+--- /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/classGui.cpp	(revision 7880)
++++ /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/classGui.cpp	(working copy)
+@@ -1268,8 +1268,8 @@
+ 		}	
+ 		else if(result == -10)
+ 		{			
+-			strErr = tr("Cannot connect with the TSN Server. See %1%2").arg(m_strLogPath, ERROR_LOG_FILE);
+-			snprintf(strDubugMsg, sizeof(strDubugMsg), "Cannot connect with the TSN Server. See %s%s", m_strLogPath.c_str(), ERROR_LOG_FILE);
++			strErr = tr("Required data were not found on the server. See %1%2").arg(m_strLogPath, ERROR_LOG_FILE);
++			snprintf(strDubugMsg, sizeof(strDubugMsg), "Required data were not found on the server. See %s%s", m_strLogPath.c_str(), ERROR_LOG_FILE);
+ 		}
+ 		else
+ 		{
+Index: /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/qm/axtu_ko.ts
+===================================================================
+--- /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/qm/axtu_ko.ts	(revision 7880)
++++ /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/qm/axtu_ko.ts	(working copy)
+@@ -82,8 +82,8 @@
+         <translation>업데이터 설정 화일을(/etc/axtu/axtu.conf)를 확인 하십시오.</translation>
+     </message>
+     <message>
+-        <source>Cannot connect with the TSN Server.</source>
+-        <translation>서버로 연결 할 수 없습니다.</translation>
++        <source>Required data were not found on the server.</source>
++        <translation>서버로부터 필요한 정보를 찾을 수 없습니다.</translation>
+     </message>
+     <message>
+         <source>Network error.</source>
+@@ -970,8 +970,8 @@
+         <translation>설정 파일을 찾을 수 없습니다 : %1. 업데이터가 정상적으로 동작할 수 없습니다.</translation>
+     </message>
+     <message>
+-        <source>Cannot connect with the TSN Server. See %1%2</source>
+-        <translation>TSN 서버로 연결 할 수 없습니다.  %1%2에서 확인하십시오</translation>
++        <source>Required data were not found on the server. See %1%2</source>
++        <translation>요청된 데이터가 서버에 존재하지 않습니다. %1%2를 보십시오.</translation>
+     </message>
+     <message>
+         <source>Do you want to cancel the download and exit?</source>
+Index: /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/qm/axtu_ja.ts
+===================================================================
+--- /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/qm/axtu_ja.ts	(revision 7880)
++++ /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/qm/axtu_ja.ts	(working copy)
+@@ -78,8 +78,8 @@
+         <translation>環境設定ファイル(/etc/axtu/axtu.conf)のアップデートサーバーアドレスを確認してください。</translation>
+     </message>
+     <message>
+-        <source>Cannot connect with the TSN Server.</source>
+-        <translation>アップデートサーバーに接続出来ません。</translation>
++        <source>Required data were not found on the server.</source>
++        <translation>要求されたデータがサーバーに見つかりませんでした。</translation>
+     </message>
+     <message>
+         <source>Network error.</source>
+@@ -878,8 +878,8 @@
+         <translation>設定ファイルを発見できません :%1. TSN Updater を続行できません.</translation>
+     </message>
+     <message>
+-        <source>Cannot connect with the TSN Server. See %1%2</source>
+-        <translation>TSN Server に接続することができません. %1 %2をご覧ください</translation>
++        <source>Required data were not found on the server. See %1%2</source>
++        <translation>要求されたデータがサーバーに見つかりませんでした。%1%2を参照してください。</translation>
+     </message>
+     <message>
+         <source>Do you want to cancel the download and exit?</source>
+Index: /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/qm/axtu_zh_TW.ts
+===================================================================
+--- /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/qm/axtu_zh_TW.ts	(revision 7880)
++++ /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/qm/axtu_zh_TW.ts	(working copy)
+@@ -158,8 +158,8 @@
+         <translation>在/etc/axtu/axtu.conf文件中檢查TSN服務器的地址。</translation>
+     </message>
+     <message>
+-        <source>Cannot connect with the TSN Server.</source>
+-        <translation>無法連接TSN服務器。</translation>
++        <source>Cannot connect with the TSN server.</source>
++        <translation>服務器端所需數據未找到。</translation>
+     </message>
+     <message>
+         <source>Network error.</source>
+@@ -1209,8 +1209,8 @@
+         <translation>未發現配置文件：%1. TSN升級程序無法繼續。</translation>
+     </message>
+     <message>
+-        <source>Cannot connect with the TSN Server. See %1%2</source>
+-        <translation>無法連接到TSN服務器。請參照 %1%2</translation>
++        <source>Required data were not found on the server. See %1%2</source>
++        <translation>服務器端所需數據未找到。請參照 %1%2</translation>
+     </message>
+     <message>
+         <source>Do you want to cancel the download and exit?</source>
+Index: /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/qm/axtu_zh_CN.ts
+===================================================================
+--- /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/qm/axtu_zh_CN.ts	(revision 7880)
++++ /home/peter/sds/packages/axtu/1.5/tarball01/axtu/gui/axtu/qm/axtu_zh_CN.ts	(working copy)
+@@ -158,8 +158,8 @@
+         <translation>在/etc/axtu/axtu.conf文件中检查TSN服务器的地址。</translation>
+     </message>
+     <message>
+-        <source>Cannot connect with the TSN Server.</source>
+-        <translation>无法连接TSN服务器。</translation>
++        <source>Required data were not found on the server.</source>
++        <translation>服务器端所需数据未找到。</translation>
+     </message>
+     <message>
+         <source>Network error.</source>
+@@ -1209,8 +1209,8 @@
+         <translation>未发现配置文件：%1. TSN升级程序无法继续。</translation>
+     </message>
+     <message>
+-        <source>Cannot connect with the TSN Server. See %1%2</source>
+-        <translation>无法连接到TSN服务器。请参照 %1%2</translation>
++        <source>Required data were not found on the server. See %1%2</source>
++        <translation>服务器端所需数据未找到。请参照 %1%2</translation>
+     </message>
+     <message>
+         <source>Do you want to cancel the download and exit?</source>
+Index: /home/peter/sds/packages/axtu/1.5/tarball01/axtu/daemon/axtu-daemon.cpp
+===================================================================
+--- /home/peter/sds/packages/axtu/1.5/tarball01/axtu/daemon/axtu-daemon.cpp	(revision 7880)
++++ /home/peter/sds/packages/axtu/1.5/tarball01/axtu/daemon/axtu-daemon.cpp	(working copy)
+@@ -22,7 +22,7 @@
+ #define HOUR 3600
+ #define MYSELF_NAME_DAEMON "axtu-daemon"
+ #define URL_CONFIRM_MSG		_("Check update-server address of your configure file")
+-#define CONNECT_ERR_MSG		_("Cannot connect with the TSN Server.")
++#define CONNECT_ERR_MSG		_("Required data were not found on the server.")
+ #define URL_ERR_MSG			CONNECT_ERR_MSG
+ #define CONNECT_CONFIRM_MSG	_("Check your network state.")
+ #define AUTH_ERR_MSG		_("Cannot authenticate from Server.")
+Index: /home/peter/sds/packages/axtu/1.5/axtu.spec
+===================================================================
+--- /home/peter/sds/packages/axtu/1.5/axtu.spec	(revision 7880)
++++ /home/peter/sds/packages/axtu/1.5/axtu.spec	(working copy)
+@@ -27,7 +27,7 @@
+ %endif
+ 
+ NAME: axtu
+-Release: 8%{?dist}
++Release: 9%{?dist}
+ Summary: Asianux TSN Updater
+ Group: Utilities/System
+ License: GPL/LGPL
+@@ -242,6 +242,9 @@
+ %doc COPYING
+ 
+ %changelog
++* Mon May 25 2009 Peter, Wang <peter.wang@asianux.com> 1.5.0-9%{?dist}
++- some inapropriate error messages modified. (AXBUG#6076)
++
+ * Thu May 18 2009 Peter, Wang <peter.wang@asianux.com> 1.5.0-8%{?dist}
+ - irqbanlance will not show up on install list if it is installed already. (AXBUG#6263)
+ 
+
+

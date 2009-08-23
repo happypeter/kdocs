@@ -1,0 +1,49 @@
+#include<qapplication.h> //always necesssary
+#include<qpushbutton.h> 
+#include<qscrollview.h>  //window with scroll bars
+class Peter: public QScrollView
+{
+public:           //you can not miss this word, otherwise error occour
+ Peter();
+private:          //    
+ QPushButton *b;
+};  //note the semicolon
+Peter::Peter()
+{
+setGeometery(111,111,111,111);
+b=new QPushButton("hi", this);
+}
+int main(int argc, char *argv[])
+{
+QApplicaton app(argc,argv);
+Peter w;
+app.setMainWidget(&w);
+w.show();
+return app.exec();
+}
+/////////////////////
+//paintEvent
+///
+#include<qapplication.h> //always necesssary
+#include<qpushbutton.h> 
+#include<qscrollview.h>  //window with scroll bars
+class Peter: public QScrollView
+{
+public:          
+ Peter();
+     void   piantEvent(); //note void     
+ 
+}; 
+Peter::Peter()
+{
+}
+int main(int argc, char *argv[])
+{
+QApplicaton app(argc,argv);
+Peter w;
+void paintEvent();
+app.setMainWidget(&w);
+w.show();
+return app.exec();
+}// the paintEvent here has no visuable effect, why?
+

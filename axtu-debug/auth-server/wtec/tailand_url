@@ -1,0 +1,13 @@
+Tailand URL
+
+>>>change /etc/hosts, add
+
+10.1.0.155    peter.wt.com 
+
+then use the wtec key to register, then the url peter.wt.com is used.
+
+
+>>>so now the process is like this.
+you enter the wtec key, and the program get the fist bit '6', and write WT to
+AUTHEN_CLIENT_CONF_PATH = "/var/axtu/axtu-authen-client.conf"
+  //if you change WT here to RF again, then update.redflag is used again 

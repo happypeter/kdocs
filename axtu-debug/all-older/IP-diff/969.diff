@@ -1,0 +1,36 @@
+20090410154156_axtu-common-info.spec.diff
+
+Index: /home/peter/sds/packages/axtu-common-info/1.0/tarball01/axtu-common-info/incompatible.conf
+===================================================================
+--- /home/peter/sds/packages/axtu-common-info/1.0/tarball01/axtu-common-info/incompatible.conf	(revision 7690)
++++ /home/peter/sds/packages/axtu-common-info/1.0/tarball01/axtu-common-info/incompatible.conf	(working copy)
+@@ -2,3 +2,6 @@
+ samba-common, 3.0.28-0AX
+ samba-client, 3.0.28-0AX
+ samba-swat, 3.0.28-0AX
++zabbix, 1.5.0
++zabbix-web, 1.5.0
++zabbix-agent, 1.5.0
+Index: /home/peter/sds/packages/axtu-common-info/1.0/axtu-common-info.spec
+===================================================================
+--- /home/peter/sds/packages/axtu-common-info/1.0/axtu-common-info.spec	(revision 7690)
++++ /home/peter/sds/packages/axtu-common-info/1.0/axtu-common-info.spec	(working copy)
+@@ -1,6 +1,6 @@
+ Name: axtu-common-info
+ Version: 1.0
+-Release: 2%{?dist}
++Release: 3%{?dist}
+ License: GPL/LGPL
+ Group: Utilities/System
+ URL: http://www.asianux.com
+@@ -38,6 +38,9 @@
+ %{_mandir}/man5/incompatible.conf.5.gz
+ 
+ %changelog
++* Fri Apr 10 2009 Peter Wang<peter.wang@asianux.com> 1.0-3AX
++- Bug fix #4638 - Changed zabbix border version of incompatibility to 1.5.0
++
+ * Thu Jul 10 2008 Kazuo YAGI<kyagi@miraclelinux.com> 1.0-2AX
+ - Bug fix #4638 - Changed samba border version of incompatibility to 3.0.28-0AX.
+ 
+

@@ -1,0 +1,41 @@
+my blog howto
+
+1. to make the text tidy, copy it to notebook before publish it on net.
+
+   that way, all the words are of the same size.
+
+2. on space after the serial number "1. ddd"
+ 
+3. since i have two blogs, how can i keep them be the same all the time.
+ 
+  of course i can not change one blog artical then go the another blog
+ 
+  to change the same artical at once every time. that is a waste of time.
+ 
+  so what is the better idea?
+ 
+  i guess i can do it this way, 
+ 
+  i give every artical a version number(by adding v1 or v2 to the end of the
+ 
+  name), that way, i can change articals in one blog at will, and have the other
+ 
+  one changed all in one time. 
+ 
+4. today, when i wanted to burn my curve_project onto a disk, i wrote a README
+ 
+   in /doc/, which said: see more in my blog/arm_curve/
+ 
+   however this is not the right way to do it, what is right is to write a README
+ 
+   in myblog/arm_curve/, and say: the project files is in my disks/NO.x/xxx
+ 
+   you see my point? my blog shall be the kernel of my backup system, which in
+ 
+   charge of the backups in the disks, as well as these in printed books.
+ 
+5. that is because when the lists of disks and books gets very long, they are
+   actually quite confusing, so the better way is leave a reference mark in my
+ 
+   blog articals, e.g see more about this in my books/NO.xxx/Pxxx~Pxxx
+

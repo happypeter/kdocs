@@ -1,0 +1,31 @@
+last change in 10_3_2008
+now i know more about sister_root
+see bin/recover_systerm
+#!/bin/sh
+echo "#########################################"
+echo "#    Formating for yaffs....            #"
+echo "#########################################"
+/bin/eraseall /dev/mtd/2
+echo "#########################################"
+echo "#             Update......              #"
+echo "#########################################"
+/bin/mount /dev/mtdblock/2 /mnt
+cd /mnt
+/bin/tar xvzf /root-qt-1.0-tar.gz
+echo "#########################################"
+echo "#          Congratulations!             #"
+echo "#        Please Reboot !                #"
+echo "#########################################"
+now i know only root-qt-1.0-tar.gz will be installed on ARM
+not the whole sister_root
+all stuff outside root-qt-1.0-tar.gz is only used temporarily
+during the NFS connect as a way to invoke recover_systerm
+so i extract root-qt-1.0-tar.gz and make it a yaffs image
+then install the image on ARM using
+>loadyaffs -e root u
+but nothing shows up on the screen eventually
+i do not know yet
+but when i do the whole thing  to friendlyARM root_qtopia_tp.tgz
+everything works perfectly
+i am so happy about this
+

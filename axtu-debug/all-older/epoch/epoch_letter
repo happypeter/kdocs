@@ -1,0 +1,93 @@
+ 	
+Peter,
+
+Why did you change m_bIgnoreSelfUpdate's value from false to true?
+
+If because for test, you should eliminate it from the patch.
+
+Regards,
+OopsLee
+
+------- Original Message -------
+From: Wang,Guangzhong(王广忠) <ax-axtu@forum.asianux.net>
+To: Jun YOSHIDA <ax-axtu@forum.asianux.net>
+Sent: Tue, 7 Apr 2009 16:33:05 +0800
+Subject: [ax-axtu:11793] Re: [ax-axtu:11792] Re: patch for epoch issue
+
+Thanks, Jun,
+
+I think you are right, It is not good style to mix statements and declarations, and it will be better to put the definations of variables outside loops, otherwise it will prolong execution time.
+
+In the new patch, I had this changed.
+
+Regards
+Peter
+
+------- Original Message -------
+From: Jun YOSHIDA <ax-axtu@forum.asianux.net>
+To: ax-axtu@forum.asianux.net
+Sent: Tue, 7 Apr 2009 16:31:24 +0900 (JST)
+Subject: [ax-axtu:11792] Re: patch for epoch issue
+
+>
+Peter,
+
+It might work but I don't think this code considers the variable scope.
+
++                int_32 * ep_int;   
++                if (!(headerGetEntry(hdr, RPMTAG_EPOCH, NULL, (void **) &ep_int, NULL)))                                ep_int = NULL;
++                if(ep_int == NULL)
++                {
++                        int_32 i=0;
++                        ep_int=&i;
++                }
++                stringstream out;
++                out<<*ep_int;
+
+-Jun
+
+On Tue,  7 Apr 2009 15:12:46 +0800, "Wang,Guangzhong(王广忠)" <peter.wang@asianux.com> wrote:
+
+> 
+> Hi Jongwoo,
+> 
+> The patch is in the attatched file.
+> 
+> Thanks
+> Peter
+> ------- Original Message ------- 
+> From: Jongwoo Lee <ax-axtu@forum.asianux.net>
+> To: Guangzhong(王广忠) <ax-axtu@forum.asianux.net>
+> Cc: ax-axtu@forum.asianux.net
+> Sent: Tue, 7 Apr 2009 13:34:51 +0900
+> Subject: [ax-axtu:11790] Re: [ax-axtu:11783] patch for epoch issue
+> 
+> Hi Peter,
+> 
+> So, where is the patch??
+> 
+> Regards,
+> OopsLee
+> 
+> ------- Original Message ------- 
+> From: Wang,Guangzhong(王广忠) <ax-axtu@forum.asianux.net>
+> To: ax-axtu <ax-axtu@forum.asianux.net>
+> Sent: Tue, 7 Apr 2009 10:38:59 +0800
+> Subject: [ax-axtu:11783] patch for epoch issue
+> 
+> Hello,
+> 
+> The patch is my solution for the following bug. Plz check if it is right, 
+> and any suggestion about my coding style will be appriciated. I am new here:-) 
+> 
+> Big thanks.
+> Peter
+> 
+> 
+> ID     Sev     Pri     OS     Assignee     Status     Res     ExInfo     Summary
+> 5965 [SEC]     2     2     Linux     peter.wa..     RECEIVED     
+>     
+>     AXTU does NOT support epoch so irqbalance package can not be updated.
+
+
+

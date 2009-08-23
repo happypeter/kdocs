@@ -1,0 +1,63 @@
+<> 
+if(flag_1)
+                        {// now we need to concern about epoch
+
+                        //      if(strOldName2 != strNameR || (strOldName2 ==
+ strNameR && !CheckArch(strOldArch2 , strArchR)))
+                                {
+                                //      if((strEpoch_1)>(it_1->strEpoch))
+                                //      it_1=itRemote;  //it latter epoch is
+bigger than early one, update it_1
+                                        itRemote=it_1;
+                                        nCount--;
+                                        stripNVRA(itRemote->strNVRA, &strName
+R, &strVerR, &strRelR, &strArchR);
+                                        break;
+                                }
+                        }
+</>------works 
+
+<>
+ if(flag_1)
+                        {// now we need to concern about epoch
+
+                        //      if(strOldName2 != strNameR || (strOldName2 ==strNameR && !CheckArch(strOldArch2 , strArchR)))
+                                {
+                                //      if((strEpoch_1)>(it_1->strEpoch))
+                                //      it_1=itRemote;  //it latter epoch is
+bigger than early one, update it_1
+                                //      itRemote=it_1;
+
+                                        nCount--;
+                                        stripNVRA(it_1->strNVRA, &strNameR, &
+strVerR, &strRelR, &strArchR);
+                                        break;
+                                }
+                        }
+
+</>------does not work
+
+
+<>
+ if(flag_1)
+                        {// now we need to concern about epoch
+
+                        //      if(strOldName2 != strNameR || (strOldName2 ==strNameR && !CheckArch(strOldArch2 , strArchR)))
+                                {
+                                //      if((strEpoch_1)>(it_1->strEpoch))
+                                //      it_1=itRemote;  //it latter epoch is
+bigger than early one, update it_1
+                                      itRemote=it_1;//-------------!!!
+
+                                        nCount--;
+                                        stripNVRA(it_1->strNVRA, &strNameR, &
+strVerR, &strRelR, &strArchR);
+                                        break;
+                                }
+                        }
+
+</>------works
+
+
+
+that is because the following functions use itRemote a lot to compare.

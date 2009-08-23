@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="peter king">
+	<META NAME="CREATED" CONTENT="20081223;18281900">
+	<META NAME="CHANGEDBY" CONTENT="peter king">
+	<META NAME="CHANGED" CONTENT="20081223;18345900">
+	<META NAME="CHANGEDBY" CONTENT="peter king">
+	<META NAME="CHANGEDBY" CONTENT="peter king">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<h1>>LCD Problem</h1>
+</FONT></FONT><FONT FACE="DejaVu Sans"><SPAN LANG="zxx"><FONT FACE="AlManzomah"><FONT SIZE=3><SPAN LANG="zxx"></SPAN></FONT></FONT></SPAN></FONT><FONT FACE="AlManzomah"><FONT SIZE=3>the problem is the core board only pin out 21 lines for LCD, while my SUMSUNG 3.5 TFT requires 24 lines
+<br>Finally the following steps works out perfectly</FONT></FONT>
+<OL>
+	<LI><P><FONT FACE="AlManzomah"><FONT SIZE=3>I will put two lcd interface in my bottom board,
+   41P one for the yctek screen, and another one for the Prime View tft.</FONT></FONT></P>
+	<LI><P><FONT FACE="AlManzomah"><FONT SIZE=3>   Of course I don't have enough VD lines for yctek screen,
+   							<br>I will have the lowest 3 lines of every color connected to GND,
+   							<br>however the thing is that how can I tell which ones are of the lower part,
+   							<br>since I do not have the UM of yctek screen.       </FONT></FONT></P>
+	<LI><P><FONT FACE="AlManzomah"><FONT SIZE=3> sister board connect the one smallest numbered pin to the GND for blue and red,
+   							<br>the pins needed by yc screen, which are not pined out in sister core, are also of lower bits,</FONT></FONT></P>
+	<LI><P><FONT FACE="AlManzomah"><FONT SIZE=3>.so anyway I will connect all the vd lines available,
+   and leave the others connected to GND</FONT></FONT></P></FONT></FONT></P>
+</BODY>
+</HTML>
+
+
+

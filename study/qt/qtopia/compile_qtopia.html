@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="peter king">
+	<META NAME="CREATED" CONTENT="20081221;2445900">
+	<META NAME="CHANGEDBY" CONTENT="peter king">
+	<META NAME="CHANGED" CONTENT="20081221;2453400">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P><FONT FACE="AlManzomah">last changed in 10_18_2008</FONT></P>
+<P><FONT FACE="AlManzomah">install arm-linux-gcc 3.3.2</FONT></P>
+<P><FONT FACE="AlManzomah">tar ipaq-qtopia.tar.bz2</FONT></P>
+<P><FONT FACE="AlManzomah">change
+/ipaq-qtopia/qtopia/src/qt/qconfig-qpe.h</FONT></P>
+<P><FONT FACE="AlManzomah">comment out</FONT></P>
+<P><FONT FACE="AlManzomah">#define QT_NO_TRANSFORMATIONS</FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">#tar xzf e2fsprogs-1.35.tar.gz</FONT></P>
+<P><FONT FACE="AlManzomah">#cd e2fsprogs-1.35</FONT></P>
+<P><FONT FACE="AlManzomah">#./configure</FONT></P>
+<P><FONT FACE="AlManzomah">#make</FONT></P>
+<P><FONT FACE="AlManzomah">#make install lib/uuid/</FONT></P>
+<P><FONT FACE="AlManzomah">cp -rf e2fsprogs-1.35/lib/uuid/ 
+/ipaq-qtopia/qtopia/include/</FONT></P>
+<P><FONT FACE="AlManzomah">cp e2fsprogs-1.35/lib/libuuid.a 
+/ipaq-qtopia/qtopia/lib/</FONT></P>
+<P><FONT FACE="AlManzomah">change set-env</FONT></P>
+<P><FONT FACE="AlManzomah">TMAKEPATH=$TMAKEDIR/lib/qws/linux-generic-g++</FONT></P>
+<P><FONT FACE="AlManzomah">$. set-env</FONT></P>
+<P><FONT FACE="AlManzomah">$cd $TMAKEPATH</FONT></P>
+<P><FONT FACE="AlManzomah">change tmake.conf</FONT></P>
+<P><FONT FACE="AlManzomah">LINK=...gcc------&gt;g++</FONT></P>
+<P><FONT FACE="AlManzomah">see my paper qtopia_env_setup for more
+details</FONT></P>
+<P><FONT FACE="AlManzomah">http://prdownloads.sourceforge.net/e2fsprogs/e2fsprogs-1.35.tar.gz</FONT></P>
+<P><FONT FACE="AlManzomah">////////////////////////////////</FONT></P>
+<P><FONT FACE="AlManzomah">when uuid.h is found</FONT></P>
+<P><FONT FACE="AlManzomah">then the new error is lqtopia can not be
+found</FONT></P>
+<P><FONT FACE="AlManzomah">write the following in build shell script</FONT></P>
+<P><FONT FACE="AlManzomah">export
+LD_LIBRARY_PATH=$QTDIR/lib:$QPEDIR/lib:$LD_LIBRARY_PATH</FONT></P>
+<P><FONT FACE="AlManzomah">but make no difference</FONT></P>
+<P><FONT FACE="AlManzomah">many brokrn links to libqtopia.so in
+qtopia/lib</FONT></P>
+<P><FONT FACE="AlManzomah">maybe it it because libjpeg is not
+installed i do not know</FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+</BODY>
+</HTML>

@@ -1,0 +1,46 @@
+AXTU-Authen Tailand debug
+
+1. when I enter puduct key, the QLineEdit widget sent it to
+ProductNumberInputed( const QString & )
+
+
+2. then through
+COMPANY classChecker::CheckProductNumber(string strPN)
+we get a return value of HS or RF or sth.
+
+3. then the return COMPANY is stored in cn and used in
+m_clsConfigCtrl->SetAuthenCompany(cn);
+
+what you do here is actually
+SaveCompanyNameToConfFile(companyCode)
+
+in which you add "selected=RF" in
+AUTHEN_CLIENT_CONF_PATH = "/var/axtu/axtu-authen-client.conf"
+
+4. Now someone will read the conf file out for later use.  It is
+m_clsAddrConfig->Read(AUTHEN_CLIENT_ADDR_PATH)
+it is called in./libs/classConfigCtrl.cpp
+ classConfigCtrl::AddrConfigFileRead(void), so the function will know it should readout the url for RF
+it is called by
+string classConfigCtrl::GetAddress(ADDR_TYPE Classify)
+when
+Classify=AUTHEN_ADDR;
+the adress is readout by this
+strAddress=GetRelayAddr()
+then the addr in
+AUTHEN_CLIENT_ADDR_PATH = "/usr/share/axtu-authen-client/.conf/axtu-authen-client-addr.conf";
+is read out
+//so we surely need to add Tailand addr here
+>>> actually all the above operation only require the first bit of the product number(see classChecker)
+the other bits is sent to remote server for later use
+
+
+
+>>>>>>>About Setup<<<<<<<<<
+
+>>>when axtu setup start for the first time, the server list is read from /etc/axtu/axtu.conf, you can make a stupid change here.,
+but once you enter the product key and user name and passwd, your stupid change will gone.
+that means, it is the product key that is leading the way, Not the config file.
+
+>>>now to me, it goes this way: the setup UI does read things form /etc/axtu/axtu.conf, but when you connect remote server successfully, axtu.conf can be changed some way.
+But the change is not carried out by axtu setup, it must be done by axtu-authen-client. That means I need not change the setup source code.

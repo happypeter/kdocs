@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="peter king">
+	<META NAME="CREATED" CONTENT="20081221;3132800">
+	<META NAME="CHANGEDBY" CONTENT="peter king">
+	<META NAME="CHANGED" CONTENT="20081221;3134800">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P><FONT FACE="AlManzomah">last change in 10_17_2008</FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">env: vmware5+redhat9+arm-linux-gcc-3.4.1</FONT></P>
+<P><FONT FACE="AlManzomah">i want to compile the yctek kernel myself</FONT></P>
+<P><FONT FACE="AlManzomah">in order to obtain a zImage without
+Yc_buttons and ts drives in it</FONT></P>
+<P><FONT FACE="AlManzomah">so that i can test my own button and ad
+driver</FONT></P>
+<P><FONT FACE="AlManzomah">the steps:</FONT></P>
+<P><FONT FACE="AlManzomah">1. make menuconfig</FONT></P>
+<P>   <FONT FACE="AlManzomah">input device/keyboards/s3c2410_button</FONT></P>
+<P><FONT FACE="AlManzomah">2. make zImage</FONT></P>
+<P><FONT FACE="AlManzomah">all is that easy!</FONT></P>
+<P><FONT FACE="AlManzomah">the zImage works on arm as it is
+expected.</FONT></P>
+<P><FONT FACE="AlManzomah">****************</FONT></P>
+<P><FONT FACE="AlManzomah">i</FONT></P>
+<P><FONT FACE="AlManzomah">#cd driver/input/keyboard/</FONT></P>
+<P><FONT FACE="AlManzomah">and find there is only a 2410-buttons.o
+here</FONT></P>
+<P><FONT FACE="AlManzomah">so i</FONT></P>
+<P><FONT FACE="AlManzomah">#make menuconfig</FONT></P>
+<P><FONT FACE="AlManzomah">choose M for 2410-buttons</FONT></P>
+<P><FONT FACE="AlManzomah">then #make   (not #make zImage)</FONT></P>
+<P><FONT FACE="AlManzomah">soon 2410-buttons.ko is ready, and it runs
+perfectly on arm</FONT></P>
+<P><FONT FACE="AlManzomah">with a kernel without 2410-buttons driver</FONT></P>
+</BODY>
+</HTML>

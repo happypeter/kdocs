@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="peter king">
+	<META NAME="CREATED" CONTENT="20081221;2565900">
+	<META NAME="CHANGEDBY" CONTENT="peter king">
+	<META NAME="CHANGED" CONTENT="20081221;2573600">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P><FONT FACE="AlManzomah">Qtopia installation</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">download website      
+ftp://ftp.trolltech.com/pub/qtopia/sdk/RedHat9.0/</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">free1.7 rpm package</FONT><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">（</SPAN></FONT></FONT><FONT FACE="AlManzomah">two),in
+redhat9.0, the installation can be completed by simple two
+double-clicks, but several env variables shall be exported before it
+runs.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">Running Qtopia</FONT></P>
+<P><FONT FACE="AlManzomah">1.    Ensure your environment has the
+following variables set.</FONT></P>
+<P><FONT FACE="AlManzomah">2.              export QPEDIR=/opt/Qtopia</FONT></P>
+<P><FONT FACE="AlManzomah">3.              export QTDIR=/opt/Qtopia</FONT></P>
+<P><FONT FACE="AlManzomah">4.              export
+PATH=$QTDIR/bin:$PATH</FONT></P>
+<P><FONT FACE="AlManzomah">5.              export
+LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH</FONT></P>
+<P><FONT FACE="AlManzomah">6.    Run the Qt Virtual Framebuffer (an
+X11 application)...</FONT></P>
+<P><FONT FACE="AlManzomah">7.           </FONT></P>
+<P><FONT FACE="AlManzomah">8.              qvfb &amp;</FONT></P>
+<P><FONT FACE="AlManzomah">9.           </FONT></P>
+<P><FONT FACE="AlManzomah">10.Run Qtopia (a Qt/Embedded application,
+will show in QVFb)...</FONT></P>
+<P><FONT FACE="AlManzomah">11.       </FONT></P>
+<P><FONT FACE="AlManzomah">12.          export QTDIR=$QTEDIR
+(</FONT><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">此处应为</SPAN></FONT></FONT><FONT FACE="AlManzomah">$QPEDIR)</FONT></P>
+<P><FONT FACE="AlManzomah">13.          qpe &amp;</FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">the qtopia installed happens to be the
+same as the FrindlyARM one</FONT><FONT FACE="AlManzomah"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="zxx">，</SPAN></FONT></FONT><FONT FACE="AlManzomah">but
+the FriendlyARM system require a mamual build, i tried many times but
+failed to do so.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">Qtopia Free Developer Kit</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">------------------------------------------------------------------------</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">This is a development version for Qtopia.
+See the LICENSE file for information on LICENSE of this software.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">Getting Started</FONT></P>
+<P><FONT FACE="AlManzomah">You can either download and install the
+Qtopia RPM or the Qtopia source. Using the RPM will save you compile
+time and will allow you to start developing sooner. To download the
+RPM, go to Qtopia Download Page to download the rpm for your
+platform. If you are using the RPM, goto Running Qtopia.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">Compile Qtopia from source</FONT></P>
+<P><FONT FACE="AlManzomah">You will need the software listed below to
+be able to compile and use Qtopia.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">·         Qtopia 1.7.x (this package)</FONT></P>
+<P><FONT FACE="AlManzomah">·         Qt/Embedded 2.3.x (upon which
+Qtopia is built)</FONT></P>
+<P><FONT FACE="AlManzomah">·         Qt 2.3.2 for X11 (for emulated
+desktop development)</FONT></P>
+<P><FONT FACE="AlManzomah">Below is a description of how to get
+everything built quickly without having to read the detailed
+instructions provided with each of the packages above.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">1.    Unpack Qtopia...</FONT></P>
+<P><FONT FACE="AlManzomah">2.    </FONT></P>
+<P><FONT FACE="AlManzomah">3.       tar xfz qtopia-free-1.7.x.tar.gz</FONT></P>
+<P><FONT FACE="AlManzomah">4.       cd qtopia-1.7.x</FONT></P>
+<P><FONT FACE="AlManzomah">5.       export QPEDIR=$PWD</FONT></P>
+<P><FONT FACE="AlManzomah">6.       cd ..</FONT></P>
+<P><FONT FACE="AlManzomah">7.    </FONT></P>
+<P><FONT FACE="AlManzomah">8.    Install Qt/Embedded...</FONT></P>
+<P><FONT FACE="AlManzomah">9.    </FONT></P>
+<P><FONT FACE="AlManzomah">10.   tar xfz qt-embedded-2.3.x.tar.gz</FONT></P>
+<P><FONT FACE="AlManzomah">11.   cd qt-2.3.x</FONT></P>
+<P><FONT FACE="AlManzomah">12.   export QTDIR=$PWD</FONT></P>
+<P><FONT FACE="AlManzomah">13.   export QTEDIR=$QTDIR</FONT></P>
+<P><FONT FACE="AlManzomah">14.   export PATH=$QTDIR/bin:$PATH</FONT></P>
+<P><FONT FACE="AlManzomah">15.   export
+LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH</FONT></P>
+<P><FONT FACE="AlManzomah">16.   cp $QPEDIR/src/qt/qconfig-qpe.h
+src/tools/</FONT></P>
+<P><FONT FACE="AlManzomah">17.   ./configure -qconfig qpe -qvfb
+-depths 4,8,16,32</FONT></P>
+<P><FONT FACE="AlManzomah">18.   make sub-src</FONT></P>
+<P><FONT FACE="AlManzomah">19.   cd ..</FONT></P>
+<P><FONT FACE="AlManzomah">20.</FONT></P>
+<P><FONT FACE="AlManzomah">You may also want to use the configure
+options -system-jpeg and -gif for jpeg and gif support.</FONT></P>
+<P><FONT FACE="AlManzomah">21.Install Qt/X11 2.3.2... Note that you
+must use 2.3.x, not 3.x, as this step is done to provide Qt 2 tools.</FONT></P>
+<P><FONT FACE="AlManzomah">22.</FONT></P>
+<P><FONT FACE="AlManzomah">23.   tar xfz qt-x11-2.3.2.tar.gz</FONT></P>
+<P><FONT FACE="AlManzomah">24.   cd qt-2.3.2</FONT></P>
+<P><FONT FACE="AlManzomah">25.   export QTDIR=$PWD</FONT></P>
+<P><FONT FACE="AlManzomah">26.   export PATH=$QTDIR/bin:$PATH</FONT></P>
+<P><FONT FACE="AlManzomah">27.   export
+LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH</FONT></P>
+<P><FONT FACE="AlManzomah">28.   ./configure</FONT></P>
+<P><FONT FACE="AlManzomah">29.   make</FONT></P>
+<P><FONT FACE="AlManzomah">30.   make -C tools/qvfb</FONT></P>
+<P><FONT FACE="AlManzomah">31.   mv tools/qvfb/qvfb bin</FONT></P>
+<P><FONT FACE="AlManzomah">32.   cp bin/uic $QTEDIR/bin</FONT></P>
+<P><FONT FACE="AlManzomah">33.   cd ..</FONT></P>
+<P><FONT FACE="AlManzomah">34.</FONT></P>
+<P><FONT FACE="AlManzomah">You may also pass other configure options
+such as -no-opengl or -no-xft as suitable to your environment. Use
+./configure -help for more information. You may also want to build Qt
+Designer (in tools/designer/).</FONT></P>
+<P><FONT FACE="AlManzomah">35.Build Qtopia...</FONT></P>
+<P><FONT FACE="AlManzomah">36.</FONT></P>
+<P><FONT FACE="AlManzomah">37.   cd qtopia-1.7.x</FONT></P>
+<P><FONT FACE="AlManzomah">38.   export QTDIR=$QTEDIR</FONT></P>
+<P><FONT FACE="AlManzomah">39.   export QPEDIR=$PWD</FONT></P>
+<P><FONT FACE="AlManzomah">40.   export PATH=$QPEDIR/bin:$PATH</FONT></P>
+<P><FONT FACE="AlManzomah">41.   cd src</FONT></P>
+<P><FONT FACE="AlManzomah">42.   ./configure</FONT></P>
+<P><FONT FACE="AlManzomah">43.   make</FONT></P>
+<P><FONT FACE="AlManzomah">44.   cd ../..</FONT></P>
+<P><FONT FACE="AlManzomah">45.</FONT></P>
+<P><FONT FACE="AlManzomah">Running Qtopia</FONT></P>
+<P><FONT FACE="AlManzomah">1.    Ensure your environment has the
+following variables set.</FONT></P>
+<P><FONT FACE="AlManzomah">2.       export QPEDIR=/opt/Qtopia</FONT></P>
+<P><FONT FACE="AlManzomah">3.       export QTDIR=/opt/Qtopia</FONT></P>
+<P><FONT FACE="AlManzomah">4.       export PATH=$QTDIR/bin:$PATH</FONT></P>
+<P><FONT FACE="AlManzomah">5.       export
+LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH</FONT></P>
+<P><FONT FACE="AlManzomah">6.    Run the Qt Virtual Framebuffer (an
+X11 application)...</FONT></P>
+<P><FONT FACE="AlManzomah">7.    </FONT></P>
+<P><FONT FACE="AlManzomah">8.       qvfb &amp;</FONT></P>
+<P><FONT FACE="AlManzomah">9.    </FONT></P>
+<P><FONT FACE="AlManzomah">10.Run Qtopia (a Qt/Embedded application,
+will show in QVFb)...</FONT></P>
+<P><FONT FACE="AlManzomah">11.</FONT></P>
+<P><FONT FACE="AlManzomah">12.   export QTDIR=$QTEDIR</FONT></P>
+<P><FONT FACE="AlManzomah">13.   qpe &amp;</FONT></P>
+<P><FONT FACE="AlManzomah">14.</FONT></P>
+<P><FONT FACE="AlManzomah">Documentation</FONT></P>
+<P><FONT FACE="AlManzomah">Qtopia documentation also includes the Qt
+2.3.x documentation. You can always get the most up to date
+documentation by going online and visiting the Trolltech
+Documentation Site</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">If you are using the SDK then the
+documentation has been already installed on your system:</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">·         Qtopia documentation index.</FONT></P>
+<P><FONT FACE="AlManzomah">o        Qtopia Platform introduction.</FONT></P>
+<P><FONT FACE="AlManzomah">o        Getting Started page</FONT></P>
+<P><FONT FACE="AlManzomah">·         Qt documentation index and the
+Qt Whitepaper</FONT></P>
+<P><FONT FACE="AlManzomah">Support</FONT></P>
+<P><FONT FACE="AlManzomah">The free edition comes with no official
+Trolltech support. Trolltech maintains support mailing lists where
+the open-source community can ask and answer questions. The Trolltech
+team also tries to assist these mailing lists by answering new
+questions.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">Please go to Trolltech Mailing List index
+to join our mailing lists or to browse the archives. There is a
+specific mailing list for Qtopia related issues.</FONT></P>
+<P><FONT FACE="AlManzomah">5/29/2008</FONT></P>
+<P><FONT FACE="AlManzomah">1. two double_clicks in redhat9 is enough,
+like before</FONT></P>
+<P><FONT FACE="AlManzomah">2. but what is wired this time is when i
+want to run qpe, error occurs: no libqpe.so.1 found, and now &quot;ls&quot;
+is a unknown command to bash, which is even more rediculous</FONT></P>
+<P><FONT FACE="AlManzomah">3. finally, i find out it is all because
+when i export LD_LIBRARY_PATH, i make a type mistake, funny.</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P> <FONT FACE="AlManzomah"></FONT></P>
+</BODY>
+</HTML>

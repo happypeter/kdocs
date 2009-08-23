@@ -1,0 +1,24 @@
+Maint Dir
+1.4->1.5
+
+SDS495****axtu-1.4.16-1AX--------------this is the one we want to do maintenance on.
+
+* Now Let's talk about 1.4/
+since we already 4AX, but we want do maint on 1AX, so we have a 5AX which is same as 1AX, and do mt on 5AX
+
+* Now Let's talk about 1.5/
+
+>>>what to do
+1. sent a new package 1.5
+2. no need to change comps/
+3. change VERMAP
+  . when my new package is approved VERMAP will be changed automatically, but we still need to manually do sth like
+  . "dbmail:BP:3.0-maint:2.2.5:ia32,x86_64,ia64,pp" to it-----Huajie did it for me
+4.  cd /project/distfiles/axtu/1.5/----------------svn usually only keep patches, but axtu is special
+5. change the obselete tag patch name form 1.4 to 1.5
+6. remove all .svn/ in 1.4 then copy all the file to 1.5
+7. change SPEC of all versions.
+>>>Question
+MT version of axtu only work for sp1?--yes
+
+

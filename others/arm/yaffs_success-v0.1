@@ -1,0 +1,173 @@
+last change in 10_17_2008
+
+//see mydisks/.../yaffs_project
+
+//////////////
+// step 1
+//////////////
+
+Now i am working on Tomboy's PC, using her arm board
+
+when i have vivi properly installed, and
+
+vivi>load flash kernel x
+
+arm fails to perform this without a reason
+
+but i remember there is a vivi26-usbdownload in YcTek arm disk
+
+so i install it on ARM
+
+////////////
+// step 2
+///////////
+
+then i
+
+vivi>load flash kernel u
+
+natrually, now i need to connect arm(as slave) with PC
+
+when it is done
+
+error message in vivi looks:
+
+  usb host not connected
+
+and at the same time a dialog shows up on windows desktop
+
+asking me whether i want to install a driver for the now USB divice
+
+so i copy usb driver to PC from
+
+my disks/ friendly arm/windows platform tools
+
+the following step is almost like those i used to install sjf2410 dirver
+
+anyway all it requires is the inf file
+
+when this is done
+
+new message shows up in hyperterm
+
+   USB host connected, waiting a download
+
+but obviously vivi itself do not have a function to do this
+
+so i have to resort to DNW
+
+(my disks/ friendly arm/winsows platform tools)
+
+double-click dnw, and it will work for you
+
+however nothing shows up in its main window
+
+only a 'usb ok' of the top
+
+choose USB|transmiite
+
+the work is done very fast
+
+then i
+
+vivi>load flash root u
+
+// type 'help' and 'show part' to know more about vivi usage
+
+then DNW again, everything works as if smoothly
+
+the rootfs i am using now is
+
+yctek disk/image/root_china.yaffs
+
+but when all is done and i boot linux
+
+i see
+ 
+   kernel panic // busybox fials to works
+
+it surprise me, but cause all vivi kernel and rootfs running now
+
+are from ycdisk, so they should work, but why not?
+
+///////////
+// step 3
+//////////
+
+suddenly i remember there is another command
+
+vivi>loadyaffs -e root u
+
+so i want to have a try about this
+
+when it is actually done 
+
+the message now is
+
+   no /etc/pointercal found
+
+that means the right command is
+
+vivi>loadyaffs -e root u
+
+rather than
+
+vivi>load flash kernel u
+
+so how  can i cope with the pointercal trouble?
+
+////////////////////
+// step 4
+///////////////////
+
+i will make a yaffs image myself
+
+so i copy the makeyaffsimage(from FriendlyARM disk) to
+
+my F4/yctek/
+
+then
+
+#./mkyaffsimage root wgz.yaffs
+
+finally, everything is  a OK.
+
+///////////////
+// notice
+///////////////
+
+when the rootfs is install on tomboy arm, it works well
+
+however it is very different form the one installed by issuing
+
+#recover_systerm
+
+under the NFS connection
+
+it simply copy whatever in /yctek/root to arm
+
+but it still works, there is a lot to do from this point
+
+i will do it later
+
+10_11_2008:
+be sure to use
+>bon part 0
+if you want to install vivi26-usbdownload with
+>load flash vivi x
+rather than JTAG
+otherwise kernel panic, even though you use
+>loadyaffs -e root u
+
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+10_18_2008 install USB driver:
+
+1. cp .sys to system32/drivers
+
+2. start vivi, plug USB cable
+
+3. then choose manual istall in the windows poped up
+

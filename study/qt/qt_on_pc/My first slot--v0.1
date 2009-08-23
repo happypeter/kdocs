@@ -1,0 +1,46 @@
+My first slot
+
+1. open qt designer, save simple.pro in /root/simple/, then add a form1, and add a slot named peter() to it, drag a push button, connect its signal click() to form1’s slot peter(), save both,
+
+2. #cd /root/simple/ #qmake #make, #./simple, then a stupid form with only one button shows up, push the button, you see “peter() is not impleted” in xterm
+
+3. go back to the designer, double click form1 to edit form1.ui.h, you see a function form1::peter(){  }, add #include <iostream.h> above it, and cout<<”hello peter/n” in the braces.
+
+4. save and make again, finally hello peter shows up in xterm everytime the button is clicked.
+
+/////////////////////////////--------------
+
+1. fisrt thing from here is to figure out how to output in the form rather then merely xterm
+
+2. in the ui.h file, I add void Form1::init() { cout<<”I am initialized!”}, save and complie, there is a error “expected ; before }”, add the ;, then everything turn out to be what I expected.
+
+3. now I put a lineEdit1 into the form (the name lineEdit1 is very inportant, it should remain exactly the same everyplace it is referred), and the ui.h now looks:
+
+int j;
+
+void Form1::peter()
+
+{
+
+j++;
+
+lineEdit1->setText(Qs(S is in upper case J)tring::number(j));/*I learn this function from designer|help|quickstart*/
+
+}
+
+ 
+
+void Form1::init()
+
+{
+
+lineEdit1->setText(“1”);
+
+}
+
+4. so finally, everytime the button is clisked, the number in the lineedit increases by 1;
+
+5. note: No need to add #include<XXX.ui.h> or <qlineedit.h>anywhere
+
+ 
+

@@ -1,0 +1,105 @@
+<h1>Ethernet </h1>
+
+<FONT FACE="Almanzomah"><FONT SIZE=3><p>last change in 10_17_2008
+ 
+ethernet cables<br>
+<OL>
+	<LI>i have been suspecting whether my YCtek cable is the same as the cable<br>
+   we are using to connect PC with harbor. they look as if they are different<br>
+   and maybe they are turely different. however, what i know for sure now is<br>
+   i can use the YCtek cable to connect PC with harbor. meanwhile, i can use<br>
+   Lab cable to setup NFS connection between YCtek arm and PC. ALL works perfectly!<br>
+	<LI>and when i connect PC and sister board with the lab cable, the two LEDS shine as<br>
+   if they are working, i am not sure about this because there is no core board on sister<br>
+   board now.<br>
+	<LI>anyway, i now believe i can use lab cable wherever as i can use YCtek cable.<br>
+	<LI>now i want to know whether the broken RJ45 works the same way as<br>
+   the sister board RJ45, if they are the same that means i do not need<br>
+   to take my board to Erbozi agian.<br>
+   // so i plug one end of lab cable in to RJ45 on my board<br>
+</OL>
+*********************************************************<br>
+Picture A<br>
+  _____________<br>
+  |           |<br>
+  | 1 2 3 4   |<br>
+  |   5 6 7 8 |<br>
+  |           |<br>
+    @       @    <br>     // this is the bottom view of RJ45<br>
+
+************************************************************<br>
+ 
+Picture B<br>
+  _________________<br>
+  |               |<br>
+  |a b c d e f g h|<br>
+  |               |<br>
+  |               |<br>
+         | |<br>
+         | |<br>
+         | |  -the cable<br>
+// this is the top view of<br>
+// the cable cristal end(the one on the other side of the cable)<br>
+************************************************************<br>
+so i test the connection relation ship between then<br>
+the result is as below<br>
+a--8<br>
+b--4<br>
+c--7<br>
+d--e--6--3<br>
+f--2<br>
+g--5<br>
+h--1<br>
+note: the result above if of my broken RJ45<br>
+now its naturely to test the rerlationship of sister board<br>
+ 
+and here is the rusult<br>
+// the Lab cable itself is a perfect prellal cable, to be exact<br>
+// a--a b--b ...(in Picure B)<br>
+but the YCtek cable is quite different<br>
+a--c<br>
+b--f<br>
+c--a<br>
+d--d<br>
+e--e<br>
+f--b<br>
+g--g<br>
+h--h <br>   
+****************************************<br>
+finally, everything is clear when the pcb file is opened.<br>
+my circuit is the same as sister's.<br>
+now we concentrade on RD+ and RD-<br>
+on both sister and YCtek board, the two are connected even<br>
+there is no power supply for arm.<br>
+but on my board they are not! (the same is ture of TD+ TD-)<br>
+now that the circuit is right. so there are two possiblities left:<br>
+a) the chip is not well mounted<br>
+b) the chip is broken<br>
+if the chip is not broken, the RD+ and RD- is of one, as it is ture<br>
+on the sister board.<br>
+but the chip on my board is not connected<br>
+so that means the chip itself is broken.<br>
+note there is no power supply when i test it.<br>
+
+ last change in 10_17_2008<br>
+ 
+<FONT FACE="Almanzomah"><FONT SIZE=3>
+ethernet hardware error<br>
+<OL>
+<LI>when i connect PC and arm, PC port light shines, which means<br>
+   it finds out a connection. but the leds on arm have no reaction.
+<LI>ping PC the error:<br>
+   buffer not free!<br>
+   that means the hardware connection is not set up.
+<LI>i change my arm cable into the PC cable, but that makes no difference!
+<LI>the votage of the two leds are (3.2-1.65), that is ture of both my board<br>
+   and sister board, which makes me believe my cs8900 is also working properly<br>
+   but, when connected with PC through the cable, the ever-bright led on sister<br>
+   board holds a voltage (3.2-0.06)v, but my led remain the same as the state<br>
+   when there is no connection. So maybe only the port RJ45 is responsiblle for<br>
+   all my trouble.
+<LI>i will but another 144P, and let the workers fix the sister board for me.
+
+</OL></FONT></FONT>
+
+

@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="peter king">
+	<META NAME="CREATED" CONTENT="20081221;3064600">
+	<META NAME="CHANGEDBY" CONTENT="peter king">
+	<META NAME="CHANGED" CONTENT="20081221;3070500">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P><FONT FACE="AlManzomah">first</FONT></P>
+<P><FONT FACE="AlManzomah">see code in /code/adc</FONT></P>
+<P><FONT FACE="AlManzomah">when i install ad_v1, then run ad_app_v1</FONT></P>
+<P><FONT FACE="AlManzomah">error looks:</FONT></P>
+<P>   <FONT FACE="AlManzomah">ad convert opened!                 </FONT></P>
+<P>   <FONT FACE="AlManzomah">Unable to handle kernel NULL pointer</FONT></P>
+<P>   <FONT FACE="AlManzomah">dereference at virtual address 00000000
+                       </FONT></P>
+<P>   <FONT FACE="AlManzomah">Internal error: Oops: 817</FONT></P>
+<P><FONT FACE="AlManzomah">it is already known (see doc/ioremap
+issue)</FONT></P>
+<P><FONT FACE="AlManzomah">so now my ad_app_v1 works well, though it
+is still too simple.</FONT></P>
+<P><FONT FACE="AlManzomah">what i need to do now is to debug the
+driver</FONT></P>
+<P><FONT FACE="AlManzomah">*********</FONT></P>
+<P><FONT FACE="AlManzomah">ad_v2</FONT></P>
+<P><FONT FACE="AlManzomah">i will first use '__iomem' method, so here
+comes ad_v2</FONT></P>
+<P><FONT FACE="AlManzomah">then the same error remains, why?</FONT></P>
+<P><FONT FACE="AlManzomah">i search in 2410_ts.c again, and find out
+i actually missed this line</FONT></P>
+<P>   <FONT FACE="AlManzomah">base_addr=ioremap(S3C2410_PA_ADC,0x20);</FONT></P>
+<P>   <FONT FACE="AlManzomah">...</FONT></P>
+<P>   <FONT FACE="AlManzomah">iounmap(base_addr);</FONT></P>
+<P><FONT FACE="AlManzomah">how silly!</FONT></P>
+<P><FONT FACE="AlManzomah">*************</FONT></P>
+<P><FONT FACE="AlManzomah">now ad_v3</FONT></P>
+<P>           <FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">but when i add</FONT></P>
+<P> <FONT FACE="AlManzomah">base_addr=ioremap(S3C2410_PA_ADC,0x20);</FONT></P>
+<P><FONT FACE="AlManzomah">under</FONT></P>
+<P>  <FONT FACE="AlManzomah">static void __iomem *base_addr;</FONT></P>
+<P><FONT FACE="AlManzomah">then error during compilation</FONT></P>
+<P>  <FONT FACE="AlManzomah">typy defaults to 'int' in declaration in
+lineXXX(the ioremap line)</FONT></P>
+<P>  <FONT FACE="AlManzomah">conflict types</FONT></P>
+<P>  <FONT FACE="AlManzomah">previous declaratioin is in lineXXX(the
+iomem line)</FONT></P>
+<P><FONT FACE="AlManzomah">when i am sure there is nothing wrong with
+the types,</FONT></P>
+<P><FONT FACE="AlManzomah">the truble must be due to the position of
+the iomap line</FONT></P>
+<P><FONT FACE="AlManzomah">this time i am right, when i copy the
+ioremap line</FONT></P>
+<P><FONT FACE="AlManzomah">into adc_open{}, the bug is gone.</FONT></P>
+<P><FONT FACE="AlManzomah">and when i install it on arm, and</FONT></P>
+<P><FONT FACE="AlManzomah">#./ad</FONT></P>
+<P><FONT FACE="AlManzomah">haha, no error message is seen, the
+program runs into a dead loop.</FONT></P>
+<P><FONT FACE="AlManzomah">******************</FONT></P>
+<P><FONT FACE="AlManzomah">now ad_v4</FONT></P>
+<P><FONT FACE="AlManzomah">the part</FONT></P>
+<P>   <FONT FACE="AlManzomah">do{</FONT></P>
+<P>     <FONT FACE="AlManzomah">tmp = readl(S3C2410_ADCCON);</FONT></P>
+<P>    <FONT FACE="AlManzomah">}while(!(((unsigned
+int)tmp)&amp;0x8000));</FONT></P>
+<P><FONT FACE="AlManzomah">is responsible for the dead loop, so i
+change it a lot, see more in code</FONT></P>
+<P><FONT FACE="AlManzomah">and of course i write</FONT></P>
+<P><FONT FACE="AlManzomah">///////0x4f41///////////</FONT></P>
+<P> <FONT FACE="AlManzomah">in to ADCCON(see WHY in doc/adc config)</FONT></P>
+<P><FONT FACE="AlManzomah">there is much we can do to ADCTSC, but
+this time we only write a 0 to it</FONT></P>
+<P><FONT FACE="AlManzomah">haha, i see in hyperterm this:</FONT></P>
+<P>   <FONT FACE="AlManzomah">/ # insmod  ad.ko</FONT></P>
+<P>   <FONT FACE="AlManzomah">s3c2410_adc driver initial</FONT></P>
+<P>   <FONT FACE="AlManzomah">/ # ./ad</FONT></P>
+<P>   <FONT FACE="AlManzomah">the output data=0</FONT></P>
+<P>   <FONT FACE="AlManzomah">the output data=1023</FONT></P>
+<P>   <FONT FACE="AlManzomah">ad convert closed!</FONT></P>
+<P><FONT FACE="AlManzomah">************</FONT></P>
+<P><FONT FACE="AlManzomah">ad_v5</FONT></P>
+<P><FONT FACE="AlManzomah">i write 0 to ADCCON</FONT></P>
+<P><FONT FACE="AlManzomah">output=0 forever</FONT></P>
+<P><FONT FACE="AlManzomah">*************</FONT></P>
+<P><FONT FACE="AlManzomah">ad_v6</FONT></P>
+<P><FONT FACE="AlManzomah">i write 1 to READ_START</FONT></P>
+<P><FONT FACE="AlManzomah">output=0 forever</FONT></P>
+<P><FONT FACE="AlManzomah">**************</FONT></P>
+<P><FONT FACE="AlManzomah">ad_v4a</FONT></P>
+<P><FONT FACE="AlManzomah">i change ad_v4 a little</FONT></P>
+<P><FONT FACE="AlManzomah">change 0x4f41 in to 0x4f40</FONT></P>
+<P><FONT FACE="AlManzomah">now ad is off</FONT></P>
+<P><FONT FACE="AlManzomah">then the message is</FONT></P>
+<P><FONT FACE="AlManzomah">output=0 forever</FONT></P>
+<P><FONT FACE="AlManzomah">so 'output=0' means ad is not wroking</FONT></P>
+<P><FONT FACE="AlManzomah">and i can safely conclude that in ad_v4</FONT></P>
+<P><FONT FACE="AlManzomah">ad is working</FONT></P>
+<P><FONT FACE="AlManzomah">*******************</FONT></P>
+<P><FONT FACE="AlManzomah">ad_v4b_good</FONT></P>
+<P><FONT FACE="AlManzomah">so let's turn back to ad_v4, there are of
+course many bugs here</FONT></P>
+<P><FONT FACE="AlManzomah">the most obvious one is why the loop stops
+after only two circle</FONT></P>
+<P><FONT FACE="AlManzomah">so i change the code a little and see the
+message in Hyperterm</FONT></P>
+<P><FONT FACE="AlManzomah">/ # ./ad</FONT></P>
+<P><FONT FACE="AlManzomah">the output data=0</FONT></P>
+<P><FONT FACE="AlManzomah">now ADCCON=ox4f41</FONT></P>
+<P><FONT FACE="AlManzomah">the output data=1023</FONT></P>
+<P><FONT FACE="AlManzomah">now ADCCON=oxcf40</FONT></P>
+<P><FONT FACE="AlManzomah">the output data=1023</FONT></P>
+<P><FONT FACE="AlManzomah">now ADCCON=oxcf40</FONT></P>
+<P><FONT FACE="AlManzomah">the output data=1023</FONT></P>
+<P><FONT FACE="AlManzomah">i feel great to see ox4f41 turns into 40
+in the second circle</FONT></P>
+<P><FONT FACE="AlManzomah">it is just like what they see in UM</FONT></P>
+<P><FONT FACE="AlManzomah">'ENABLE_START turns into 0 after startup'</FONT></P>
+<P><FONT FACE="AlManzomah">'4f' --&gt; 'cf' means ECFLAG[15] turns
+into 1 in the second circle</FONT></P>
+<P><FONT FACE="AlManzomah">that is just why my ad_v4 stops after two
+circles.</FONT></P>
+<P><FONT FACE="AlManzomah">now, the new question is that what makes
+ECFLAG[15] turns into 1??</FONT></P>
+<P><FONT FACE="AlManzomah">ANSWER: when ad finish one circle of
+coversion, this bit is set to it</FONT></P>
+<P><FONT FACE="AlManzomah">time consum xxxCLK/(PRESVAL+1)=5us</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">//see debug_ad_2 to continue</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">debug_ad_2</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">haha, with the help of code/forefather and
+2410UM</FONT></P>
+<P><FONT FACE="AlManzomah">i think now i see how AD wroks</FONT></P>
+<P><FONT FACE="AlManzomah">now let's go all the way back to ad_v2</FONT></P>
+<P><FONT FACE="AlManzomah">***************</FONT></P>
+<P><FONT FACE="AlManzomah">ad_v2a+ad_app_v2</FONT></P>
+<P><FONT FACE="AlManzomah">we are getting closer to the truth!</FONT></P>
+<P><FONT FACE="AlManzomah">see doc/ad_v2a message</FONT></P>
+<P><FONT FACE="AlManzomah">the interesting thing is seen when you pay
+attention to the</FONT></P>
+<P><FONT FACE="AlManzomah">6th printf number:</FONT></P>
+<P><FONT FACE="AlManzomah">if you connect chanel0 to Vref</FONT></P>
+<P><FONT FACE="AlManzomah">then it is always 1023</FONT></P>
+<P><FONT FACE="AlManzomah">otherwise, it varies everytime you issue
+./ad2</FONT></P>
+<P><FONT FACE="AlManzomah">but then all the output is under 1000</FONT></P>
+<P><FONT FACE="AlManzomah">haha, my ad works!</FONT></P>
+<P><FONT FACE="AlManzomah">**************</FONT></P>
+<P><FONT FACE="AlManzomah">ad_v2b</FONT></P>
+<P><FONT FACE="AlManzomah">this time i will impletement write(), and
+see if the bug will go away</FONT></P>
+<P><FONT FACE="AlManzomah">in 2410UM</FONT></P>
+<P>   <FONT FACE="AlManzomah"></FONT></P>
+<P>   <FONT FACE="AlManzomah">Normal Conversion Mode (AUTO_PST = 0,
+XY_PST = 0)</FONT></P>
+<P><FONT FACE="AlManzomah">so this time i will first add a printk to
+see whether the two bits</FONT></P>
+<P><FONT FACE="AlManzomah">are changed by ts driver?</FONT></P>
+<P><FONT FACE="AlManzomah">ANSWER: i see 'before everything,
+ADCTSC=0x1d3'</FONT></P>
+<P><FONT FACE="AlManzomah">this is just the exact value of
+WAIT4INT(1) in 2410_ts.c!!!</FONT></P>
+<P><FONT FACE="AlManzomah">now i understand why in one of my
+downloaded drivers,</FONT></P>
+<P><FONT FACE="AlManzomah">the author wrote: exclusive with
+s3c2410-ts.c</FONT></P>
+<P><FONT FACE="AlManzomah">**</FONT></P>
+<P><FONT FACE="AlManzomah">then i will write 0 to TSC to see if the
+adc works alright this time</FONT></P>
+<P><FONT FACE="AlManzomah">No!</FONT></P>
+<P><FONT FACE="AlManzomah">***************************</FONT></P>
+<P><FONT FACE="AlManzomah">see debug_ad_3</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">debug_ad_3</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+<P><FONT FACE="AlManzomah">search 'ADCCON' in 2410_ts.c, you will see
+clearly how this driver</FONT></P>
+<P><FONT FACE="AlManzomah">manipulates ADCCON. it's actually very
+simple.</FONT></P>
+<P><FONT FACE="AlManzomah">NOW,I see that if you want your ad to
+work, if there is no ts.c,</FONT></P>
+<P><FONT FACE="AlManzomah">all you need to do to ADCCON are:</FONT></P>
+<P><FONT FACE="AlManzomah">1. writel(S3C2410_ADCCON_PRSCEN |
+S3C2410_ADCCON_PRSCVL(info-&gt;presc&amp;0xFF),\</FONT></P>
+<P>        <FONT FACE="AlManzomah">base_addr+S3C2410_ADCCON);</FONT></P>
+<P><FONT FACE="AlManzomah">2. writel(readl(base_addr+S3C2410_ADCCON)
+| S3C2410_ADCCON_ENABLE_START,\</FONT></P>
+<P>                             <FONT FACE="AlManzomah">base_addr+S3C2410_ADCCON);</FONT></P>
+<P><FONT FACE="AlManzomah">that's enough</FONT></P>
+<P><FONT FACE="AlManzomah">**</FONT></P>
+<P><FONT FACE="AlManzomah">of course we need to do something to
+ADCTSC as well,</FONT></P>
+<P><FONT FACE="AlManzomah">i am not sure but i believe write 0 to it
+will do!</FONT></P>
+<P><FONT FACE="AlManzomah">*******************</FONT></P>
+<P><FONT FACE="AlManzomah">today is 7_20_2008, i want to stop this
+project now</FONT></P>
+<P><FONT FACE="AlManzomah">and continue in the future</FONT></P>
+<P><FONT FACE="AlManzomah">next time i start, first thing is to know
+more about 2410_ts.c</FONT></P>
+<P><FONT FACE="AlManzomah">or recompile a new kernel without it</FONT></P>
+<P><FONT FACE="AlManzomah"></FONT></P>
+</BODY>
+</HTML>

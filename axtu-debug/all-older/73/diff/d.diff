@@ -1,0 +1,432 @@
+--- sort-gloria.rpm	2009-06-26 03:15:22.000000000 +0800
++++ sort-peter.rpm	2009-06-26 03:15:46.000000000 +0800
+@@ -22,12 +22,9 @@
+ anaconda-11.1.2.168-1.10AXS3
+ anaconda-runtime-11.1.2.168-1.10AXS3
+ anacron-2.3-45.1AXS3
+-ant-1.6.5-2jpp.2.1AX
+ anthy-7900-4
+ anthy-7900-4
+ antlr-2.7.6-4jpp.2
+-apcupsd-3.14.3-1.3AXS3
+-apcupsd-multimon-3.14.3-1.3AXS3
+ apr-1.2.7-11
+ apr-1.2.7-11
+ apr-devel-1.2.7-11
+@@ -88,7 +85,6 @@
+ avahi-compat-libdns_sd-devel-0.6.16-1AXS3.1
+ avahi-glib-0.6.16-1AXS3.1
+ avahi-glib-0.6.16-1AXS3.1
+-axis-1.2.1-2jpp.6
+ axtu-authen-client-gui-1.5.1-2AXS3
+ axtu-authen-client-libs-1.5.1-2AXS3
+ axtu-authen-client-tui-1.5.1-2AXS3
+@@ -100,7 +96,6 @@
+ basesystem-3.0-1AX
+ bash-3.2-24AXS3
+ bc-1.06-21.1AX
+-bcel-5.1-8jpp.1
+ beecrypt-4.1.2-10.1.1
+ beecrypt-4.1.2-10.1.1
+ beecrypt-devel-4.1.2-10.1.1
+@@ -148,8 +143,6 @@
+ checkpolicy-1.33.1-4AXS3
+ chkconfig-1.3.30.1-2
+ chkfontpath-1.10.1-1.1
+-classpathx-jaf-1.0-9jpp.1
+-classpathx-mail-1.1.1-4jpp.2
+ compat-dapl-2.0.13-4AXS3
+ compat-dapl-2.0.13-4AXS3
+ compat-db-4.2.52-5.1
+@@ -175,7 +168,6 @@
+ coreutils-5.97-19AXS3
+ cpio-2.6-20
+ cpp-4.1.2-44.1
+-cpqarrayd-2.2-7.2AXS3
+ cpuspeed-1.2.1-5AXS3
+ cracklib-2.8.9-3.3.1AXS3
+ cracklib-2.8.9-3.3.1AXS3
+@@ -188,11 +180,11 @@
+ cryptsetup-luks-devel-1.0.3-4AXS3
+ cryptsetup-luks-devel-1.0.3-4AXS3
+ ctrlpanel-3.0-11.12AXS3
+-cups-1.3.7-8.4.1AXS3
+-cups-devel-1.3.7-8.4.1AXS3
+-cups-devel-1.3.7-8.4.1AXS3
+-cups-libs-1.3.7-8.4.1AXS3
+-cups-libs-1.3.7-8.4.1AXS3
++cups-1.3.7-8.6.1AXS3
++cups-devel-1.3.7-8.6.1AXS3
++cups-devel-1.3.7-8.6.1AXS3
++cups-libs-1.3.7-8.6.1AXS3
++cups-libs-1.3.7-8.6.1AXS3
+ curl-7.15.5-2.1AXS3.4
+ curl-7.15.5-2.1AXS3.4
+ curl-devel-7.15.5-2.1AXS3.4
+@@ -266,8 +258,6 @@
+ dmapi-devel-2.2.3-1.1AX
+ dmidecode-2.7-1.28.2AXS3
+ dmraid-1.0.0.rc13-33AXS3
+-dnsmasq-2.45-1AXS3.1.1
+-dnsmasq-2.45-1AXS3.1.1
+ docbook-dtds-1.0-30.1
+ docbook-style-dsssl-1.79-4.1
+ docbook-style-xsl-1.69.1-5.1
+@@ -276,7 +266,6 @@
+ dos2unix-3.1-27.1
+ dosfstools-2.11-7AXS3
+ dovecot-1.0.7-7.1AXS3
+-drupal-6.8-1AXS3
+ dump-0.4b41-2
+ dvd+rw-tools-7.0-0.3
+ e2fsprogs-1.39-20.1AXS3
+@@ -285,7 +274,6 @@
+ e2fsprogs-libs-1.39-20.1AXS3
+ e2fsprogs-libs-1.39-20.1AXS3
+ e4fsprogs-1.41.1-2.1AXS3
+-eclipse-ecj-3.2.1-19.1AXS3
+ ed-0.2-39.1AXS3
+ eject-2.1.5-4.2.el5
+ elfutils-0.137-3AXS3
+@@ -334,7 +322,6 @@
+ fipscheck-1.0.3-1AXS3
+ firefox-3.0.10-1.2AXS3
+ flex-2.5.4a-41
+-fontconfig-2.4.1-6.8AXS3
+ fontconfig-2.4.1-7.2AXS3
+ fontconfig-2.4.1-7.2AXS3
+ fontconfig-devel-2.4.1-7.2AXS3
+@@ -343,7 +330,6 @@
+ fonts-japanese-0.20061016-4
+ fonts-korean-1.0.11-10
+ foomatic-3.0.2-47.2AX
+-fping-2.4b2-8AXS3
+ freeradius-1.1.3-1.4AXS3
+ freeradius-mysql-1.1.3-1.4AXS3
+ freeradius-postgresql-1.1.3-1.4AXS3
+@@ -387,9 +373,6 @@
+ gdk-pixbuf-devel-0.22.0-25
+ gdk-pixbuf-devel-0.22.0-25
+ gd-progs-2.0.33-9.4.1
+-geronimo-specs-1.0-0.M2.2jpp.12
+-geronimo-specs-compat-1.0-0.M2.2jpp.12
+-geronimo-tomcat6-jee5-2.0-1AX
+ gettext-0.14.6-4.1AX
+ gettext-0.14.6-4.1AX
+ gettext-devel-0.14.6-4.1AX
+@@ -487,8 +470,6 @@
+ gtkhtml3-3.16.3-1.1AXS3
+ gtkhtml3-devel-3.16.3-1.1AXS3
+ gtkhtml3-devel-3.16.3-1.1AXS3
+-gtk-vnc-0.3.2-3AXS3
+-gtk-vnc-python-0.3.2-3AXS3
+ guarddog-2.4.0-17AXS3
+ guile-1.8.0-8.20060831cvs
+ guile-1.8.0-8.20060831cvs
+@@ -522,7 +503,6 @@
+ httpd-manual-2.2.3-22.1.1AXS3
+ hwbrowser-0.30-2.1AXS3
+ hwdata-0.213.11-1.4AXS3
+-iksemel-1.3-4.1AXS3
+ imake-1.0.2-3
+ indent-2.2.9-14
+ indexhtml-3.0-2AX
+@@ -545,33 +525,15 @@
+ isdn4k-utils-devel-3.2-51AXS3
+ isdn4k-utils-devel-3.2-51AXS3
+ isdn4k-utils-vboxgetty-3.2-51AXS3
+-jakarta-commons-beanutils-1.7.0-5jpp.1
+-jakarta-commons-collections-3.2-2jpp.3.1AXS3
+-jakarta-commons-daemon-1.0.1-6jpp.1
+-jakarta-commons-dbcp-1.2.1-7jpp.1.1AX
+-jakarta-commons-digester-1.7-5jpp.1
+-jakarta-commons-discovery-0.3-4jpp.1
+-jakarta-commons-el-1.0-7jpp.1
+-jakarta-commons-fileupload-1.0-6jpp.1
+-jakarta-commons-httpclient-3.0-7jpp.1
+-jakarta-commons-launcher-0.9-6jpp.1
+-jakarta-commons-logging-1.0.4-6jpp.1
+-jakarta-commons-modeler-1.1-8jpp.3.1AXS3
+-jakarta-commons-pool-1.3-5jpp.1
+-jakarta-commons-validator-1.1.4-5jpp.1.1AX
+ jakarta-oro-2.0.8-3jpp.1
+-jakarta-taglibs-standard-1.1.1-7jpp.1
+ java-1.4.2-gcj-compat-1.4.2.0-40jpp.115.1AXS3
+-java-1.4.2-gcj-compat-devel-1.4.2.0-40jpp.115.1AXS3
+ jdk-1.6.0_14-fcs
+ jdksetup-4.0-6AX
+ jfbterm-0.4.7-9.1AX
+ joe-3.4-3
+ jpackage-utils-1.7.3-1jpp.2
+-kaho-cmdtool-1.0-5AXS3
+ kasumi-2.0.1-1.1.3AX
+ kbd-1.12-21.1AXS3
+-kdeadmin-kuser-3.5.5-5
+ kdeartwork-screensavers-3.5.5-2.1AX
+ kdebase-3.5.5-23.41AXS3
+ kdebase-devel-3.5.5-23.41AXS3
+@@ -603,68 +565,22 @@
+ kdeutils-kfloppy-3.5.5-2.6AXS3
+ kdeutils-khexedit-3.5.5-2.6AXS3
+ kernel-2.6.18-128.7AXS3
+-kernel-2.6.18-53.11AXS3
+-kernel-2.6.18-53.14AXS3
+-kernel-2.6.18-53.16AXS3
+-kernel-2.6.18-53.17AXS3
+-kernel-2.6.18-53.19AXS3
+-kernel-2.6.18-53.21AXS3
+-kernel-2.6.18-53.22AXS3
+ kernel-2.6.18-53.23AXS3
+ kernel-2.6.18-8.10AX
+-kernel-2.6.18-8.16AX
+ kernel-devel-2.6.18-128.7AXS3
+-kernel-devel-2.6.18-53.11AXS3
+-kernel-devel-2.6.18-53.14AXS3
+-kernel-devel-2.6.18-53.16AXS3
+-kernel-devel-2.6.18-53.17AXS3
+-kernel-devel-2.6.18-53.19AXS3
+-kernel-devel-2.6.18-53.21AXS3
+-kernel-devel-2.6.18-53.22AXS3
+ kernel-devel-2.6.18-53.23AXS3
+ kernel-devel-2.6.18-8.10AX
+-kernel-devel-2.6.18-8.16AX
+ kernel-doc-2.6.18-128.7AXS3
+ kernel-headers-2.6.18-128.7AXS3
+-kernel-xen-2.6.18-128.7AXS3
+-kernel-xen-2.6.18-53.11AXS3
+-kernel-xen-2.6.18-53.14AXS3
+-kernel-xen-2.6.18-53.16AXS3
+-kernel-xen-2.6.18-53.17AXS3
+-kernel-xen-2.6.18-53.19AXS3
+-kernel-xen-2.6.18-53.21AXS3
+-kernel-xen-2.6.18-53.22AXS3
+-kernel-xen-2.6.18-53.23AXS3
+-kernel-xen-2.6.18-8.10AX
+-kernel-xen-2.6.18-8.16AX
+-kernel-xen-devel-2.6.18-128.7AXS3
+-kernel-xen-devel-2.6.18-53.11AXS3
+-kernel-xen-devel-2.6.18-53.14AXS3
+-kernel-xen-devel-2.6.18-53.16AXS3
+-kernel-xen-devel-2.6.18-53.17AXS3
+-kernel-xen-devel-2.6.18-53.19AXS3
+-kernel-xen-devel-2.6.18-53.21AXS3
+-kernel-xen-devel-2.6.18-53.22AXS3
+-kernel-xen-devel-2.6.18-53.23AXS3
+ kexec-tools-1.102pre-56.2AXS3
+-keyutils-1.2-1.1AXS3
+-keyutils-libs-1.2-1
+-keyutils-libs-1.2-1
+ keyutils-libs-1.2-1.1AXS3
+ keyutils-libs-1.2-1.1AXS3
+ keyutils-libs-devel-1.2-1.1AXS3
+ keyutils-libs-devel-1.2-1.1AXS3
+ kgrub-0.3-14AX
+ kmod-redcastle-3.0.0-8.2.6.18_8.10AX
+-kmod-redcastle-3.0.2-11.2.6.18_53.16AXS3
+-kmod-redcastle-3.0.2-12.2.6.18_53.17AXS3
+-kmod-redcastle-3.0.2-13.2.6.18_53.19AXS3
+-kmod-redcastle-3.0.2-14.2.6.18_53.21AXS3
+-kmod-redcastle-3.0.2-18.2.6.18_53.22AXS3
+ kmod-redcastle-3.0.2-22.2.6.18_53.23AXS3
+ kmod-redcastle-3.0.2-24.2.6.18_128.7AXS3
+-kmod-redcastle-3.0.2-6.2.6.18_53.11AXS3
+-kmod-redcastle-3.0.2-9.2.6.18_53.14AXS3
+ kparam-5.0-1AX
+ kpartx-0.4.7-23.2.1AXS3
+ krb5-auth-dialog-0.7-1
+@@ -911,7 +827,6 @@
+ libSM-devel-1.0.1-3.1
+ libSM-devel-1.0.1-3.1
+ libsmi-0.4.5-2AXS3
+-libsmi-devel-0.4.5-2AXS3
+ libsoup-2.2.98-2AXS3.1
+ libsoup-2.2.98-2AXS3.1
+ libsoup-devel-2.2.98-2AXS3.1
+@@ -947,9 +862,6 @@
+ libutempter-1.1.4-4AXS3
+ libutempter-devel-1.1.4-4AXS3
+ libutempter-devel-1.1.4-4AXS3
+-libvirt-0.3.3-14.1.2AXS3
+-libvirt-devel-0.3.3-14.1.2AXS3
+-libvirt-python-0.3.3-14.1.2AXS3
+ libvolume_id-095-14.20AXS3
+ libvolume_id-095-14.20AXS3
+ libvorbis-1.1.2-3.2
+@@ -1032,8 +944,6 @@
+ libxklavier-3.0-3
+ libxklavier-devel-3.0-3
+ libxklavier-devel-3.0-3
+-libxml2-2.6.26-2.1.2.6.1AXS3
+-libxml2-2.6.26-2.1.2.6.1AXS3
+ libxml2-2.6.26-2.1.2.7.1AXS3
+ libxml2-2.6.26-2.1.2.7.1AXS3
+ libxml2-devel-2.6.26-2.1.2.7.1AXS3
+@@ -1129,7 +1039,6 @@
+ lockdev-1.0.1-10
+ lockdev-devel-1.0.1-10
+ lockdev-devel-1.0.1-10
+-log4j-1.2.13-3jpp.2.2AX
+ logrotate-3.7.4-9
+ logwatch-7.3-6AXS3
+ lslk-1.29-17
+@@ -1149,9 +1058,6 @@
+ man-1.6d-1.1.1AX
+ man-pages-2.39-12.1AXS3
+ man-pages-ja-20060815-9.1AXS3
+-maze-daemon-1.0.1-2AXS3
+-maze-libs-1.0.1-2AXS3
+-maze-utils-1.0.1-2AXS3
+ mc-4.6.1a-35.3AXS3
+ mcelog-0.8-1.1AXS3
+ mcstrans-0.2.11-3AXS3
+@@ -1175,7 +1081,6 @@
+ mingetty-1.07-5.2.2.1AX
+ minicom-2.1-3.1AXS3
+ mkbootdisk-1.5.3-2.1
+-mkcdrec-0.9.9-0.1.3AXS3
+ mkinitrd-5.1.19.6-44.3AXS3
+ mkinitrd-5.1.19.6-44.3AXS3
+ mkisofs-2.01-10.7AXS3
+@@ -1202,7 +1107,6 @@
+ mtx-1.2.18-8.2.2
+ mutt-1.4.2.2-3.0.2
+ mx-2.0.6-2.2.2
+-mx4j-3.0.1-6jpp.4.1AX
+ mysql-5.0.45-7.1AXS3
+ mysql-5.0.45-7.1AXS3
+ mysql-bench-5.0.45-7.1AXS3
+@@ -1221,11 +1125,11 @@
+ ncurses-devel-5.5-24.20060715.1AX
+ neon-0.25.5-10AXS3
+ neon-0.25.5-10AXS3
+-netpbm-10.35-6.1AXS3.1
+-netpbm-10.35-6.1AXS3.1
+-netpbm-devel-10.35-6.1AXS3.1
+-netpbm-devel-10.35-6.1AXS3.1
+-netpbm-progs-10.35-6.1AXS3.1
++netpbm-10.35-6.1.1.1AXS3
++netpbm-10.35-6.1.1.1AXS3
++netpbm-devel-10.35-6.1.1.1AXS3
++netpbm-devel-10.35-6.1.1.1AXS3
++netpbm-progs-10.35-6.1.1.1AXS3
+ net-snmp-5.3.2.2-5.2AXS3
+ net-snmp-devel-5.3.2.2-5.2AXS3
+ net-snmp-devel-5.3.2.2-5.2AXS3
+@@ -1311,7 +1215,6 @@
+ openssl-devel-0.9.8e-7AXS3
+ openssl-devel-0.9.8e-7AXS3
+ openssl-perl-0.9.8e-7AXS3
+-openwbem-3.2.2-7AXS3
+ openwbem-3.2.2-8AXS3
+ openwbem-devel-3.2.2-8AXS3
+ opfc-BidiBackend-1.0.2-2.2AX
+@@ -1506,7 +1409,6 @@
+ python-sqlite-1.1.7-1.2.1
+ python-tools-2.4.3-24.1AXS3
+ python-urlgrabber-3.1.0-5AXS3
+-python-virtinst-0.300.2-12.1AXS3
+ pyxf86config-0.3.31-2
+ PyXML-0.8.4-4
+ qt-3.3.6-23.1AXS3
+@@ -1538,8 +1440,6 @@
+ redcastle-manager-3.0.2-24
+ redcastle-pam-3.0.2-24
+ redhat-release-5Server-5.3.0.3.1AXS3
+-regexp-1.4-2jpp.2
+-resin-3.1.9-1AXS3
+ rfhelp-1.1-1AXS3
+ rflvm-1.1-3AXS3
+ rfsar-7.0.4-5AXS3
+@@ -1574,11 +1474,11 @@
+ ruby-tcltk-1.8.5-5.6
+ rusers-0.17-47.1AX
+ rusers-server-0.17-47.1AX
+-samba-3.0.33-3.7.1AXS3
+-samba-client-3.0.33-3.7.1AXS3
+-samba-common-3.0.33-3.7.1AXS3
+-samba-common-3.0.33-3.7.1AXS3
+-samba-swat-3.0.33-3.7.1AXS3
++samba-3.0.24-6AX
++samba-client-3.0.24-6AX
++samba-common-3.0.24-6AX
++samba-common-3.0.24-6AX
++samba-swat-3.0.24-6AX
+ sane-backends-1.0.18-5.1AX
+ sane-backends-devel-1.0.18-5.1AX
+ sane-backends-devel-1.0.18-5.1AX
+@@ -1656,7 +1556,6 @@
+ startup-notification-devel-0.8-4.1
+ statserial-1.1-38.2.2
+ strace-4.5.18-2AXS3
+-struts-1.2.9-4jpp.5
+ stunnel-4.15-2.el5.1
+ subversion-1.4.2-4.1AXS3
+ subversion-1.4.2-4.1AXS3
+@@ -1728,17 +1627,6 @@
+ tk-devel-8.4.13-5.1
+ tkinter-2.4.3-24.1AXS3
+ tmpwatch-2.9.7-1.1.el5.2
+-tomcat5-5.5.23-0jpp.7.1.2AXS3
+-tomcat5-admin-webapps-5.5.23-0jpp.7.1.2AXS3
+-tomcat5-common-lib-5.5.23-0jpp.7.1.2AXS3
+-tomcat5-jasper-5.5.23-0jpp.7.1.2AXS3
+-tomcat5-jasper-javadoc-5.5.23-0jpp.7.1.2AXS3
+-tomcat5-jsp-2.0-api-5.5.23-0jpp.7.1.2AXS3
+-tomcat5-jsp-2.0-api-javadoc-5.5.23-0jpp.7.1.2AXS3
+-tomcat5-server-lib-5.5.23-0jpp.7.1.2AXS3
+-tomcat5-servlet-2.4-api-5.5.23-0jpp.7.1.2AXS3
+-tomcat5-servlet-2.4-api-javadoc-5.5.23-0jpp.7.1.2AXS3
+-tomcat5-webapps-5.5.23-0jpp.7.1.2AXS3
+ traceroute-2.0.1-5AXS3
+ transfig-3.2.4-16
+ tree-1.5.0-4
+@@ -1764,15 +1652,10 @@
+ valgrind-3.2.1-6AXS3
+ valgrind-3.2.1-6AXS3
+ vconfig-1.9-2.1
+-vim-common-7.0.109-3.3.4AX
+ vim-common-7.0.109-4.4z.1AXS3
+-vim-enhanced-7.0.109-3.3.4AX
+ vim-enhanced-7.0.109-4.4z.1AXS3
+-vim-minimal-7.0.109-3.3.4AX
+ vim-minimal-7.0.109-4.4z.1AXS3
+-vim-X11-7.0.109-3.3.4AX
+ vim-X11-7.0.109-4.4z.1AXS3
+-virt-manager-0.5.3-10.1AXS3
+ vixie-cron-4.1-76AXS3
+ vlock-1.3-23
+ vnc-4.1.2-14.1AXS3
+@@ -1791,23 +1674,14 @@
+ wireshark-1.0.6-2.1AXS3
+ wireshark-gnome-1.0.6-2.1AXS3
+ words-3.0-9.1
+-wsdl4j-1.5.2-4jpp.1
+ wvdial-1.54.0-5.2.2.1
+ x86info-1.20-1.26AXS3
+-xalan-j2-2.7.0-6jpp.1.1AX
+-xen-3.0.3-80.2AXS3
+-xen-devel-3.0.3-80.2AXS3
+ xen-libs-3.0.3-80.2AXS3
+-xen-libs-3.0.3-80.2AXS3
+-xerces-j2-2.7.1-7jpp.2.1AX
+ xhtml1-dtds-1.0-7.1.1
+ xinetd-2.3.14-10.el5
+ xisdnload-3.2-51AXS3
+ xkeyboard-config-0.8-7
+ xml-common-0.6.3-18
+-xml-commons-1.3.02-0.b2.7jpp.10.1AX
+-xml-commons-apisax-1.3.02-0.b2.7jpp.10.1AX
+-xml-commons-resolver-1.1-1jpp.12.1AX
+ xmltex-20020625-8
+ xmlto-0.0.18-13.1
+ xnetcfg-2.0-19AXS3
+@@ -1908,9 +1782,6 @@
+ yp-tools-2.9-0.1
+ yum-3.2.19-18AXS3
+ yum-metadata-parser-1.1.2-2AXS3
+-zabbix-1.4.6-1.1AXS3
+-zabbix-agent-1.4.6-1.1AXS3
+-zabbix-web-1.4.6-1.1AXS3
+ zip-2.31-2AXS3
+ zisofs-tools-1.0.6-3.2.2
+ zlib-1.2.3-3

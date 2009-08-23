@@ -1,0 +1,166 @@
+see my_arm_hello_runs
+********
+tslib_1.0
+http://prdownload.berlios.de/tslib/tslib-1.0.tar.bz2
+for its details see
+https://lists.berlios.de/mailman/listinfo/tslib-general
+**
+tslib-1.3
+http://bbs.chinaunix.net/thread-1035999-1-1.html
+know more about tslib in
+/tslib.x.x/README
+************
+they say if you want a libqte.so with ts support
+you need to
+#vi /qt/configs/linux-arm-g++-shared
+and
+SYSCONF_LIBS=-lm -lts
+**
+people on line say you may need to chage
+qt/src/kernel/qwsmouse_qws.cpp
+to adjust the ts-data to satisfy the mouse need.
+***********
+**********
+so anyway i need to compile tslib first
+#tar...#cd...#./autogen.sh
+then error
+people say that is because libtool is not properly installed
+others say that is because the "PREFIX" if automake and libtool
+are not the same, which reslut in that the libtool is not found.
+they say the solution is reinstall libtool to its default position
+**
+so i download libtool.tar from GNU website.
+ftp://ftp.gnu.org/gnu/libtool/
+and according to its /doc/INSTALL, the default position is /usr/local/bin
+#tar...#cd...#./configure
+then a date error shows up
+#date -s 20080607
+the error is gone, following by another one:
+can not...C complified programmes
+so i
+#export CC=arm-linux-gcc
+#./configure --host=arm-linux
+#make
+#make install
+all above are executed, then i
+#ls /usr/local/bin
+and see
+libtool libtoolize
+#file libtool
+bash script text executable(the same is true for libtoolize)
+#./libtool
+libtool error: you must specify a MODE
+**
+that means they are not for arm only, that's good.
+but what is the point to export CC=arm-linux-gcc???
+*****
+#cd tslib-1.0
+#./autogen.sh
+now the error is different:
+autoconf version 2.58 or higher is required.
+maybe it is becaue the version of libtool i just install is the latest
+delete libtool in /usr/local/bin, the error is different, that means
+my libtool works!
+then i
+#cd tslib-1.3
+#./autogen.sh
+#./configure --host=arm-linux-gcc
+#make
+error:
+this is libtool-2.2.4(my own libtool)....but...the macro..
+so it is clear now my libtool works, the trouble it is too new.
+during the 1.3 compilation a libtool is generated, and it must be
+of the right version, so i override my own libtool with it.
+but no libtoolize is seen. then i ./configure again
+and in error message, the libtool version is still 2.2.4,
+i know this is my libtoolize working now.
+so what is the right libtool version.
+*******************
+the libtool version is 1.0(oldest one :))
+#./configure
+#make
+#make install
+succeed without "CC" and "--host=arm-linux-gcc"
+#cd tslib--1.0
+#export CC=arm-linux-gcc
+#./autogen.sh
+error
+libtoolize:'configure.in' does not exists.
+*********
+in tslib-1.3/ltmain
+i find the right libtool version number is 1.4.3
+so i install 1.4.3 to /usr/local/bin
+#cd tslib-1.0
+#libtool --version
+1.4.3
+#./autogen.sh
+error: undefined macro: AS_HELP_STRING
+people say install libtool in the default way is just for this error!!
+so i
+#cd tslib-1.3
+#export CC=arm-linux-gcc
+#./autogen.sh
+#./configure --host=arm-linux
+then a message shows up saying i should not use 'host'
+so i issue
+#./configure
+i am not sure which ./confiure works
+#make
+then
+#ls -a src
+and i see what i want .lib/
+God, it is not easy.
+************
+************
+now i want do it all again
+so i restiore snapshot
+************
+********
+#arm-linux-gcc -v
+3.3.2
+#cd libtool-1.4.3
+#./configure
+error:check your sys clock
+#date -s 20080607
+#./configure
+#make
+#make install
+#ls /usr/local/bin
+libtool libtoolize
+#libtool --version
+1.4.3
+//so libtool is installed now
+#cd tslib-1.3
+#export CC=arm-linux-gcc
+#./autogen.sh
+then some like a error shows up:
+you should add the conten of '../.../..../libtool.m4' to 'aclocal.m4'
+but i let it be
+#./configure --host=arm-linux
+then 'do not use --host' flashes and disappers in a second
+but i do not care
+#make
+compilation terminates.
+************
+****************
+#ls src/.libs/
+libts-0.0.so.0
+libts-0.0.so.0.1.0
+libts.la
+libts.so
+#ls plugin/.libs/
+dejitter.so
+.........la
+linear.la
+.......so
+mousebuts.so
+..........la
+variance.so
+.........la
+
+       ********************************
+       #    ok,see you next artical   #               
+       ********************************
+
+ 
+

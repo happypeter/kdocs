@@ -1,0 +1,68 @@
+diff -Nupr 1.5-untouched/tarball01/axtu/gui/axtu/classGui.cpp 1.5/tarball01/axtu/gui/axtu/classGui.cpp
+--- 1.5-untouched/tarball01/axtu/gui/axtu/classGui.cpp	2009-06-10 09:30:14.000000000 +0800
++++ 1.5/tarball01/axtu/gui/axtu/classGui.cpp	2009-06-10 09:40:30.000000000 +0800
+@@ -433,6 +433,20 @@ bool classGui::InitRpm()
+ 		}
+ 		
+ 		m_rpmEngine->SetCreateUpdateInstallListCallBack(CommonCallBack);
++//peter
++ if(m_rpmEngine->CreateUpdateInstallList()==111)
++{
++		m_Logger->WriteLog_char(ERROR_LOG, "classGUI", "inside1", NULL);
++		QMessageBox::information(this, staticTitle, tr("The TSN Updater has been updated.  It must restart."));
++                delete m_rpmEngine;
++                m_rpmEngine = NULL;
++		execl(UPDATER_PATH, "axtu-gui", "-u", "-f", NULL);
++                m_Logger->WriteLog_char(ERROR_LOG, "classGUI", "inside", NULL);
++
++
++}
++
++//peter
+ 
+ 		if(!m_rpmEngine->CreateUpdateInstallList())
+ 		{	
+Binary files 1.5-untouched/tarball01/axtu/gui/axtu/classGui.o and 1.5/tarball01/axtu/gui/axtu/classGui.o differ
+diff -Nupr 1.5-untouched/tarball01/axtu/libs/classRpmEngine.cpp 1.5/tarball01/axtu/libs/classRpmEngine.cpp
+--- 1.5-untouched/tarball01/axtu/libs/classRpmEngine.cpp	2009-06-10 09:31:11.000000000 +0800
++++ 1.5/tarball01/axtu/libs/classRpmEngine.cpp	2009-06-10 09:20:31.000000000 +0800
+@@ -607,7 +607,8 @@ Creaet update list and install list by h
+ */
+ ///////////////////////////////////////////////////////////////////////////////////////////////////
+ // Create update package list, install package list
+-bool classRpmEngine::CreateUpdateInstallList()
++int classRpmEngine::CreateUpdateInstallList()
++//peter bool---->int
+ {
+ 
+ 	m_nIncompatible = 0;
+@@ -860,6 +861,16 @@ bool classRpmEngine::CreateUpdateInstall
+ 					} else {
+ 						fileInfo.bIncompatible = false;
+ 			 		}
++					//peter
++					if(strNameR=="rpm")
++					{
++						m_Logger->WriteLog_char(ERROR_LOG, "strName:",strNameR.c_str(),NULL);
++						m_Logger->WriteLog_char(ERROR_LOG, "strVerR:",strVerR.c_str(),NULL);
++                                                m_Logger->WriteLog_char(ERROR_LOG, "strRelR:",strRelR.c_str(),NULL);
++                                                m_Logger->WriteLog_char(ERROR_LOG, "return","111",NULL);
++						return 111;
++					}
++					//peter-end
+ 					AddUpdateInstallList(&fileInfo,strNameR, \
+ 						strVerR,strRelR,itRemote->strEpoch, \
+ 						strArchR,itRemote->nType,       \
+diff -Nupr 1.5-untouched/tarball01/axtu/libs/classRpmEngine.h 1.5/tarball01/axtu/libs/classRpmEngine.h
+--- 1.5-untouched/tarball01/axtu/libs/classRpmEngine.h	2009-06-10 09:31:35.000000000 +0800
++++ 1.5/tarball01/axtu/libs/classRpmEngine.h	2009-06-10 09:21:30.000000000 +0800
+@@ -246,7 +246,8 @@ public:
+ 	int ReadHeaders();    // -------------------------------------------------- Callback
+ 	int OpenHeader(string strFilePath, int nIndex, bool bUpgrade);
+ 	int CompareHeaderInfo(vector <structHeaderInfo> vectorHeaderInfo, structHeaderInfo headerInfo);	
+-	bool CreateUpdateInstallList();
++	int CreateUpdateInstallList();
++	//peter bool-->int
+ 				
+ 	void ClearAddedFiles();
+ 	

@@ -1,0 +1,87 @@
+
+***************
+why i want to use easy-arm-like1.7 rather then arm-qt with xml in yctek arm dick
+1. i am more familiar with the structure of the 1.7 one
+2. the libqte.so verison is 2.3.7 in the 1.7 one, but 2.3.1 in the xml one.
+*****************
+but 1.7 has its disadvantages
+1. hyperterm|sent file  function is disabled//see 'rz' in QQ2440 UM
+2. error may even you use vi to chnage rcS
+something is wrong with the file system or something
+or maybe it is readlyonly system
+so better to change it on PC using NFS
+***************
+since i can not understand the rcS of qt-like17
+so i am back to the xml one
+here i use hyperterm|sendfile freely
+i change rc.local as i want.
+now i know, the sister_sys is just based on this xml one
+**
+now i am going to port my first arm hello to this system
+when my hello is moved onto arm using hyperterm|sendfile
+in hyperterm
+#./hello
+error: libqte.so.2 not found
+but the sybolic link is actually in /qt/lib
+i know that is because LD_LIBRARY_PATH is not set
+when i fix this
+#./hello
+error:libstdc++.so.5 not found
+and there is no such file on arm now
+so i will need to port it myself
+i know it is in
+Redhat9/usr/local/arm/3.3.2/arm-linux
+afer i fix this bug
+# ./hello
+./hello: error while loading shared libraries: libgcc_s.so.1: cannot load shared
+ object file: No such file or directory
+there is no libgcc_s.so.1 on arm, which means i need to find it out on my redhat9
+and port it onto arm.
+it will not be difficult, since my hello is built, there must be every so file it reguires
+around it.
+aha, cathch you
+rehat9/usr/local/arm/3.3.2/lib/gcc-lib/..
+shame to say that, but i actually search it with windows and transfer it to arm by hyperterm,
+that is fast, but evil, since i am a linuxer!
+then i
+/ # ./hello
+./hello: /lib/libc.so.6: version `GLIBC_2.3' not found (required by /qt/lib/libq
+te.so.2)
+./hello: /lib/libc.so.6: version `GLIBC_2.3' not found (required by /lib/libstdc
+++.so.5)
+./hello: /lib/libc.so.6: version `GLIBC_2.2.4' not found (required by /lib/libgc
+c_s.so.1)
+aha, libc.so.6 ....
+i think it is silly to continue,
+its is obviuse that the xml qtopia system is compiled by
+another version of cross complifier. and it is earlier than cross-gcc-2.95.3:
+eg. the libc.so version on arm now is 2.2.2, while the one in 2.95.3 is 2.2.3
+****
+anyway, if the compiler is different, all the .so files is different, including
+libqte
+libstdc++
+libc
+...
+luckily  kernel need no lib:)
+i think that means i need to compile my own libqte.so
+using my owen cross-compiler
+before i can run even a hello on arm
+**
+i delete /lib
+to my surprise, busybox still works well
+then i suddenly remember busybox is statically compiled
+but
+#file busybox
+i see it is using libs. but what libs? i do not know.
+i think i can also delete /qt as well
+that means i will be able to port all my owen libs here, using this busybox
+it can be done, i guess
+but will not be easy
+i need to know which part of my arm-linux-gcc is needed
+i need to change LB_LIBRARY_PATH in /usr/etc/profile
+and ...
+but the key point is even my hello runs here, can it support touch screen?
+better try to compile the friendly arm libqte.so now, in linux-ipaq-gcc mode this time.
+meanwhile if i know the version of complifer that compile libqte.so.2.3.7 in qt-17,
+that will be even beeter to use this libqte and the whole set of libs that come with it
+

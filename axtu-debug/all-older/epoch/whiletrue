@@ -1,0 +1,67 @@
+itRemote = m_setRemoteHeaderInfo.begin();
+itLocal  = m_setLocalHeaderInfo.begin();
+
+
+while(true)
+	{
+		if (itLocal != m_setLocalHeaderInfo.end())
+		{
+			//itLocal--;
+			stripNVRA(itLocal->strNVRA, &strNameL, &strVerL, &strRelL, &strArchL);
+			strOldName = strNameL;
+			strOldVer = strVerL;
+			strOldRel = strRelL;
+			strOldArch = strArchL;
+		}
+
+		
+		/////////////
+		// Same name pass and find last version in LocalSystem's PkgSet.
+		while(strOldName == strNameL)
+		{
+			
+
+		}
+
+
+		if (itRemote != m_setRemoteHeaderInfo.end())
+		{
+			stripNVRA(itRemote->strNVRA, &strNameR, &strVerR, &strRelR, &strArchR);
+			strOldName2 = strNameR;
+			strOldVer2 = strVerR;
+			strOldRel2 = strRelR;
+			strOldArch2 = strArchR;
+			strOldEpoch2=itRemote->strEpoch;//peter add
+		}
+		/////////////
+		// Same name pass and find last version in RemoteServer's PkgSet.
+		while(strOldName2 == strNameR)
+		{
+
+		}
+		
+		if(strNameR == strNameL)
+		{
+			
+
+if((strOldEpoch)<(itRemote->strEpoch))
+{
+nCompare=1;
+}
+else if((strOldEpoch)>(itRemote->strEpoch))
+{
+nCompare=-1;
+}
+		
+		}
+		else if(strNameL > strNameR)
+		{
+		if(itRemote != m_setRemoteHeaderInfo.end()) itRemote++;	
+		}
+		else  //strNameL < strNameR
+		{
+		if(itLocal != m_setLocalHeaderInfo.end()) itLocal++;
+	
+		}
+	}
+
