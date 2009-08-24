@@ -45,7 +45,7 @@ P3:
 if people are using jhtu, if B+ is on installist while A&&!B==true, in thi`s case, if user click B+,
 will it be updated as it should? it seems jhtu does not concern about this.
 
-A: No, he has CheckObsoleteToUpdate() to do the job.
+A: Yes, he has CheckObsoleteToUpdate() to do the job.
 I've tested it. when sysrport is installed, sos will show up on install-list, this is OK, but when I click sos to install it
 there will be file conflicts with sysreport. in the same case, I click libdhcp-devel, there is no conflicts,but pump-devel
 is not removed, which is wrong. So no matter on update or install list, obsoleters should always be Updated. 
@@ -60,7 +60,7 @@ A: axtu just works this way, see peki/axtu-debug/blacklist/1.c
 
 >>>
 P5:
-at git commit " mem leak on xenls! by adding a new vector in classRpmengine"
+at git commit "mem leak on xenls! by adding a new vector in classRpmengine"
 we have only x86_64 pump-devel installed, on install list we have libdhcp-devel of two platform, which is right
 but on update list we only have i386 libdhcp-devel, and 2 of the same thing! 
 A: this is easy to fix, add arch check inside CopyObsoleterFromInstallToUpdate()
