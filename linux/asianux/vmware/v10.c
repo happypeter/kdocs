@@ -53,3 +53,5 @@ dhcp24.asianux.net
 even though $ssh dhcp24.asianux.net
 works
 but I can not connect vmware using this hostname
+===
+Note: vmware on my laptop does not support 64 bit gurests, I need xen to use 64vm-guest
