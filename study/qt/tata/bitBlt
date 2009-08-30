@@ -1,0 +1,35 @@
+===http://doc.trolltech.com/2.3/qpaintdevice.html#35ae2e
+
+void bitBlt (QPaintDevice * dst, int dx, int dy, const QPaintDevice * src, int sx, int sy, int sw, int sh, Qt::RasterOp rop, bool ignoreMask)
+
+This function copies a block of pixels from one paint device to another (bitBlt means bit block transfer).
+
+Arguments:
+
+    * dst is the paint device to copy to.
+    * dx and dy is the position to copy to.
+    * src is the paint device to copy from.
+    * sx and sy is the position to copy from.
+    * sw and sh is the width and height of the block to be copied.
+    * rop defines the raster operation to be used when copying. 
+
+If sw is 0 or sh is 0, then bitBlt will do nothing.
+
+If sw is negative, then bitBlt calculates sw = src->width - sx. If sh is negative, then bitBlt calculates sh = src->height - sy.
+
+The most common values for rop are CopyROP and XorROP; the Qt::RasterOp documentation defines all the possible values.
+
+The ignoreMask argument (default FALSE) applies where src is a QPixmap with a mask. If ignoreMask is TRUE, bitBlt ignores the pixmap's mask.
+
+BitBlt has two restrictions:
+
+   1. The src device must be QWidget or QPixmap. You cannot copy pixels from a picture or a printer (external device).
+   2. The src device may not have pixel depth greater than dst. You cannot copy from an 8 bit pixmap to a 1 bit pixmap. 
+
+Examples: xform/xform.cpp desktop/desktop.cpp
+void bitBlt (QPaintDevice * dst, const QPoint & dp, const QPaintDevice * src, const QRect & sr, RasterOp rop)
+
+Overloaded bitBlt() with the destination point dp and source rectangle sr. 
+
+===http://en.wikipedia.org/wiki/Double_buffering
+here you know a lot about double buffering.
