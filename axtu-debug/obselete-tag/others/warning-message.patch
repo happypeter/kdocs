@@ -1,0 +1,54 @@
+Author: root <root@dhcp17.asianux.net>  2009-08-25 05:30:10
+Committer: root <root@dhcp17.asianux.net>  2009-08-25 05:30:10
+Parent: c0284d148dfeffaecb7730fa5264131991a522bf (test)
+Branch: master
+Follows: 
+Precedes: 
+
+    waringing messagebox works
+
+---------------------------- gui/axtu/classGui.cpp ----------------------------
+index 908a3b0..01eb2bd 100644
+@@ -29,3 +29,3 @@
+ */
+-
++#define OBSOLETE_WARNING_MSG(a, b) (tr("%1 will be removed since %2 replaces %1.").arg(a, b))
+ QString  staticTitle;
+@@ -1186,2 +1186,7 @@ int classGui::ProceedUpdate()
+ 	result = m_rpmEngine->Check();
++//peter
++char * obname;
++obname=m_rpmEngine->getOB();
++QMessageBox::warning(this, tr("Warning"), OBSOLETE_WARNING_MSG(obname, "peter"));
++
+ 
+
+--------------------------- libs/classRpmEngine.cpp ---------------------------
+index 41496ef..caf4dfa 100644
+@@ -73,2 +73,6 @@ void classRpmEngine::SetIgnoreSelfUpdate(bool bFlag)
+ }
++char * classRpmEngine::getOB()
++{
++       return OBname[0];
++}
+ 
+@@ -2658,2 +2662,3 @@ int classRpmEngine::AddInstallElement(rpmts ts, Header h, const fnpyKey key, rpm
+ {
++
+ 	if (access((const char *)key, F_OK) != 0)
+@@ -2672,2 +2677,4 @@ int classRpmEngine::AddInstallElement(rpmts ts, Header h, const fnpyKey key, rpm
+ 	//do I need to free the pointers here?
++	m_Logger->WriteLog_char(ERROR_LOG, MYSELF_NAME,strName,NULL);
++	OBname[0]=(char *)strName; //peter
+ 	nRet = CheckKernel(strName);
+
+---------------------------- libs/classRpmEngine.h ----------------------------
+index 2ffff2f..883d3f1 100644
+@@ -234,4 +234,4 @@ private:
+ public:
+-			 
+-	
++        char * OBname[5];
++        char * getOB(); //peter	
+ 	classRpmEngine();
+

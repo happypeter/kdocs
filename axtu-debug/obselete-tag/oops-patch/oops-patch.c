@@ -11,7 +11,7 @@ Patch2: axtu-1.5-obsolete-bug.patch
 
 
 Patch3: axtu-1.5-obsolete-warning.patch
-
+//for the message box, see 10warning-messages.c
 
 Patch4: axtu-1.5-obsolete-version-check.patch
 //this patch has nothing to do the obsoleteVersion you get from hdr file

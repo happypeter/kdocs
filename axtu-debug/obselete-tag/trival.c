@@ -21,7 +21,7 @@ so ReadHeader() dep on the output of CreateUpdateInstall(), so basiclly imporssi
 mv it before CreateUpdateInstall().
 
 >>>>so B obsletes A, B shall be on both install and update lists,
-but even user click B on update list, B shall be install actually.
+but even user click B on install list, B shall be updated.
 axtu-1.5-obsolete-upgrade.patch seems to be related to this issue
 >>>the rpm we use for ax3sp2, gives no warning when you install sos on a system having sysrport already installed.
 How about the lastest rpm?
