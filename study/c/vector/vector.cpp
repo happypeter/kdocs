@@ -32,6 +32,7 @@ for(it=peter.begin();it!=peter.end();it++)
         if(*it<3)
         {
                 peter.insert(it--,2);//segfault here! why?
+					//A: it++ shall be here
         }
 }
 
@@ -42,5 +43,11 @@ for(it=peter.begin();it!=peter.end();it++)
 
 
 }
-
+/*
+ *
+ * This effectively increases the vector size, which causes an automatic reallocation of the allocated storage space if, and only if, the new vector size surpases the current vector capacity. Reallocations in vector containers invalidate all previously obtained iterators, references and pointers.
+ *
+ * Because vectors keep an array format, insertions on positions other than the vector end are performed by moving all the elements between position and the end of the vector to their new positions, and then inserting the new element(s), which may not be a method as efficient as the insertion in other kinds of sequence containers (deque, list).
+ * http://www.cplusplus.com/reference/stl/vector/insert/
+ */
 
