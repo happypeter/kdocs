@@ -11,3 +11,14 @@ Could you please let me know all numbers of the ports ?
 best resgads,
 Miyashita
 
+Hi Miyashita san,
+
+  443 for authentication is right,
+  I don't think pkg get by ftp, it should use wget by 80port.
+
+  I am not developer of axtu, maybe Peter could correct me if i am wrong.
+Anyway, TSN local open 443 and 80 port for the client connect.
+
+  Peter, how do you think about this issue?
+
+regards, 
