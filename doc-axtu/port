@@ -22,3 +22,30 @@ Anyway, TSN local open 443 and 80 port for the client connect.
   Peter, how do you think about this issue?
 
 regards, 
+
+======
+so I ssh to 219 and 
+<pre>
+[root@tsnlocaltest ddd]# netstat -antp
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program name
+tcp        0      0 ::ffff:10.1.0.219:22        ::ffff:10.1.0.66:47984      ESTABLISHED 4050/0
+</pre>
+then I 
+<pre>
+[root@tsnlocaltest ddd]# ps aux|grep 4050
+root      4050  0.0  0.9  8676 2320 ?        Ss   10:08   0:01 sshd: root@pts/0
+</pre>
+so the 22 port is now open to me, but it is for ssh, nothing about axtu.
+===
+when axtu trying to download hdr files, I run netsat again, and found only 80 is opened for axtu
+===
+then how about auth?
+SSL is used for auth, and on wikipedia I see
+<>
+SSL==TLS
+...
+A prominent use of TLS is for securing World Wide Web traffic carried by HTTP to form HTTPS. 
+For example, by default the TCP port for HTTPS is 443, to distinguish it from HTTP on port 80.
+</>
+so it is reasonalbe to believe 443 is used for auth and 80 is used for downloading. 
