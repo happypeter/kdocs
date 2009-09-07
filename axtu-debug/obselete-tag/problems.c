@@ -68,3 +68,6 @@ A: this is easy to fix, add arch check inside CopyObsoleterFromInstallToUpdate()
 P6:
 Hwanii has a new requirement, viz 
 if obsoleted is set as blacklisted, then its obsoleter shall be obsoleted as well
+
+A: see ../../blacklist/1.c, anyway if I have to implement this fether, the axtu basic logic will be changed
+so better to ignore this requirement
