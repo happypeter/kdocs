@@ -55,3 +55,4 @@ works
 but I can not connect vmware using this hostname
 ===
 Note: vmware on my laptop does not support 64 bit gurests, I need xen to use 64vm-guest
+but on my laptop, I have to creat a 64 bit machine to install a 32 bit OS, haha, funny
