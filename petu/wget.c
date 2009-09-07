@@ -14,7 +14,7 @@ int classNetwork::GetHeader()
 //              m_clsDown->setTargetDir(it->strLocalHeaderDir.c_str());
                 m_clsDown->setTargetDir("/home/peter/tmp/");
 //              url = m_clsConfParser->StripRString(it->strUrl, '/');
-//               url=url.substr(0,url.rfind("/"));  // remove RPMS
+//		url=url.substr(0,url.rfind("/"));  // remove RPMS
 //              url.append(".header.info");
                 url ="http://127.0.0.1/peter-repo/repodata/primary.xml.gz";
                 m_Logger->WriteLog_char(ERROR_LOG,"getting--1...peter... ",url.c_str(), NULL);
