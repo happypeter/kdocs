@@ -64,3 +64,7 @@ at git commit "mem leak on xenls! by adding a new vector in classRpmengine"
 we have only x86_64 pump-devel installed, on install list we have libdhcp-devel of two platform, which is right
 but on update list we only have i386 libdhcp-devel, and 2 of the same thing! 
 A: this is easy to fix, add arch check inside CopyObsoleterFromInstallToUpdate()
+>>>
+P6:
+Hwanii has a new requirement, viz 
+if obsoleted is set as blacklisted, then its obsoleter shall be obsoleted as well
