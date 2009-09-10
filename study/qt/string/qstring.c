@@ -14,4 +14,6 @@ but this is not available in 3.3, then how can I do it?!
 ===
 finally I find out I can use
 cout<<"newstr.ascii()----"<<newstr.ascii()<<endl;
+as well as
+.latin1()
 

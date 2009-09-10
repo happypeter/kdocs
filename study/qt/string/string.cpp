@@ -14,13 +14,15 @@ int main(int argc, char *argv[])
 	file.open(IO_ReadOnly);
 	QTextStream in(&file);
         strOb = in.readLine();
-	cout<<"strOb.ascii()----"<<strOb.ascii()<<endl;
 	sl2= strObList.split(" ",strOb);
-        it = sl2.begin(); //I can use .grep() to find obsolete
+        it = sl2.begin(); 
 	while(1)
-	{
-		cout<<(*it++).ascii()<<endl;
+	{	
+		if((*it++).find("+"))
+		{
+			cout<<(*it).remove("+").ascii()<<endl;
+		}
 		if((*it)==NULL) break;
 	}
 }
-//now everything works, haha
+//now everything works under qt3.3, haha
