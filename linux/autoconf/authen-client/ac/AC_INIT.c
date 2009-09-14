@@ -14,3 +14,8 @@ configure: You can send e-mail(peter@haansoft.com) for bug
 </>
 
 so it seems to me now is AC_INIT just set up three ENV variable implicitly
+
+== manual ==
+Every configure script must call AC_INIT before doing anything else. The only other
+required macro is AC_OUTPUT
+
