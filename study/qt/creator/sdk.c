@@ -1,3 +1,9 @@
+NOTE: I need to say the following desc is obsoleted now.
+today I downloaded the sdk and installed it without any sepcial setting
+I mean no extra script, no need to export PATH or LD_LIBRARY_PATH
+everything just works. 
+check Project->Build Setting, then I understand why.
+
 vim /etc/scripts/.qtconfig   
 <>
 # /etc/scripts/.qtconfig: QT configuration script
@@ -42,3 +48,7 @@ Now if I run any compiled examples, I see this error
 Fontconfig error: Cannot load default config file
 </>
 I must put the config files of fontconfig-2.4.2.tar.gz at a wrong place.
+
+
+
+
