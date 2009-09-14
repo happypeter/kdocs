@@ -1,5 +1,5 @@
-last change in 10_26_2008
-
+NOTE: this list and the real discs are going to be obsoleted, since I have now
+data_backup.c
 /*****************************************/
 
 the disk content tent to be messy, cause i can not modify the things once they are burned

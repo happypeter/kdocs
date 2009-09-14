@@ -9,3 +9,8 @@ so I can do data backup finally.
 		+++project data(vivi arm-linux-gcc ...)
 		+++pdf-books
 		+++others
+
+2. rules
+	2.1 things shall be backed as tar.gz file
+	2.2  md5sum check is required everytime they are moved
+
