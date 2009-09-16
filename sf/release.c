@@ -13,5 +13,16 @@ README_peter  tinylion.tar.gz
 </>
 but I can not find anything here
 https://sourceforge.net/projects/tinylion/files/
+ten mins later tinylion.tar.gz shows up
+===
+this means user can download a realatively stable version namely a release, 
+by 
+<the web page>
 
-why?
+Links You May Need
+
+    * Download Tata
+    * Get Support for Tata
+    * Send a request to join this project
+
+</>
