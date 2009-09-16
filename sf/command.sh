@@ -21,3 +21,8 @@ sftp happypeter,tinylion@web.sourceforge.net
 
 git clone ssh://happypeter@tinylion.git.sourceforge.net/gitroot/tinylion 
 
+=== ssh login ==
+
+ssh -t happypeter, tinylion@shell.sourceforge.net create
+
+//not so bad, haha I like it
