@@ -1,0 +1,18 @@
+diff --git a/linux/git/1.c b/linux/git/1.c
+index 9f88e72..56da2ae 100644
+--- a/linux/git/1.c
++++ b/linux/git/1.c
+@@ -53,4 +53,12 @@ Next steps:
+   git commit -m 'first commit'
+   git remote add origin git@github.com:happypeter/axtu.git
+   git push origin master
+->>>today I copy the ssh key from host machine to my xen vm, and it works for "git pull"    
++>>>today I copy the ssh key from host machine to my xen vm, and it works for "git pull"
++
++
++>>>OK I am makeing a change on branch test
++git branch test
++git checkout test
++//make a change
++git diff -p master -- . > my-patch.txt
++
