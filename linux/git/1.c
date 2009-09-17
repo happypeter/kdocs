@@ -53,4 +53,23 @@ Next steps:
   git commit -m 'first commit'
   git remote add origin git@github.com:happypeter/axtu.git
   git push origin master
->>>today I copy the ssh key from host machine to my xen vm, and it works for "git pull"    
+>>>today I copy the ssh key from host machine to my xen vm, and it works for "git pull"   
+
+
+>>>OK I am makeing a change on branch test
+git branch test
+git checkout test
+//make a change
+git diff -p master -- . > my-patch.txt
+then I
+peter@peter-laptop:~/kdocs/linux/git$ git checkout master 
+M	linux/git/1.c
+Switched to branch "master"
+peter@peter-laptop:~/kdocs/linux/git$ git apply  my-patch.txt
+linux/git/my-patch.txt:10: trailing whitespace.
+>>>today I copy the ssh key from host machine to my xen vm, and it works for "git pull"   
+linux/git/my-patch.txt:18: trailing whitespace.
+ 
+error: patch failed: linux/git/1.c:53
+error: linux/git/1.c: patch does not apply
+//fuck failed 
