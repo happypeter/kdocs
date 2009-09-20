@@ -1,0 +1,9 @@
+the change to SPEC is removing patches realted stuff
+when the rpm is ready, and I installed it, then I saw two anoying error.
+1. the systerm try for notifier disappers
+2. click update, "server internal error" is given, but auth-client is not invoked
+
+Now I see the reason: 219 which I was using has problem, when I switch to 246 or 155, no problem
+since ak is still there, so auth-client is not invoke, then axtu try to compare local ak to server one
+then error2 shows up
+when 155 is connnected notifier tray shows up again.
