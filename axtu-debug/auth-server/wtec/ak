@@ -21,7 +21,7 @@ The following words are from axtu flow chart,
                HW hash value are sent.
 To access for updating : AK, HW Hash value are sent.
 </pre>
-Which means AX is read form remote
+Which means AK is read form remote
 
 
 >>>when authen program start, first it will make clear it is Register mode or auth mode,
