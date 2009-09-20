@@ -17,7 +17,7 @@ check Bugzilla->type
 
 >>>If you want to build
 $ssh 10.1.0.8 --------------jupiter(32 bit)
-Note: 10.1.0.3-------------64 bit
+Note: 10.1.0.3-------------pluto(64 bit)
       10.1.0.4-------------suteng
 
 NOTE: login jupiter first
