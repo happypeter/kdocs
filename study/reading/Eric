@@ -1,0 +1,2 @@
+http://www.linuxjournal.com/article/3882
+One course I did not consider was going back to C as a default language. The days when it made sense to do your own memory management in a new program are long over, outside of a few specialty areas like kernel hacking, scientific computing and 3-D graphics—places where you absolutely must get maximum speed and tight control of memory usage, because you need to push the hardware as hard as possible.

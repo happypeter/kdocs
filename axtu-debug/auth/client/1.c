@@ -16,4 +16,7 @@ the you can use http://url to visited
 if it is protected by auth_mysql
 then you need sth like http://url+ak+tk,
 I need to know the exact format of http://url+ak+tk,
-I believe I can find the format in axtu source code. 
+I believe I can find the format in axtu source code.
+A: no such format, axtu just pass ak and tk as user and passwd
+through a struct options, then wget use options in a low level way, so not a simply url as I imagined
+so I need to know if yum use wget or not. 
