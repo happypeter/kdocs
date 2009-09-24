@@ -1,14 +1,13 @@
 <pre>
-Now I want my own test machine, so first step is to make a clone of 155, on my xen machine(67)
->>>cp src/-------service httpd start
-1. server internal error #001
-2. that means DB not connected well
-3. that's no wonder, since there is no db on 67.
->>>cp phpAdmin------service mysqld start
-1. all it needs is httpd and mysqld
-2. it just works, haha
+Now I want my own test machine, so first step is to make a clone of 155, on my virtual machine(73)
+>>>
+1. cp 10.1.0.155:/var/www/html/auth/src/, to the same location on my vm.
+2. service httpd start
+3. cp /var/www/html/phpAdmin
+4. service mysqld start
+//all it takes is httpd and mysqld, phpAdmin works, login as root, no passwd
 >>>cp db
-1. cp 155 "/var/lib/mysql/asianux_authentication" to xen
+1. cp 155 "/var/lib/mysql/asianux_authentication" to vm
 chmod 660 *
 chown -c mysql * 
 chgrp -c mysql *
@@ -19,14 +18,14 @@ then $ll, we see everything on xen is exactly the same as 155
 >>>reg done, error is "required data not found"
 1. this is because I do have repo on xen
 2. so I make a "/var/www/html/auth/asianux2/AXS3-RF/x86_64/SELF"
-3. cp hsyum-arch and yum-arch  to xen and chmod +x
+3. cp hsyum-arch and yum-arch  to vm and chmod +x
 4. now the error is
 <>
 File "/usr/bin/yum-arch", line 22, in ?
     import pullheaders
 ImportError: No module named pullheaders
 </>
-this is solved by "scp -r 10.1.0.155:/usr/share/yum/ .  "
+this is solved by "scp -r 10.1.0.155:/usr/share/yum/ /usr/share/  "
 5. now the "required data not found" remains
 6. when I cnstruct SELF anf UPDATE, and error is gone
 8. use "127.0.0.1       update.redflag-linux.com" on xen--works
