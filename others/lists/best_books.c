@@ -7,4 +7,5 @@ very easy and clear
 
 2.rpm
 Maximum RPM -------http://www.rpm.org/wiki/Docs#Books
-
+3.  the art of unix programming
+http://www.catb.org/~esr/writings/taoup/html/
