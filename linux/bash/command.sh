@@ -1,3 +1,5 @@
+>>>Ctl+D works for python, and shell as well
+if you are connect to a server, you can simply use Ctl+D to log out, no need to type "exit"
 >>>
 <>
 [root@dhcp25 axtu]# time rpm -qa>/dev/null

@@ -94,4 +94,6 @@ textutils = 5.97
 coreutils = 5.97-12.1
 
 </>       
-rpm -q --requires glibc-devel-2.5-18.1AXS3    
+rpm -q --requires glibc-devel-2.5-18.1AXS3   
+
+
