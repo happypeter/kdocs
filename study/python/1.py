@@ -29,6 +29,7 @@ http://docs.python.org/library/intro.html
 Some modules are written in C and built in to the Python interpreter; others are written in Python and imported in source form.
 </>
 
+/usr/lib/python2.4/site-packages/yum/__init__.py
 
 The Python interpreter has a number of functions built into it that are always available.
 
