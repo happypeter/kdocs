@@ -1,5 +1,3 @@
-chmod -x filename -------to eleminate green color
->>>
 >>>
 cat /proc/cpuinfo
 ~
@@ -64,4 +62,3 @@ d1  s2
 rm: remove symbolic link `s2'? y
 [root@dhcp16 test]#               
 </>
-less /proc/cpuinfo
