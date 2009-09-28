@@ -1,3 +1,7 @@
+asianux has all kinds of docbook stuff
+
+http://www.docbook.org/tdg/en/html/docbook.html
+
 refer to https://help.ubuntu.com/community/DocBook
 
 1.First I install the following packages(using apt-get install xxx):
