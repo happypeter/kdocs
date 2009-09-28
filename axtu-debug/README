@@ -9,5 +9,5 @@ bug#6371--Cannot update lots of packages through axtu on x86_64 platform.
 5. tui/
 bug#4717--The scroll bar in warning page on TUI can not be used
 
-//things here tend to be messy, so I will move some of the content to doc-axtu, and orgnize it well
+//things here tend to be messy, so I will move some of the content to doc-axtu or bugzilla, and orgnize it well
 probably use wiki for xhtml format
