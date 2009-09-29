@@ -23,3 +23,21 @@ refer to https://help.ubuntu.com/community/DocBook
    $apt-get install sun-java6-bin
 
 well, fop is not working!
+===
+try to do it in ubuntu8.04
+1. $apt-get docbook
+2. then install all the suggested and recommended pkgs
+sudo apt-get install docbook-defguide  docbook-dsssl psgml
+Reading state information... Done
+The following extra packages will be installed:
+  libosp5 libostyle1c2 openjade
+Suggested packages:
+  jadetex docbook-dsssl-doc debiandoc-sgml linuxdoc-sgml w3c-dtd-xhtml
+  w3-dtd-mathml
+Recommended packages:
+  sp opensp
+The following NEW packages will be installed:
+  docbook-defguide docbook-dsssl libosp5 libostyle1c2 openjade psgml
+0 upgraded, 6 newly installed, 0 to remove and 331 not upgraded.
+===
+http://www.oasis-open.org/docbook/documentation/reference/
