@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://docbook.org/xml/4.2/docbookx.dtd">
  <book>
-      <title>TITILE of PETER BOOK</title>
+      <title>PETER BOOK</title>
 <titleabbrev>Example</titleabbrev>
 <bookinfo>
   <legalnotice><para>No notice is required.</para></legalnotice>
-  <author><firstname>Norman</firstname><surname>Walsh</surname></author>
+  <author><firstname>Peter</firstname><surname>King</surname></author>
 </bookinfo>
 <dedication>
 <para>
@@ -18,6 +18,27 @@ Some content is always required.
 </para>
 </preface>
 <chapter><title>Required Chapter</title>
+<para>
+This chapter will teach you
+<itemizedlist>
+<listitem>
+<para>
+How to disassemble an automobile.
+</para>
+</listitem>
+<listitem>
+<para>
+How to properly carry the component pieces.
+</para>
+</listitem>
+<listitem>
+<para>
+How to reassemble an automobile in a standard telephone booth.
+</para>
+</listitem>
+</itemizedlist>
+</para>
+
 <para>
 At least one chapter, reference, part, or article is required in a book.
 </para>
