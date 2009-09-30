@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://docbook.org/xml/4.2/docbookx.dtd">
  <book>
-      <title>Chp 1 who is peter</title>
+      <title>TITILE of PETER BOOK</title>
 <titleabbrev>Example</titleabbrev>
 <bookinfo>
   <legalnotice><para>No notice is required.</para></legalnotice>
@@ -12,5 +12,19 @@
 This book is dedicated to you.
 </para>
 </dedication>
-
+<preface><title>Forword</title>
+<para>
+Some content is always required.
+</para>
+</preface>
+<chapter><title>Required Chapter</title>
+<para>
+At least one chapter, reference, part, or article is required in a book.
+</para>
+</chapter>
+<appendix><title>Optional Appendix</title>
+<para>
+Appendixes are optional.
+</para>
+</appendix>
  </book>
