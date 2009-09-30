@@ -2,4 +2,15 @@
  <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://docbook.org/xml/4.2/docbookx.dtd">
  <book>
       <title>Chp 1 who is peter</title>
+<titleabbrev>Example</titleabbrev>
+<bookinfo>
+  <legalnotice><para>No notice is required.</para></legalnotice>
+  <author><firstname>Norman</><surname>Walsh</></author>
+</bookinfo>
+<dedication>
+<para>
+This book is dedicated to you.
+</para>
+</dedication>
+
  </book>
