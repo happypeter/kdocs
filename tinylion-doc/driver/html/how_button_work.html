@@ -1,87 +1,0 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
-	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
-	<META NAME="AUTHOR" CONTENT="peter king">
-	<META NAME="CREATED" CONTENT="20081221;3104500">
-	<META NAME="CHANGEDBY" CONTENT="peter king">
-	<META NAME="CHANGED" CONTENT="20081221;3111000">
-</HEAD>
-<BODY LANG="en-US" DIR="LTR">
-<P>        <FONT FACE="AlManzomah"></FONT></P>
-<P><FONT FACE="AlManzomah">2410 EINT0</FONT></P>
-<P><FONT FACE="AlManzomah">here, we talk about how a single button,
-which is connected to EINTO,</FONT></P>
-<P><FONT FACE="AlManzomah">works on the ARM chip s3c2410. Two tasks
-here:</FONT></P>
-<P><FONT FACE="AlManzomah">1. how many rigisters related to the whole
-process of EINTO reacton?</FONT></P>
-<P>   <FONT FACE="AlManzomah">what  we need to do to them?</FONT></P>
-<P><FONT FACE="AlManzomah">2. what we can do in a driver written in
-pure C?</FONT></P>
-<P><FONT FACE="AlManzomah">we talk about the rigisters first.</FONT></P>
-<P><FONT FACE="AlManzomah">(1) Program Status Rigister</FONT></P>
-<P>    <FONT FACE="AlManzomah">in 2410UM they say that if F bit of
-PSR is set to 1, the CPU does</FONT></P>
-<P><FONT FACE="AlManzomah">not accept FIQ, likewise, if I bit is
-1,the CPU does not accept IRQ.</FONT></P>
-<P><FONT FACE="AlManzomah">Bear in mind that PSR is not belong to
-2410 interrrupt controller which</FONT></P>
-<P><FONT FACE="AlManzomah">has its own five rigisters:</FONT></P>
-<P>    <FONT FACE="AlManzomah">SRCPND:source pending register</FONT></P>
-<P>    <FONT FACE="AlManzomah">INTPND:interrupt pending register</FONT></P>
-<P>    <FONT FACE="AlManzomah">INTMSK:interrupt mask register </FONT></P>
-<P>    <FONT FACE="AlManzomah">PRIORIY:interrupt priority regiser</FONT></P>
-<P>    <FONT FACE="AlManzomah">INTMOD:interrpt mode regiter</FONT></P>
-<P><FONT FACE="AlManzomah">HOWTO: I think what i need to do is to set
-all the two bits to 0 in</FONT></P>
-<P><FONT FACE="AlManzomah">order to enable both FIQ and IRQ.</FONT></P>
-<P><FONT FACE="AlManzomah">(2) SRCPND:source pending register</FONT></P>
-<P>    <FONT FACE="AlManzomah">INTPND:interrupt pending register</FONT></P>
-<P>    <FONT FACE="AlManzomah">INTMSK:interrupt mask register  </FONT></P>
-<P> <FONT FACE="AlManzomah">***********************</FONT></P>
-<P> <FONT FACE="AlManzomah">if (the interrupt sources requset
-interrupt service)</FONT></P>
-<P>    <FONT FACE="AlManzomah">corresponding bits of SRCPND are set
-to 1;</FONT></P>
-<P> <FONT FACE="AlManzomah">if(corresponding bits of INTMSK are set
-to 0)</FONT></P>
-<P>    <FONT FACE="AlManzomah">{</FONT></P>
-<P>     <FONT FACE="AlManzomah">arbitration procedure;</FONT></P>
-<P>     <FONT FACE="AlManzomah">only one bit of the INTPND is 1;</FONT></P>
-<P>     <FONT FACE="AlManzomah">}</FONT></P>
-<P>  <FONT FACE="AlManzomah">else</FONT></P>
-<P>  <FONT FACE="AlManzomah">nothing happens to INTPND;</FONT></P>
-<P><FONT FACE="AlManzomah">***************************</FONT></P>
-<P> <FONT FACE="AlManzomah"></FONT></P>
-<P><FONT FACE="AlManzomah">(3)INTMOD</FONT></P>
-<P>   <FONT FACE="AlManzomah">HOWTO: as a interrupt source, EINTO
-shall be a FIQ, thus we need to</FONT></P>
-<P><FONT FACE="AlManzomah">set bit0 of INTMOD to 1</FONT></P>
-<P><FONT FACE="AlManzomah">(4)INTMSK</FONT></P>
-<P>  <FONT FACE="AlManzomah">I am not sure about whether a FIQ can be
-masked here. Anyway i set bit0</FONT></P>
-<P><FONT FACE="AlManzomah">(EINT))to 0.</FONT></P>
-<P><FONT FACE="AlManzomah">(5)PRIORIY</FONT></P>
-<P>  <FONT FACE="AlManzomah">the interrupt controller suppoort 56
-interrupt source(P14-3 in 2410UM)</FONT></P>
-<P><FONT FACE="AlManzomah">EINTO is one of them. It is of the group
-of ARBITER0, which produce REQ0</FONT></P>
-<P><FONT FACE="AlManzomah">. REQ0 has the highest priority, no matter
-what is in interrupt priority</FONT></P>
-<P><FONT FACE="AlManzomah">rigster. but bit0 sitll worth a quick look
-when programming for EINT0.</FONT></P>
-<P><FONT FACE="AlManzomah">(6)interrupt offdet(INTOFFSET) rigister</FONT></P>
-<P><FONT FACE="AlManzomah">(7)two rigisters about sub source and
-their mask</FONT></P>
-<P>  <FONT FACE="AlManzomah">I do not know what they are used for?</FONT></P>
-<P> <FONT FACE="AlManzomah"></FONT></P>
-<P> <FONT FACE="AlManzomah"></FONT></P>
-<P> <FONT FACE="AlManzomah"></FONT></P>
-<P> <FONT FACE="AlManzomah"></FONT></P>
-<P><FONT FACE="AlManzomah"></FONT></P>
-<P> <FONT FACE="AlManzomah"></FONT></P>
-</BODY>
-</HTML>

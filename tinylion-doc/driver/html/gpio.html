@@ -1,67 +1,0 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
-	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
-	<META NAME="AUTHOR" CONTENT="peter king">
-	<META NAME="CREATED" CONTENT="20081221;3094900">
-	<META NAME="CHANGEDBY" CONTENT="peter king">
-	<META NAME="CHANGED" CONTENT="20081221;3101600">
-</HEAD>
-<BODY LANG="en-US" DIR="LTR">
-<P><FONT FACE="AlManzomah">Gpio 2410</FONT></P>
-<P><FONT FACE="AlManzomah">1. in 
-\include\asm-arm\arch-s3c2410\hardware.h , I see</FONT></P>
-<P> <FONT FACE="AlManzomah">*   s3c2410_gpio_pullup(S3C2410_GPB0,
-0);</FONT></P>
-<P> <FONT FACE="AlManzomah">*   s3c2410_gpio_pullup(S3C2410_GPE8,
-0);</FONT></P>
-<P><FONT FACE="AlManzomah">*/</FONT></P>
-<P><FONT FACE="AlManzomah">extern void s3c2410_gpio_pullup(unsigned
-int pin, unsigned int to);</FONT></P>
-<P> <FONT FACE="AlManzomah"></FONT></P>
-<P><FONT FACE="AlManzomah">things above make me think in
-write_gpio_bit(x,v), x shall be S3C2410_GPB0, but where is the
-hearder which includes this faction?</FONT></P>
-<P><FONT FACE="AlManzomah">Not in  /io.h</FONT></P>
-<P><FONT FACE="AlManzomah">Not in the whole /arm-arch</FONT></P>
-<P><FONT FACE="AlManzomah">Not in any folder</FONT></P>
-<P><FONT FACE="AlManzomah">I try many times, but no result.</FONT></P>
-<P><FONT FACE="AlManzomah">2.then I know from net that write_gpio_bit
-is defined in mizi_linux kernel, and they tell me there is no
-relationship between the function and 2410 user mannul, it is just a
-linux function.so I get a 2.4 kernel from D:\useful
-softwares\FriendlyARM\ ,and find out there is a file named S3C2410.h
-with write_gpio_bit and anything in it, which I don’t have in yctek
-2.6 kernel. That mean I can not mean to use write_gpio_bit, too bad!</FONT></P>
-<P><FONT FACE="AlManzomah">3.below is  what I find out in
-friendly-arm2.6 kernel/include/../regs-gpio.h</FONT></P>
-<P> <FONT FACE="AlManzomah">#define GPIO_H6   
-MAKE_GPIO_NUM(PORTH_OFS, 6)</FONT></P>
-<P><FONT FACE="AlManzomah">#define GPIO_H7   
-MAKE_GPIO_NUM(PORTH_OFS, 7)</FONT></P>
-<P><FONT FACE="AlManzomah">#define GPIO_H8   
-MAKE_GPIO_NUM(PORTH_OFS, 8)</FONT></P>
-<P><FONT FACE="AlManzomah">#define write_gpio_bit_clear(x) \</FONT></P>
-<P>            <FONT FACE="AlManzomah">({ GPDAT(GRAB_PORT((x))) &amp;=
-~(0x1 &lt;&lt; GRAB_OFS((x)));  })</FONT></P>
-<P><FONT FACE="AlManzomah">but in yctek 2.6 kernel, which I am
-running now, nothing useful found in its own regs-gpio.h.</FONT></P>
-<P><FONT FACE="AlManzomah">4. the first 19 pages of both yc-reg and
-fa-reg arm almost the same(only small differences), but fa-reg has 25
-pages.</FONT></P>
-<P><FONT FACE="AlManzomah">5.
-http://www.gelato.unsw.edu.au/lxr/source/arch/alpha/kernel/io.c#L77</FONT></P>
-<P><FONT FACE="AlManzomah">this website is heaven of kernel hackers,
-with its help I trace s3c2410_set_pin to the deepest heart of kernel,
-and finally found some assembly language. One thing I know is not all
-the defination of the function you used is in include header
-files.e.g. one functong that is used to define s3c2410_set_pin, is
-defined in arch/../..,</FONT></P>
-<P><FONT FACE="AlManzomah">now what I believe all finctions, if you
-trace it to the buttom shall be define as assembly lanage, and if you
-can not find it in the kernel source, then it must be in gcc-as
-tool.</FONT></P>
-</BODY>
-</HTML>

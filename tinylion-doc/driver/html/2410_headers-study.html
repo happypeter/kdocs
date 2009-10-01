@@ -1,57 +1,0 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
-	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
-	<META NAME="AUTHOR" CONTENT="peter king">
-	<META NAME="CREATED" CONTENT="20081221;3055400">
-	<META NAME="CHANGEDBY" CONTENT="peter king">
-	<META NAME="CHANGED" CONTENT="20081221;3062500">
-</HEAD>
-<BODY LANG="en-US" DIR="LTR">
-<P><FONT FACE="AlManzomah">2410headers_study</FONT></P>
-<P><FONT FACE="AlManzomah">1. “/include/asm”   and
-“/include/arm-asm” the two are the same, maybe a hardlink, maybe
-a copy.</FONT></P>
-<P><FONT FACE="AlManzomah">2.”/asm/hardware.h” and
-“asm/arch-s3c2410.h”, different</FONT></P>
-<P><FONT FACE="AlManzomah">3.in my led driver, there is a line:</FONT></P>
-<P> <FONT FACE="AlManzomah">ret = register_chrdev(major, NAME,
-&amp;led_test_fops);</FONT></P>
-<P><FONT FACE="AlManzomah">it works perfectly, but how can it works
-where is his detailed defination?</FONT></P>
-<P><FONT FACE="AlManzomah">I search around the whole kernel, only in
-fs.h there is one line:</FONT></P>
-<P><FONT FACE="AlManzomah">extern int register_chrdev(unsigned int,
-const char *,</FONT></P>
-<P>      <FONT FACE="AlManzomah">struct file_operations *);</FONT></P>
-<P><FONT FACE="AlManzomah">but in my eyes this is only a declaration
-not defination, I mean how it handle all its argumnets,</FONT></P>
-<P><FONT FACE="AlManzomah">like:</FONT></P>
-<P><FONT FACE="AlManzomah">peter(int x, int y)</FONT></P>
-<P><FONT FACE="AlManzomah">{</FONT></P>
-<P><FONT FACE="AlManzomah">int z;</FONT></P>
-<P><FONT FACE="AlManzomah">z=x+y;</FONT></P>
-<P><FONT FACE="AlManzomah">return z;</FONT></P>
-<P><FONT FACE="AlManzomah">}</FONT></P>
-<P><FONT FACE="AlManzomah">4. I am confused, may be register_chardev
-works the same way like printk. Mybe the defination is in the C
-compilfier, can not be!~</FONT></P>
-<P><FONT FACE="AlManzomah">5. #ifndef __arch_ioremap</FONT></P>
-<P><FONT FACE="AlManzomah">#define ioremap(cookie,size) 
-__ioremap(cookie,size,0,1)</FONT></P>
-<P><FONT FACE="AlManzomah">#define ioremap_nocache(cookie,size)
-__ioremap(cookie,size,0,1)</FONT></P>
-<P><FONT FACE="AlManzomah">#define ioremap_cached(cookie,size)
-__ioremap(cookie,size,L_PTE_CACHEABLE,1)</FONT></P>
-<P><FONT FACE="AlManzomah">#define iounmap(cookie)  
-__iounmap(cookie)</FONT></P>
-<P><FONT FACE="AlManzomah">in io.h, I find many macros defined like
-above.</FONT></P>
-<P><FONT FACE="AlManzomah">and you can never find the difination of
-these &quot;__&quot;factions in /include</FONT></P>
-<P><FONT FACE="AlManzomah">who are they? i think they are offered by
-kernel,the buttom of kernel.</FONT></P>
-</BODY>
-</HTML>

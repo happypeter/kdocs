@@ -1,49 +1,0 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
-	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
-	<META NAME="AUTHOR" CONTENT="peter king">
-	<META NAME="CREATED" CONTENT="20081221;3080800">
-	<META NAME="CHANGEDBY" CONTENT="peter king">
-	<META NAME="CHANGED" CONTENT="20081221;3090900">
-</HEAD>
-<BODY LANG="en-US" DIR="LTR">
-
-<P> <FONT FACE="AlManzomah"></FONT></P>
-<P><FONT FACE="AlManzomah">tar yc kernel into rh9,(no 'make' 'make
-install', nothing)
-<p>
-The kernel here is the one you are using on target platform
-<br>For tinylion it is s3c2410-linux-2.6.11.1.tar.bz2 (from Yctek disk)</p>
-</FONT></P>
-<P><FONT FACE="AlManzomah">change its name to s3c-2.6</FONT></P>
-<P><FONT FACE="AlManzomah">copy the led driver in fc4 into rh9</FONT></P>
-<P><FONT FACE="AlManzomah">use arm-linux-gcc-3.4.1
-<br>Note: other version can not garantee the job</FONT></P>
-<P><FONT FACE="AlManzomah">issue make and a led.ko is obtianed.</FONT></P>
-<P><FONT FACE="AlManzomah">that's all.</FONT></P>
-<P><FONT FACE="AlManzomah"></FONT></P>
-<P><FONT FACE="AlManzomah">the same steps works on ubuntu</FONT></P>
-
-<h3>the Makefile in use is like this</h3>
-<p>
-<PRE>
-
-KERNELDIR=/s3c-2.6/  #where the arm linux source is
-PWD := $(shell pwd)
-CROSS_COMPILE=arm-linux-
-CC= $(CROSS_COMPILE)gcc
-obj-m := spi.o 
-modules:
-	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
-clean:
-	rm  *mod* spi.o 
-
-
-</PRE>
-
-</p>
-</BODY>
-</HTML>

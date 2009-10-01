@@ -1,81 +1,0 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
-	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
-	<META NAME="AUTHOR" CONTENT="peter king">
-	<META NAME="CREATED" CONTENT="20081221;3124200">
-	<META NAME="CHANGEDBY" CONTENT="peter king">
-	<META NAME="CHANGED" CONTENT="20081221;3130700">
-</HEAD>
-<BODY LANG="en-US" DIR="LTR">
-<P> <FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>1. download</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>kernel-2.6.15-1.2054_FC5.src.rpm</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>2. install</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>rmp -ivh
-kernel-2.6.15-1.2054_FC5.src.rpm</FONT></FONT><FONT FACE="AlManzomah"><FONT SIZE=3><SPAN LANG="zxx">。</SPAN></FONT></FONT><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>3. make</FONT></FONT><FONT FACE="AlManzomah"><FONT SIZE=3><SPAN LANG="zxx">：</SPAN></FONT></FONT><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>the error is:</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>/lib/modules/2.6.1-l.2054_FC5/build
-can not find file</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>check the file and see it is
-actually a symbolik link for</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>/usr/src/kernels/2.6.15-l.2054_FC5</FONT></FONT><FONT FACE="AlManzomah"><FONT SIZE=3><SPAN LANG="zxx">，</SPAN></FONT></FONT><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>in FC5, the kernel source
-tree is in</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>/usr/src/redhat/SOURCE/linux-2.6.15/
-,</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>thus a symbolic link is
-needed</FONT></FONT><FONT FACE="AlManzomah"><FONT SIZE=3><SPAN LANG="zxx">：</SPAN></FONT></FONT><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>mkdir /usr/src/kernels</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>ln -s
-/usr/src/redhat/SOURCE/linux-2.6.15 
-/usr/src/kernels/2.6.15-l.2054_FC5</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>now the right soure tree can
-be found</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>$make</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>many file not found error</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>it is because the source tree
-is not compiled yet.</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>so</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>cd /source/tree/</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>make menuconfig; //save and
-exit</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>make</FONT></FONT><FONT FACE="AlManzomah"><FONT SIZE=3><SPAN LANG="zxx">；</SPAN></FONT></FONT><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>ok</FONT></FONT><FONT FACE="AlManzomah"><FONT SIZE=3><SPAN LANG="zxx">，</SPAN></FONT></FONT><FONT FACE="AlManzomah"><FONT SIZE=3>now
-if you compile example Hello</FONT></FONT><FONT FACE="AlManzomah"><FONT SIZE=3><SPAN LANG="zxx">，</SPAN></FONT></FONT><FONT FACE="AlManzomah"><FONT SIZE=3>hello.ko
-is obtained</FONT></FONT></P>
-<P> <FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P> <FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>if you encounter troule when
-insmoding ko file, update the insmod tool</FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-<P><FONT FACE="AlManzomah"><FONT SIZE=3>itself may help </FONT></FONT></P>
-<P> <FONT FACE="AlManzomah"><FONT SIZE=3></FONT></FONT></P>
-</BODY>
-</HTML>
