@@ -27,4 +27,18 @@ is older then the virtual-box module
 
 so I $sudo apt-get install virtualbox-ose-modules-generic
 then 2.6.24-24-generic kernel and kernel-module are installed at the same time.
+/boot/grub/menu.lst
+is modified and 24 kernel is now the defualt, but 19 kernel is not removed.
+reboot the machine.
+then start virtualbox, now the problem is
+<>
+WARNING: You are not a member of the "vboxusers" group.  Please add yourself
+         to this group before starting VirtualBox.
+	 You will not be able to start VMs until this problem is fixed.
+</>
+which means I have no right to access the kernel module.
+I can use "sudo -i" to fix this problem, but then I need to creat another machine
 
+ sudo usermod -a -G vboxusers peter
+
+logout and login, now it is done, haha
