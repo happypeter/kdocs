@@ -92,4 +92,42 @@ Query OK, 1 row affected (0.01 sec)
 
 also works
 
+===
+
+===
+I failed many times to do the same thing to the offical axtu area
+https://10.1.0.64/auth/asianux2/AXS3-RF/x86_64/UPDATE/
+mysql> GRANT SELECT
+    -> ON asianux_authentication.authentication_info
+    -> TO axtu@localhost
+    -> IDENTIFIED BY 'axtu'
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+
+after the GRANT, I can use 
+/var/axtu/asianux-auth
+the UNcrpted tk
+to open the area
+===
+There are 3 tips might be useful
+1. firefox can rember the id&passwd, even you click no when asked whether you want firefox to remember it or not
+   you still need to resart firefox to make things cleared.
+2. peter 11111
+   bille 22222
+   xxxxx xxxxx
+   every thing can be right at the same time, what I mean is 
+/*
+    AuthMySQLDB auth
+    AuthMySQLUserTable users
+    AuthMySQLNameField user_name
+*/
+
+does not sepicify one line of db filed, anything can be the right thing, which means all the ak&tk in
+asianux_authentication
+can be used as id&passwd, no matter ip and all other fields match or not.
+
+3.
+
+tk is always "ENCRYPT"ed, so you can not read the orignal value with phpMyAdime
+but when you type it into that firefox popup diolog, you just use the orignal value(e.g '111111')
 </pre>
