@@ -24,9 +24,20 @@ To access for updating : AK, HW Hash value are sent.
 </pre>
 Which means AK is read form remote side, form auth server
 Q: Does axtu call auth_client again, even the right ak is still there?
-For now I believe the answer is yes, since axtu itslef only sent AK&&TK to the sever side()
+For now I believe the answer is yes, since axtu itslef only sent AK&&TK to the sever side
+the following code is in the constuctor of " ./gui/axtu/classGui.cpp"
 
->>>when authen program start, first it will make clear it is Register mode or auth mode,
+/*
+        if(m_nMode != ERASE_MODE)
+        {
+                int nResult = m_Network->CheckAuthen();
+
+*/
+"systerm("axtu-auth-client")" is called uncondtionally in 'CheckAuthen()',
+so whenever axtu starts, auth-client is always called.
+
+
+>>>when authen program start, first it will make clear it is Register mode or access mode,
 if(auth)
 {
 read AK from local
