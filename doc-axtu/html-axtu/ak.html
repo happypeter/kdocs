@@ -35,7 +35,7 @@ the following code is in the constuctor of " ./gui/axtu/classGui.cpp"
 */
 "systerm("axtu-auth-client")" is called uncondtionally in 'CheckAuthen()',
 so whenever axtu starts, auth-client is always called.
-
+=== I think the above also means, when axtu use aktk to access repo, it has nothing to do with auth-server. Eagually it means auth-client handles everything, in corperate with auth-server, but when ak and tk are ready axtu will talk to autn_mysql directly, then downing packages, during this process, neither auth_client nor server does anything.
 
 >>>when authen program start, first it will make clear it is Register mode or access mode,
 if(auth)
