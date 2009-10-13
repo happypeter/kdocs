@@ -1,4 +1,10 @@
 VIM command
+==
+:make
+:make install 
+:!autoscan
+:!mkdir peter
+you don't need to quite to run these command
 >>>undo-redo
 u
 Ctrl+R
