@@ -9,6 +9,12 @@ init_hook -------------<slotname>_hook
 [root@dhcp08 yum-plugins]# ls
 hello.py  hello.pyc  installonlyn.py  installonlyn.pyc  installonlyn.pyo
 ===
-vim /etc/yum/pluginconf.d/hello.conf  
+vim /etc/yum/pluginconf.d/hello.conf 
+-
+[main]
+enabled=1
+tokeep=2 
+-
+NOTE: if you have noting in this conf file, your plugin will be ignored
 ===
 now it works, haha

@@ -12,7 +12,7 @@ so I can do data backup finally.
 
 2. rules
 	2.1 things shall be backed as tar.gz file
-	2.2  md5sum check is required everytime they are moved
+	2.2 md5sum check is required everytime they are moved
 
 
 
