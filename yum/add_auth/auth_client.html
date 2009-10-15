@@ -20,4 +20,44 @@ I can call authen-client in yum plugin init_hook()
 so when authen-client obtain or update aktk
 I can add some other code to modify the baseurl that yum use(to add id and passwd into the url)
 then auth is done.haha
+
+===
+
+[root@dhcp17 ~]# /usr/share/axtu-authen-client/bin/axtu-authen-client-cui -i user3 -p abc123 -n 203K4-40Q00-0000N-383LN-MGN2Q
+[Authentication Error] Don't match your Authentication Key.
+[root@dhcp17 ~]#
+
+so I use gui and obtain a right ak, now:
+
+[root@dhcp17 ~]# /usr/share/axtu-authen-client/bin/axtu-authen-client-cui -i user3 -p abc123 -n 203K4-40Q00-0000N-383LN-MGN2Q
+AK is Already existed
+[root@dhcp17 ~]#          
+
+luckily I can
+
+[root@dhcp17 ~]# /usr/share/axtu-authen-client/bin/axtu-authen-client-cui -r
+Your authentication key file is removed
+[root@dhcp17 ~]#    
+
+now it is OK:
+
+[root@dhcp17 ~]# /usr/share/axtu-authen-client/bin/axtu-authen-client-cui -i user3 -p abc123 -n 203T5-44QG2-0000N-383LN-MGN2Q
+Successfully the authentication key is created.
+[root@dhcp17 ~]# axtu
+
+authentification done perfectly, just like gui is in use
+
+one small nice tip here:
+
+[root@dhcp17 ~]# /usr/share/axtu-authen-client/bin/axtu-authen-client-cui -r
+Your authentication key file is removed
+[root@dhcp17 ~]# /usr/share/axtu-authen-client/bin/axtu-authen-client-cui -r
+Your authentication key file is removed
+[root@dhcp17 ~]# /usr/share/axtu-authen-client/bin/axtu-authen-client-cui -r
+Your authentication key file is removed
+
+the above means, I do not write in my plugin if(ak is there) then '-r', I can just run '-r'
+even there is no ak on systerm. and if there is a wrong ak, it is obvious that we should use '-r'
+and the little not-so-nice thing is that what if there is a right ak on system?
+so maybe I shall still detect if ak is there or not then the logic is much clearer.
 </pre>
