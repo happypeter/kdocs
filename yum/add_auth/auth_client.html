@@ -1,0 +1,23 @@
+<pre>
+=== 
+now if I
+/usr/share/axtu-authen-client/bin/axtu-authen-client-cui
+I get this:
+
+ -t, --tk-path=STRING            follow with file path for temporary-key
+  -a, --address-path=STRING       follow with file path for repository
+                                  addresses
+  -i, --id=STRING                 follow with Your member Id
+  -p, --password=STRING           follow with Your password for member ID
+  -n, --product-number=STRING     follow with your product number
+  -s, --system-name=STRING        follow with your system name
+  -d, --disable-collect-info      You may not allow sending the system
+
+so the command line program has no UI, I need to add one for yum auth
+
+===
+I can call authen-client in yum plugin init_hook()
+so when authen-client obtain or update aktk
+I can add some other code to modify the baseurl that yum use(to add id and passwd into the url)
+then auth is done.haha
+</pre>

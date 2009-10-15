@@ -1,0 +1,1 @@
+Web servers often have a cgi-bin directory at the base of the directory tree to hold executable files called with CGI.

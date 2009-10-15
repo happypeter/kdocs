@@ -1,3 +1,15 @@
+http://yum.baseurl.org/wiki/YumPackageUpdates
+above url page dicusses how yum obssoletes work
+<sos.spec>
+Provides: sysreport = 1.3.15-8
+Obsoletes: sysreport
+</>
+http://yum.baseurl.org/wiki/YumCommands
+yum list obsoletes
+This command lists any obsoleting relationships between any available package and any installed package.
+
+
+===
 if You go here
 <>
 [root@dhcp17 rpmUtils]# pwd
