@@ -1,0 +1,16 @@
+1. Now I need to wirte wiki? I want the strucure be clear, I need subdirs anyway
+can wiki handle this?
+A: maybe YES, check sub project here
+http://fedoraproject.org/wiki/Help:Wiki_structure#Page_naming
+
+2. for ubuntu, this page is important
+http://ubuntuforums.org/showthread.php?t=1042931
+
+3. god it is fucking good!
+{{{
+peter@peter-laptop:~/Desktop/moin-1.8.5$ egrep "^User|^Group" /etc/httpd/httpd.conf
+egrep: /etc/httpd/httpd.conf: No such file or directory
+peter@peter-laptop:~/Desktop/moin-1.8.5$  cd $WIKILOCATION/$INSTANCE
+}}}
+
+turn out so beautifully
