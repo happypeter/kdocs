@@ -1,0 +1,31 @@
+Now I am quite satified with the easy writing and beautiful output of each page
+but the problem is how can I orgnize all these pages
+
+in my kdocs:
+/kdocs/             ---------------- book name
+/kdocs/doc-axtu     ---------------- chapter name
+/kdocs/doc-axtu/xx  ---------------- sec name
+
+so it is obvious fit for the docbook structure well
+----
+but here we use MoinMoin, and everything is based on wiki,
+the wiki structure is too different form my kdocs
+e.g
+when I am writing a wiki
+
+IndexPage has a link named ChapeterPage that is in turn has a link SecPage inside
+
+but physically we get this
+{{{
+pet@pet-desktop:~/Desktop/moin-1.8.5/wiki/data/pages$ ls
+ChapeterPage  IndexPage  SecPage
+pet@pet-desktop:~/Desktop/moin-1.8.5/wiki/data/pages$ 
+}}}
+while I currently want
+{{{
+IndexPage/ChapeterPage/SecPage
+}}}
+
+== I am confused ==
+
+but I think when I see how Moin produces a read docbook <book>, then I may understand
