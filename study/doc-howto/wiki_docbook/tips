@@ -14,3 +14,7 @@ peter@peter-laptop:~/Desktop/moin-1.8.5$  cd $WIKILOCATION/$INSTANCE
 }}}
 
 turn out so beautifully
+
+4. http://moinmo.in/MoinMoinFeatures
+
+DocBook (that means you can generate docbook from wiki markup) 

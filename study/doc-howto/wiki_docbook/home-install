@@ -1,0 +1,20 @@
+1. on my ubuntu 8.04, download moni-1.8.5
+http://moinmo.in/MoinMoinDownload
+2.
+{{{ 
+cd moni-1.8.5
+python wikiserver.py
+}}}
+http://moinmo.in/DesktopEdition
+3.
+then I got it here
+http://localhost:8080/
+
+4. but problem with Action->render docbook
+{{{
+
+ File "/home/peter/Desktop/moin-1.8.5/MoinMoin/formatter/text_docbook.py", line 15, in <module>
+    from xml.dom.ext.reader import Sax
+ImportError: No module named ext.reader
+
+}}}
