@@ -1,0 +1,10 @@
+= MoinMoin =
+
+I decide to use monimoni, though it is not easy to convert wiki files to clearly structured html or docbook.
+but what I like most is it is so easy to write single page with so beautiful output.
+
+== Keep kdocs/ structure ==
+I can simply write docs in moinmoin editor, then save what I write to the right locality under ''kdocs/''
+since I use git, so I do not need wiki revision actually
+
+

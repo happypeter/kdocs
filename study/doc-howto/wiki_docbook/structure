@@ -25,7 +25,25 @@ while I currently want
 {{{
 IndexPage/ChapeterPage/SecPage
 }}}
-
+good thing here is if you click Action->Local site map
+{{{
+ IndexPage [view]
+      ChapeterPage [view]
+           SecPage [view]
+}}}
 == I am confused ==
 
 but I think when I see how Moin produces a read docbook <book>, then I may understand
+A: it seems this is still in progress
+http://moinmo.in/FeatureRequests/DocBookProject
+{{{
+You can generate DocBook for any page with the "Render As DocBook" action. See HelpOnActions. 
+}}}
+Solution:
+I do not need docbook right now, and I believe it can be done.
+since I have 
+Action->local site map
+I need to say it is not bad to just usr wiki to view my docs
+so TODO is:
+1. mv my kdocs pages into wiki format
+2. have a dir herachy the same as the local site map
