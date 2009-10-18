@@ -4,7 +4,12 @@ I decide to use monimoni, though it is not easy to convert wiki files to clearly
 but what I like most is it is so easy to write single page with so beautiful output.
 
 == Keep kdocs/ structure ==
-I can simply write docs in moinmoin editor, then save what I write to the right locality under ''kdocs/''
-since I use git, so I do not need wiki revision actually
+ 1. I can simply write docs in moinmoin editor, then save what I write to the right locality under ''kdocs/''
+ 1. since I use git, so I do not need wiki revision actually
 
+== TODO ==
+ 1. mv my kdocs pages into wiki format
+ 1. have a dir herachy the same as the local site map
+ 1. new Moin is able to creat single page docbook xml, so I believe I can get the docbooks I want by creating a index with links to all pages, or whatever way
+ 1. now my issue is to figure out how Moin can read out my kdocs/
 

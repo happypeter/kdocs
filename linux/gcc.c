@@ -1,14 +1,15 @@
-<>
+= PIC =
+{{{
  Re: what is -fPIC gcc compile option
 In much older versions of the compiler gcc there was a flag "-fPIC" which was an abbreviation for Position Independent Code, and this had to be passed to create library code objects, without that flag, code that is specific to the source would be used, and then the library would fail.
 
 Gerald
-</>
+}}}
 
-O2---optimization level 2
-
+= O2---optimization level 2 =
+{{{
 $man gcc
-<>
+...
  -l library
            Search the library named library when linking.  (The second alternative with the library as
            a separate argument is only for POSIX compliance and is not recommended.)
@@ -24,4 +25,4 @@ $man gcc
 
            The directories searched include several standard system directories plus any that you
            specify with -L.
-</>
+}}}
