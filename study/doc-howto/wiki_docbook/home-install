@@ -21,6 +21,7 @@ ImportError: No module named ext.reader
 5. so I installed ubuntu9.04, same error
 but when I resarted the systerm, docbook file was done.
 so maybe in 8,04 I could also did the same, I do not know.
+/!\No, I tested again, 8.04 just would not work
 6. now in 9.04
 {{{
 apt-get install xsltproc docbook-xsl

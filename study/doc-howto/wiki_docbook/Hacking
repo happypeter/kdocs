@@ -24,3 +24,32 @@ is actually saved here
 {{{
 pet@pet-desktop:~/Desktop/moin-1.8.5/wiki/data/pages$ 
 }}}
+
+== I want all pages ==
+when python-xml is not installed, if I click ""Render as docbook""
+
+then I see
+
+{{{
+Traceback (most recent call last):
+  File "/home/peter/moin-1.8.5/MoinMoin/request/__init__.py", line 1311, in run
+    handler(self.page.page_name, self)
+...
+
+  File "/home/peter/moin-1.8.5/MoinMoin/formatter/text_docbook.py", line 15, in <module>
+    from xml.dom.ext.reader import Sax
+ImportError: No module named ext.reader
+}}}
+so I add a debug info:
+
+{{{
+handler(self.page.page_name, self)
+print self.page.page_name
+}}}
+then the output is
+
+{{{
+FrontPage
+}}}
+what I mean here is that can I pass all the filenames, the click Render, and get all the docbook output for all pages
+
