@@ -4,3 +4,8 @@ today I upgraded form 8.04 to 9.04, I chose
 use entire disk
 }}}
 all my data gone, haha
+
+= Simon =
+1. have seperate partitions for /var and /home
+1. use ext4, cause it is really faster
+
