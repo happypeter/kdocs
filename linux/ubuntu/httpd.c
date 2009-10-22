@@ -27,3 +27,26 @@ then I can put s.py into /usr/lib/cgi-bin/, can call it like this
 
 <form method=POST action="cgi-bin/s.py">
 }}}
+
+== s.py ==
+I got lots of errors, which are availbale to check at
+{{{
+/var/log/apache2/error-log
+}}}
+
+but finally this works
+{{{
+#!/usr/bin/python
+import cgi
+form = cgi.FieldStorage()
+
+
+print "Content-type: text/html"
+html ="""
+<hr>
+<p>%s</p>
+<hr>
+"""
+
+print html % ("hello, %s"%form['user'].value)
+}}}
