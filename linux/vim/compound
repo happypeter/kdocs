@@ -1,8 +1,0 @@
-1. how to go to the end of the file and start inserting
-{{{
-vim file
-G
-$
-a
-}}}
-

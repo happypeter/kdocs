@@ -1,9 +1,0 @@
-1. goto the beginning of the file
-{{{
-gg
-}}}
-
-2. to the end of the file
-{{{
-G
-}}}
