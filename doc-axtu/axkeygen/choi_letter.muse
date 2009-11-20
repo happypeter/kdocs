@@ -1,0 +1,16 @@
+
+Hi,
+
+1. axkey generator
+ You can checkout axkeygen source from SVN with following command;
+    svn co svn+ssh://$user@romi.asianux.net/SDSrepo/trunk/axkeygen
+ If you cannot access to it, please talk with Jun.
+
+2. TSN Local source
+ As you know, TSN Local was developed by Xuehong,
+ and I think he has the source code.
+ Anyway, if you really want to get it from ML, I'll send you.
+
+Regards,
+Choi
+
