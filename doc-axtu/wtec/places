@@ -1,9 +1,0 @@
-Places
- AUTHEN_DOWNLOAD_PATH=    "/var/axtu/tmp"
- AUTHEN_FILE_PATH    =    "/var/axtu";
- AUTHEN_FILE_NAME    =    "asianux-auth";
-
-AUTHEN_CLIENT_CONF_PATH = "/var/axtu/axtu-authen-client.conf"; // selected = WT
-
-
-/user/share/axtu-auth-client/.conf/---------------the adresses
