@@ -1,7 +1,0 @@
-welcome->A quick tour->Qt Creator and Version Control Systems
-open a git project by clicking the .pro file, then 
-tools->git->show commit
-requires the hash valule, and i have to use "bash>git log" to get the hash, how rediculous!
-so for me, the better solution is:
-open my git projects in creator, add ui files or whatever
-but do not use the creators ui for git, stick to my command line
